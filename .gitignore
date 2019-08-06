@@ -19,9 +19,24 @@
 
 /node_modules
 /yarn-error.log
+/error.log
+/cron.log
+error.log
+cron.log
 
 /public/assets
 .byebug_history
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+.ruby-gemset
+
+.idea/*
+*.swp
+
+# Ignore database settings
+/config/database.yml
+
+# Ignore secret info
+/config/secrets.yml
+
