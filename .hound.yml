@@ -1,9 +1,11 @@
 fail_on_violations: true
 
 rubocop:
+  version: 0.54.0
   config_file: .rubocop.yml
 
 reek:
+  version: 5.4.0
   enabled: true
 
   config_file: .reek.yml
