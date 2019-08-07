@@ -53,7 +53,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rubocop', '~> 0.54.0', require: false
-  gem 'reek', require: false
+  gem 'reek', '~> 5.0', '>= 5.0.2', require: false
 end
 
 group :test do
