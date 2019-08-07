@@ -5,7 +5,7 @@ rubocop:
   config_file: .rubocop.yml
 
 reek:
-  version: 5.4.0
+  version: 5.0.2
   enabled: true
 
   config_file: .reek.yml
