@@ -1,0 +1,21 @@
+.site-header {
+  display: flex;
+  margin: 2.1875rem 0;
+
+  &__enter {
+    color: $header-blue;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 600;
+    margin-left: 2.6875rem;
+    padding-top: 0.4rem;
+
+    &:hover {
+      color: $header-blue;
+    }
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+}

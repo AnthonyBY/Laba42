@@ -10,17 +10,37 @@
   </head>
 
   <body>
-    <div>
-      <% if user_signed_in? %>
-        <span>Hello, <%= current_user.name %></span>
-        <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= link_to 'Sign up', new_user_registration_path %>
-        or
-        <%= link_to 'sign in', new_user_session_path %>
-        please!
-      <% end %>
+    <div class="container">
+      <header class="site-header">
+        <div class="flex-grow-1"><%= link_to image_tag("laba42.svg", :alt => "logo") %></div>
+        <div><%= link_to image_tag("search.svg", :alt => "search") %></i></div>
+        <div><%= link_to do %>
+               <%= content_tag :span, "Войти", class: "site-header__enter" %>
+             <% end %>
+        </div>
+      </header>
+
+      <%= yield %>
+
+      <footer class="site-footer d-flex justify-content-between">
+        <div>
+          <%= link_to do %>
+            <%= content_tag :span, "About"%>
+          <% end %>
+          <%= link_to do %>
+            <%= content_tag :span, "Support", class: "site-footer--ml-40" %>
+          <% end %>
+        </div>
+        <div><span>&#169;2019 Laba42, Inc.</span></div>
+        <div>
+          <%= link_to do %>
+            <%= content_tag :span, "Telegram Chat"%>
+          <% end %>
+          <%= link_to do %>
+            <%= content_tag :span, "Facebook", class: "site-footer--ml-40" %>
+          <% end %>
+        </div>
+      </footer>
     </div>
-    <%= yield %>
   </body>
 </html>
