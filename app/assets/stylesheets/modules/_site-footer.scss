@@ -1,0 +1,18 @@
+.site-footer {
+  color: $footer-blue;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 600;
+
+  a {
+    color: $footer-blue;
+
+    &:hover {
+      color: $footer-blue;
+    }
+  }
+
+  &--ml-40 {
+    margin-left: 2.5rem;
+  }
+}
