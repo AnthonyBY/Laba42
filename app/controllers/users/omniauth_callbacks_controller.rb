@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# This module smells of :reek:UncommunicativeMethodName
 module Users
   class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     def google_oauth2

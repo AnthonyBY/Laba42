@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Users
-  class OmniauthCallbacksHelper
-  end
+# rubocop:disable Style/ClassAndModuleChildren
+module Users::OmniauthCallbacksHelper
 end
+# rubocop:enable Style/ClassAndModuleChildren
