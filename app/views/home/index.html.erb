@@ -1,0 +1,22 @@
+<div class="start-large">
+  <%= image_tag("picture.svg", alt: "picture") %>
+  <div class="start-large__text-context">
+    <h1 class="start-large__title">Поможем найти первую работу или перспективного коллегу!</h1>
+    <h2 class="start-large__subtitle">Есть что предложить ребятам, стартующим в айти?</h2>
+    <div><%= link_to do %>
+           <%= content_tag :span, "Разместить проект", class: "button button--large" %>
+         <% end %>
+    </div>
+  </div>
+  <div class="start-secondary">
+    <h3 class="start-secondary__title">Ого-го, сколько всего интересного!</h3>
+    <div class="start-secondary__wrapper d-flex flex-wrap justify-content-between">
+      <% 9.times do %>
+        <div class="start-secondary__item">
+          <%= image_tag("project-image.jpg", alt: "project-image") %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,27 @@
+.start-large {
+  position: relative;
+
+  &__text-context {
+    color: $white-color;
+    left: 6.125rem;
+    position: absolute;
+    top: 3.5rem;
+  }
+
+  &__title {
+    font-size: 2.5em;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 150%;
+    max-width: 42.625rem;
+  }
+
+  &__subtitle {
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+    margin: 14.25rem 0 1.2rem;
+    max-width: 23.5rem;
+  }
+}
