@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  username: root
+  password:
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: laba42_development
+
+test:
+  <<: *default
+  database: laba42_test
+
+production:
+  <<: *default
+  database: laba42_production
+  username: laba42
+  password: <%= ENV['LABA42_DATABASE_PASSWORD'] %>
