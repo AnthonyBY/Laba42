@@ -3,9 +3,16 @@
     <div class="start-large__text-context">
       <h1 class="start-large__title"><%= t(:start_page_title) %></h1>
       <h2 class="start-large__subtitle"><%= t(:start_page_subtitle) %></h2>
-      <div><%= link_to do %>
-             <%= content_tag :span, t(:start_page_button), class: "button button--large" %>
-           <% end %>
+      <div>
+        <% if user_signed_in? %>
+          <%= link_to new_project_path do %>
+            <%= content_tag :span, t(:start_page_button), class: "button button--large" %>
+          <% end %>
+        <% else %>
+          <%= link_to new_user_session_path do %>
+            <%= content_tag :span, t(:start_page_button), class: "button button--large" %>
+          <% end %>
+        <% end %>
       </div>
     </div>
     <div class="start-large__image"><%= image_tag("picture.svg", alt: "picture") %></div>
