@@ -30,4 +30,13 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  sign_up: "Sign up"
+  sign_in_with: "Sign in with"
+  log_in: "Log in"
+  about: "About"
+  support: "Support"
+  telegram: "Telegram Chat"
+  facebook: "Facebook"
+  forgot_pass: "Forgot your password?"
+  alias1: "Didn't receive confirmation instructions?"
+  alias2: "Didn't receive unlock instructions?"

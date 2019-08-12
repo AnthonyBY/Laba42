@@ -1,0 +1,12 @@
+
+ru:
+  sign_up: "Регистрация"
+  sign_in_with: "Войти через"
+  log_in: "Войти"
+  about: "О нас"
+  support: "Поддержка"
+  telegram: "Мы в Telegram"
+  facebook: "Мы в Facebook"
+  forgot_pass: "Напомнить пороль?"
+  alias1: "Didn't receive confirmation instructions?"
+  alias2: "Didn't receive unlock instructions?"
