@@ -13,6 +13,17 @@
         <% end %>
       <% end %>
     </div>
+    <div class="start-large__image"><%= image_tag("picture.svg", alt: "picture") %></div>
+  </div>
+  <div class="start-secondary">
+    <h3 class="start-secondary__title"><%= t(:show_wow) %></h3>
+    <div class="start-secondary__wrapper d-flex flex-wrap justify-content-between">
+      <% 9.times do %>
+        <div class="start-secondary__item">
+          <%= image_tag("project-image.jpg", alt: "project-image") %>
+        </div>
+      <% end %>
+    </div>
   </div>
   <div class="start-large__image"><%= image_tag("picture.svg", alt: "picture") %></div>
 </section>
