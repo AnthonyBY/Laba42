@@ -30,13 +30,20 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  sign_up: "Sign up"
-  sign_in_with: "Sign in with"
-  log_in: "Log in"
   about: "About"
-  support: "Support"
-  telegram: "Telegram Chat"
-  facebook: "Facebook"
-  forgot_pass: "Forgot your password?"
   alias1: "Didn't receive confirmation instructions?"
   alias2: "Didn't receive unlock instructions?"
+  facebook: "Facebook"
+  forgot_pass: "Forgot your password?"
+  log_in: "Log in"
+  show_more: "Show more"
+  show_wow: "Wow, how many interesting things!"
+  sign_up: "Sign up"
+  sign_in_with: "Sign in with"
+  start_page_button: "Post project"
+  start_page_subtitle: "Is there anything to offer the guys starting in IT?"
+  start_page_title: "We gonna help you to find your first job or a promising colleague!"
+  support: "Support"
+  telegram: "Telegram Chat"
+
+
