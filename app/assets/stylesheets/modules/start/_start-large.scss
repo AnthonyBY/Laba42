@@ -1,0 +1,31 @@
+.start-large {
+  position: relative;
+
+  &__image {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__text-context {
+    color: $black-color;
+    position: absolute;
+    z-index: 1;
+  }
+
+  &__title {
+    font-size: 3.0625rem;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 120%;
+    max-width: 45.625rem;
+  }
+
+  &__subtitle {
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+    margin: 1.75rem 0;
+    max-width: 23.5rem;
+  }
+}

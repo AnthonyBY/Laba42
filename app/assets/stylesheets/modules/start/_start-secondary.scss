@@ -1,0 +1,20 @@
+.start-secondary {
+
+  &__title {
+    font-size: 1.625rem;
+    font-weight: 600;
+    line-height: 3.125rem;
+    margin: 3.125rem 0 1.25rem;
+    text-align: center;
+  }
+
+  &__wrapper {
+    margin: 0 -0.88rem;
+  }
+
+  &__item {
+    margin: 0 auto;
+    max-width: 23.7rem;
+    padding: 1.25rem 0.87rem;
+  }
+}

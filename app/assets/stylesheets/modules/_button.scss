@@ -1,0 +1,33 @@
+.button {
+  background-color: $main-blue;
+  border-radius: 0.125rem;
+  color: $white-color;
+  display: inline-block;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+
+  &--large {
+    padding: 0.75rem 1.2rem;
+  }
+
+  &--white {
+    background-color: $white-color;
+    color: $main-blue;
+
+    &:hover {
+      color: $white-color;
+    }
+  }
+
+  &:hover {
+    background-color: $button-hover;
+  }
+
+  &:active {
+    background-color: $button-press;
+  }
+}
+
+
+

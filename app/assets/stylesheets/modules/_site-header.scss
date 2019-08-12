@@ -3,15 +3,15 @@
   margin: 2.1875rem 0;
 
   &__enter {
-    color: $header-blue;
+    color: $main-blue;
     font-size: 1.125rem;
     font-style: normal;
     font-weight: 600;
     margin-left: 2.6875rem;
-    padding-top: 0.4rem;
+    vertical-align: middle;
 
     &:hover {
-      color: $header-blue;
+      color: $main-blue;
     }
   }
 
