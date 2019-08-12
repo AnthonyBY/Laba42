@@ -11,6 +11,15 @@
     padding: 0.75rem 1.2rem;
   }
 
+  &--white {
+    background-color: $white-color;
+    color: $main-blue;
+
+    &:hover {
+      color: $white-color;
+    }
+  }
+
   &:hover {
     background-color: $button-hover;
   }

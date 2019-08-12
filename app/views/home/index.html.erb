@@ -1,12 +1,14 @@
-<div class="start-large">
-  <%= image_tag("picture.svg", alt: "picture") %>
-  <div class="start-large__text-context">
-    <h1 class="start-large__title">Поможем найти первую работу или перспективного коллегу!</h1>
-    <h2 class="start-large__subtitle">Есть что предложить ребятам, стартующим в айти?</h2>
-    <div><%= link_to do %>
-           <%= content_tag :span, "Разместить проект", class: "button button--large" %>
-         <% end %>
+<div>
+  <div class="start-large">
+    <div class="start-large__text-context">
+      <h1 class="start-large__title">Поможем найти первую работу или перспективного коллегу!</h1>
+      <h2 class="start-large__subtitle">Есть что предложить ребятам, стартующим в айти?</h2>
+      <div><%= link_to do %>
+             <%= content_tag :span, "Разместить проект", class: "button button--large" %>
+           <% end %>
+      </div>
     </div>
+    <div class="start-large__image"><%= image_tag("picture.svg", alt: "picture") %></div>
   </div>
   <div class="start-secondary">
     <h3 class="start-secondary__title">Ого-го, сколько всего интересного!</h3>
@@ -18,5 +20,8 @@
       <% end %>
     </div>
   </div>
-
+  <div class="start-third"><%= link_to do %>
+         <%= content_tag :span, "Показать ещё", class: "button button--large button--white" %>
+       <% end %>
+  </div>
 </div>

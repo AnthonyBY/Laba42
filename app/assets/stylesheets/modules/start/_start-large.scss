@@ -1,19 +1,24 @@
 .start-large {
   position: relative;
 
+  &__image {
+    display: flex;
+    display: -webkit-flex;
+    justify-content: flex-end;
+  }
+
   &__text-context {
-    color: $white-color;
-    left: 6.125rem;
+    color: $black-color;
     position: absolute;
-    top: 3.5rem;
+    z-index: 1;
   }
 
   &__title {
-    font-size: 2.5em;
+    font-size: 3.0625rem;
     font-style: normal;
     font-weight: bold;
-    line-height: 150%;
-    max-width: 42.625rem;
+    line-height: 120%;
+    max-width: 45.625rem;
   }
 
   &__subtitle {
@@ -21,7 +26,7 @@
     font-style: normal;
     font-weight: 600;
     line-height: 150%;
-    margin: 14.25rem 0 1.2rem;
+    margin: 1.75rem 0;
     max-width: 23.5rem;
   }
 }
