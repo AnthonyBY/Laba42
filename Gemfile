@@ -71,4 +71,3 @@ end
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'omniauth-google-oauth2', '~> 0.2.2'
 gem 'omniauth-facebook'
-gem 'figaro'

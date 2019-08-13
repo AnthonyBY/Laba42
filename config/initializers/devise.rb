@@ -6,7 +6,7 @@ Devise.setup do |config|
   client_id = Rails.application.credentials[:google_client_id]
   client_secret = Rails.application.credentials[:google_secret]
   config.omniauth :google_oauth2, client_id, client_secret, scope: 'userinfo.email'
-  config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET'], scope: 'email'
+  config.omniauth :facebook, facebook_app_id, facebook_app_secret, scope: 'email'
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.

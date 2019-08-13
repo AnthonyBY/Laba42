@@ -38,8 +38,4 @@ cron.log
 /config/database.yml
 
 # Ignore secret info
-/config/secrets.yml
-
-
-# Ignore application configuration
-/config/application.yml
+/config/credentials.yml.enc

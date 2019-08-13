@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
   devise  :database_authenticatable, :registerable,
           :recoverable, :rememberable, :validatable,
-          :omniauthable, omniauth_providers: [:google_oauth2, :facebook]
+          :omniauthable, omniauth_providers: %i[google_oauth2 facebook]
 
   validates :name, presence: true
 
@@ -22,16 +22,5 @@ class User < ApplicationRecord
       user.expires_at = auth.credentials.expires_at
       user.refresh_token = auth.credentials.refresh_token
     end
-  end
-
-  def apply_omniauth(auth)
-    update_attributes(
-      provider: auth.provider,
-      uid: auth.uid
-    )
-  end
-
-  def has_facebook_linked?
-    self.provider.present? && self.uid.present?
   end
 end
