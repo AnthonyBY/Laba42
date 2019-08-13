@@ -6,8 +6,8 @@ class User < ApplicationRecord
   has_many :projects, through: :foreign_key
 
   devise  :database_authenticatable, :registerable,
-          :recoverable, :rememberable, :validatable,
-          :omniauthable, omniauth_providers: [:google_oauth2]
+          :recoverable, :rememberable, :trackable, :validatable,
+          :omniauthable, omniauth_providers: [:google_oauth2, :facebook]
 
   validates :name, presence: true
 
@@ -20,6 +20,19 @@ class User < ApplicationRecord
       user.expires = auth.credentials.expires
       user.expires_at = auth.credentials.expires_at
       user.refresh_token = auth.credentials.refresh_token
+      user.provider = auth.info.email
+      user.uid = auth.uid
     end
+  end
+
+  def apply_omniauth(auth)
+    update_attributes(
+      provider: auth.provider,
+      uid: auth.uid
+    )
+  end
+
+  def has_facebook_linked?
+    self.provider.present? && self.uid.present?
   end
 end

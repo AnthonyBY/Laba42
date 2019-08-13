@@ -41,3 +41,10 @@
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
+
+<h3>Facebook Settings</h3>
+<% if resource.has_facebook_linked? %>
+  <%= link_to "Unlink Facebook", authentication_path(resource), method: :delete %>
+<% else %>
+  <%= link_to "Link Facebook", omniauth_authorize_path(:user, :facebook) %>
+<% end %><h3>Account Settings</h3>
