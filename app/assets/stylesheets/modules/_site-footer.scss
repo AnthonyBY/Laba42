@@ -1,8 +1,20 @@
 .site-footer {
   color: $footer-blue;
+  display: flex;
+  flex-wrap: wrap;
   font-size: 0.75rem;
   font-style: normal;
   font-weight: 600;
+  justify-content: space-between;
+  margin: 1.5rem 0;
+  position: relative;
+
+  &__center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 
   a {
     color: $footer-blue;

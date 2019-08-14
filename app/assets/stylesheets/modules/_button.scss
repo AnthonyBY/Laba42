@@ -1,5 +1,6 @@
 .button {
   background-color: $main-blue;
+  border: none;
   border-radius: 0.125rem;
   color: $white-color;
   display: inline-block;
@@ -7,16 +8,36 @@
   text-align: center;
   text-decoration: none;
 
+  &__image {
+    margin-right: 1.0625rem;
+  }
+
   &--large {
     padding: 0.75rem 1.2rem;
   }
 
+  &--login {
+    margin-top: 2.0625rem;
+    padding: 0.75rem 3.8rem;
+  }
+
+  &--social {
+    border: 0.0625rem solid $social-btn-border;
+    color: $social-btn-color !important;
+    font-size: 0.875rem;
+    padding: 0.75rem 2.4rem;
+
+    &:hover {
+      box-shadow: 0 0 0.275rem rgba($black-color, 0.5);
+    }
+  }
+
   &--white {
-    background-color: $white-color;
+    background-color: $white-color !important;
     color: $main-blue;
 
     &:hover {
-      color: $white-color;
+      background-color: $white-color !important;
     }
   }
 

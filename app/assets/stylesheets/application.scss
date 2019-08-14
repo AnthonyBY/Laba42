@@ -10,6 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require normalize-rails
  */
 
 @import "bootstrap";
@@ -21,4 +22,9 @@
 @import "modules/start/start-secondary";
 @import "modules/start/start-third";
 @import "modules/button";
+@import "modules/login/login";
+@import "modules/login/login-first";
+@import "modules/login/login-second";
 @import "modules/site-footer";
+@import "modules/form-field";
+

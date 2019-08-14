@@ -1,0 +1,45 @@
+.form-field {
+
+  &__image {
+    position: absolute;
+    right: 1.31rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &__relative {
+    position: relative;
+  }
+
+  input {
+    background-color: $white-color;
+    border: 1px solid $social-btn-border;
+    border-radius: 0.125rem 0.125rem 0px 0px;
+    padding: 1.5rem 1.25rem;
+    transition: color 9999s ease-out, background-color 9999s ease-out;
+    width: 100%;
+
+    &:focus {
+      background-color: $white-color;
+      border-left: 0.1875rem solid $main-blue;
+    }
+
+    &::placeholder {
+      opacity: 0.5;
+    }
+  }
+
+  a {
+    color: $black-color;
+    margin-left: 3.125rem;
+    text-decoration: underline;
+
+    &:hover {
+      color: $button-hover;
+    }
+
+    &:active {
+      color: $button-press;
+    }
+  }
+}

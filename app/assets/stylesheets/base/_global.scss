@@ -1,7 +1,5 @@
 body {
   font-family: 'Open Sans', sans-serif;
-  margin: 0;
-  padding: 0;
 }
 
 img {
@@ -9,7 +7,7 @@ img {
   max-width: 100%;
 }
 
-* {
-  box-sizing: border-box;
+.wrapper {
+  max-width: 71.25rem;
+  margin: 0 auto;
 }
-
