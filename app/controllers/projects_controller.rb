@@ -30,7 +30,7 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    @project = Project.find(params[:id])
+    @project = current_user.projects.find(params[:id])
 
     if @project.update(project_params)
       redirect_to @project
@@ -40,7 +40,7 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    @project = Project.find(params[:id])
+    @project = current_user.projects.find(params[:id])
     @project.destroy
 
     redirect_to projects_path
