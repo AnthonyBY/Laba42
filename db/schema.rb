@@ -40,9 +40,8 @@ ActiveRecord::Schema.define(version: 2019_08_08_144944) do
     t.integer "expires_at"
     t.boolean "expires"
     t.string "refresh_token"
-    t.jsonb "skills"
+    t.jsonb "skills", default: [], null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
-
 end
