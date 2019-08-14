@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     post 'update_role'
     get 'edit_role'
     get 'customer_setup_info'
+    get 'developer_setup_info'
   end
 end
 # rubocop:enable Layout/SpaceInsideHashLiteralBraces

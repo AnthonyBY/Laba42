@@ -1,3 +1,15 @@
-<% # DRAFT  TEMPLATE  %>
-EDIT FORM
-<%= link_to 'next', { controller:'home', action: 'index'}, { method: :get } %>
+<div class="user-form">
+  <h1 class="user-form__title"><%= t(:customer_registration_head_text) %></h1>
+  <h2 class="user-form__subtitle"><%= t(:customer_registration_head_text_muted) %></h2>
+  <%= form_with url: profile_path, method: :patch do %>
+    <div class="form-field">
+      <%= text_field_tag :company_name, '', class: "form-field", placeholder: t(:input_company_name) %>
+    </div>
+    <div class="form-field">
+      <%= text_field_tag :phone_number, '', placeholder:  t(:input_phone) %>
+    </div>
+    <div class="user-form__center">
+      <%= submit_tag t(:next_button), class: "button button--blue button--large user-form__button"%>
+    </div>
+  <% end %>
+</div>
