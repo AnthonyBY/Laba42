@@ -4,7 +4,7 @@ class CreateProjects < ActiveRecord::Migration[5.2]
       t.string :name
       t.integer :user_id
       t.text :info
-      t.jsonb :skills
+      t.jsonb :skills, null: false, default: []
 
       t.timestamps
     end
