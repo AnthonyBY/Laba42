@@ -8,6 +8,7 @@ class User < ApplicationRecord
           :recoverable, :rememberable, :validatable,
           :omniauthable, omniauth_providers: %i[google_oauth2 facebook]
 
+  has_many :projects, dependent: :destroy
   validates :name, presence: true
 
   def self.from_omniauth(auth)

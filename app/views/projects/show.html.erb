@@ -1,0 +1,19 @@
+<p>
+  <strong>Title:</strong>
+  <%= @project.title %>
+</p>
+
+<p>
+  <strong>Info:</strong>
+  <%= @project.info %>
+</p>
+
+<% if user_signed_in? %>
+  <% if @project.user_id == current_user.id %>
+    <%= link_to 'редактировать', edit_project_path(@project) %>
+    <%= link_to 'Удалить', project_path(@project),
+                              method: :delete,
+                              data: { confirm: 'Are you sure?' } %>
+  <% end %>
+<% end %>
+<%= link_to 'вернуться к списку проектов', projects_path %>

@@ -1,0 +1,23 @@
+<% if user_signed_in? %>
+
+  <h1>Projects#index</h1>
+  <p>Find me in app/views/projects/index.html.erb</p>
+
+  <%= link_to 'Разместить проект', new_project_path %>
+
+  <% end %>
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Info</th>
+      <th></th>
+    </tr>
+
+    <% @projects.each do |project| %>
+      <tr>
+        <td><%= project.title %></td>
+        <td><%= project.info %></td>
+        <td><%= link_to 'Show', project_path(project) %></td>
+      </tr>
+    <% end %>
+  </table>
