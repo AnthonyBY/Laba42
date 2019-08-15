@@ -19,7 +19,7 @@
         <span class="form-field__image"><%= image_tag("eye.svg", alt: "eye") %></span>
         <%= f.password_field :password, autocomplete: "current-password", placeholder: t(:password) %>
       </div>
-      <%= f.submit t(:log_in), class: "button button--login" %>
+      <%= f.submit t(:log_in), class: "button button--blue button--login" %>
       <span class="form-field">
         <%= render "devise/shared/link_to_fogot_pass" %>
       </span>

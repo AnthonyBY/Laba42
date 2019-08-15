@@ -5,11 +5,11 @@
     <div>
       <% if user_signed_in? %>
         <%= link_to new_project_path do %>
-          <%= content_tag :span, t(:start_page_button), class: "button button--large" %>
+          <%= content_tag :span, t(:start_page_button), class: "button button--blue button--large" %>
         <% end %>
       <% else %>
         <%= link_to new_user_session_path do %>
-          <%= content_tag :span, t(:start_page_button), class: "button button--large" %>
+          <%= content_tag :span, t(:start_page_button), class: "button button--blue button--large" %>
         <% end %>
       <% end %>
     </div>
