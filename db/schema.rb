@@ -17,9 +17,9 @@ ActiveRecord::Schema.define(version: 2019_08_13_082513) do
 
   create_table "projects", force: :cascade do |t|
     t.string "title"
-    t.bigint "user_id"
+    t.bigint "user_id", null: false
     t.text "info"
-    t.jsonb "skills"
+    t.jsonb "skills", default: [], null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_projects_on_user_id"

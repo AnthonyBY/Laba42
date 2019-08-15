@@ -17,8 +17,8 @@ class ApplicationController < ActionController::Base
     set_role if request.post?
   end
 
-  def edit
-    edit_info if request.post?
+  def edit_user_info
+    edit_post if request.post?
   end
 
   protected
@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
     redirect_to '/edit'
   end
 
-  def edit_info
+  def edit_post
     # methods from post params been later, after add form page
     # create check for right fields and back to form, when wrong data
     redirect_to '/'
