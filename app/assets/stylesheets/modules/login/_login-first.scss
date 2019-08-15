@@ -1,0 +1,50 @@
+.login-first {
+
+  &__buttons {
+    margin-bottom: 2.0625rem;
+  }
+
+  &__bottom {
+    display: flex;
+    margin: 3.5rem 0;
+
+    a {
+      color: $main-blue;
+      text-decoration: underline;
+
+      &:hover {
+        color: $button-hover;
+      }
+
+      &:active {
+        color: $button-press;
+      }
+    }
+  }
+
+  &__remark {
+    margin-left: 0.625rem;
+    opacity: 0.5;
+  }
+
+  &__image {
+    margin: 3.44rem 0 0.8rem;
+  }
+
+  &__title {
+    font-size: 2.25rem;
+  }
+
+  &__subtitle {
+    margin: 1.5rem 0 2rem;
+    opacity: 0.5;
+  }
+
+  &--mr-30 {
+    margin-right: 1.65rem;
+  }
+
+  @media screen and (max-width: 75rem) {
+    margin: 0 auto;
+  }
+}

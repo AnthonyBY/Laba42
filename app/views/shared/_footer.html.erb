@@ -1,4 +1,4 @@
-<footer class="site-footer d-flex justify-content-between">
+<footer class="site-footer">
   <div>
     <%= link_to do %>
       <%= content_tag :span, t(:about)%>
@@ -7,7 +7,7 @@
       <%= content_tag :span, t(:support), class: "site-footer--ml-40" %>
     <% end %>
   </div>
-  <div><span>&#169;2019 Laba42, Inc.</span></div>
+  <div class="site-footer__center"><span>&#169;2019 Laba42, Inc.</span></div>
   <div>
     <%= link_to do %>
       <%= content_tag :span, t(:telegram)%>

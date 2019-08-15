@@ -1,14 +1,46 @@
 .button {
-  background-color: $main-blue;
+  border: 0;
   border-radius: 0.125rem;
-  color: $white-color;
   display: inline-block;
   font-weight: 600;
   text-align: center;
   text-decoration: none;
 
+  &--blue {
+    background-color: $main-blue;
+    color: $white-color;
+
+    &:hover {
+      background-color: $button-hover;
+    }
+
+    &:active {
+      background-color: $button-press;
+    }
+  }
+
+  &__image {
+    margin-right: 1.0625rem;
+  }
+
   &--large {
     padding: 0.75rem 1.2rem;
+  }
+
+  &--login {
+    margin-top: 2.0625rem;
+    padding: 0.75rem 3.8rem;
+  }
+
+  &--social {
+    border: 0.0625rem solid $social-btn-border;
+    color: $social-btn-color;
+    font-size: 0.875rem;
+    padding: 0.75rem 2.4rem;
+
+    &:hover {
+      box-shadow: 0 0 0.275rem rgba($black-color, 0.5);
+    }
   }
 
   &--white {
@@ -16,16 +48,8 @@
     color: $main-blue;
 
     &:hover {
-      color: $white-color;
+      background-color: $white-color;
     }
-  }
-
-  &:hover {
-    background-color: $button-hover;
-  }
-
-  &:active {
-    background-color: $button-press;
   }
 }
 
