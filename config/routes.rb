@@ -7,6 +7,6 @@ Rails.application.routes.draw do
 
   resources :projects
   match '/select_role', to: 'application#select_role', via: :all
-  match '/edit', to: 'application#edit', via: :all
+  match '/edit_user_info', to: 'application#edit_user_info', via: :all
 end
 # rubocop:enable Layout/SpaceInsideHashLiteralBraces
