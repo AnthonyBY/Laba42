@@ -1,0 +1,44 @@
+.signup {
+  margin: 0 auto;
+  max-width: 34.5625rem;
+
+  &__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 1.25rem;
+  }
+
+  &__title {
+    font-size: 2.25rem;
+    margin: 4.75rem 0 2.5rem;
+    text-align: center;
+  }
+
+  &__social {
+    font-size: 1.125rem;
+    margin-top: 3.5rem;
+  }
+
+  &__bottom {
+    margin: 3.5rem 0 5.0625rem;
+
+    a {
+      color: $main-blue;
+      text-decoration: underline;
+
+      &:hover {
+        color: $button-hover;
+      }
+
+      &:active {
+        color: $button-press;
+      }
+    }
+  }
+
+  &__remark {
+    margin: 0.625rem;
+    opacity: 0.5;
+  }
+}

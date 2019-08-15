@@ -1,34 +1,51 @@
-<h2><%= t(:sign_up) %></h2>
+<section class="signup">
+  <h2 class="signup__title"><%= t(:sign_up_greeting) %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+    <div class="form-field">
+      <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: t(:name) %>
+    </div>
+
+    <div class="form-field">
+      <%= f.email_field :email, autocomplete: "email", placeholder: t(:email) %>
+    </div>
+
+    <div class="form-field form-field__relative">
+      <% if @minimum_password_length %>
+      <% end %>
+      <span class="form-field__image"><%= image_tag("eye.svg", alt: "eye") %></span>
+      <%= f.password_field :password, autocomplete: "new-password", placeholder: t(:password) %>
+    </div>
+
+    <div class="form-field form-field__relative">
+      <span class="form-field__image"><%= image_tag("eye.svg", alt: "eye") %></span>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: t(:password_confirm) %>
+    </div>
+
+    <%= f.submit t(:sign_up), class: "button button--blue button--login button--stretch"  %>
+  <% end %>
+  <p class="signup__social"><%= t(:sign_up_social) %></p>
+  <div class="signup__buttons">
+    <%- if devise_mapping.omniauthable? %>
+      <%= link_to omniauth_authorize_path(resource_name, :google_oauth2) do %>
+        <%= content_tag :span, image_tag("google.svg", alt: "google", class: "button__image") + t(:google_btn), class: "button button--large button--white button--social" %>
+      <% end %>
+      <%= link_to omniauth_authorize_path(resource_name, :facebook) do %>
+        <%= content_tag :span, image_tag("facebook.svg", alt: "facebook", class: "button__image") + t(:facebook_btn), class: "button button--large button--white button--social" %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="signup__bottom">
+    <span class="signup__remark"><%= t(:remark_to_login) %></span>
+    <%= render "devise/shared/link_to_log_in" %>
+
   </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autocomplete: "email" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+</section>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+

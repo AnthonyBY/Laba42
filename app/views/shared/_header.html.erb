@@ -1,7 +1,8 @@
 <header class="site-header">
   <div class="flex-grow-1"><%= link_to image_tag("laba42.svg", alt: "logo"), root_path %></div>
-  <div><%= link_to image_tag("search.svg", alt: "search") %></i></div>
-  <div>
+
+  <%- if controller_name != 'registrations' && controller_name != 'sessions' %>
+    <div><%= link_to image_tag("search.svg", alt: "search") %></i></div>
     <% if user_signed_in? %>
       <%= link_to destroy_user_session_path, method: :delete do %>
         <%= content_tag :span, t(:log_out), class: "site-header__enter" %>
@@ -11,5 +12,6 @@
         <%= content_tag :span, t(:log_in), class: "site-header__enter" %>
       <% end %>
     <% end %>
-  </div>
+  <% end %>
+
 </header>
