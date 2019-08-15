@@ -3,7 +3,7 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
-  before_action :authenticate_user!, only: [:select_role, :edit]
+  before_action :authenticate_user!, only: %i[select_role edit]
 
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
@@ -28,6 +28,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_role
+    # use strong assignment, for wrong params
     current_user.role = 0 if params[:role] == 0.to_s
     current_user.role = 1 if params[:role] == 1.to_s
     current_user.save!
@@ -35,7 +36,8 @@ class ApplicationController < ActionController::Base
   end
 
   def edit_info
-    # methods from post params been later
+    # methods from post params been later, after add form page
+    # create check for right fields and back to form, when wrong data
     redirect_to '/'
   end
 end

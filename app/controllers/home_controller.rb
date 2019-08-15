@@ -5,12 +5,13 @@ class HomeController < ApplicationController
 
   def index; end
 
+  def unfilled_rol
+    redirect_to_select if current_user
+  end
+
   private
 
-  def unfilled_rol
-    if current_user.nil?
-    elsif current_user.role.nil?
-      redirect_to '/select_role'
-    end
+  def redirect_to_select
+    redirect_to '/select_role' unless current_user.role
   end
 end
