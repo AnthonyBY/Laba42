@@ -6,7 +6,10 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   resources :projects
-  match '/select_role', to: 'application#select_role', via: :all
-  match '/edit_user_info', to: 'application#edit_user_info', via: :all
+  resource :profile, controller: 'profile', only: %i[edit update] do
+    post 'update_role'
+    get 'edit_role'
+    get 'customer_setup_info'
+  end
 end
 # rubocop:enable Layout/SpaceInsideHashLiteralBraces
