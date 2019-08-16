@@ -29,8 +29,9 @@ class ApplicationController < ActionController::Base
 
   def set_role
     # use strong assignment, for wrong params
-    current_user.role = 0 if params[:role] == 0.to_s
-    current_user.role = 1 if params[:role] == 1.to_s
+    binding.pry
+    current_user.role = :customer if params[:role] == :customer
+    current_user.role = :developer if params[:role] == :developer
     current_user.save!
     redirect_to '/edit_user_info'
   end
