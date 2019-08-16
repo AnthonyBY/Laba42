@@ -13,8 +13,6 @@
     </div>
 
     <div class="form-field form-field__relative">
-      <% if @minimum_password_length %>
-      <% end %>
       <span class="form-field__image"><%= image_tag("eye.svg", alt: "eye") %></span>
       <%= f.password_field :password, autocomplete: "new-password", placeholder: t(:password) %>
     </div>
@@ -28,18 +26,16 @@
   <% end %>
   <p class="signup__social"><%= t(:sign_up_social) %></p>
   <div class="signup__buttons">
-    <%- if devise_mapping.omniauthable? %>
-      <%= link_to omniauth_authorize_path(resource_name, :google_oauth2) do %>
-        <%= content_tag :span, image_tag("google.svg", alt: "google", class: "button__image") + t(:google_btn), class: "button button--large button--white button--social" %>
-      <% end %>
-      <%= link_to omniauth_authorize_path(resource_name, :facebook) do %>
-        <%= content_tag :span, image_tag("facebook.svg", alt: "facebook", class: "button__image") + t(:facebook_btn), class: "button button--large button--white button--social" %>
-      <% end %>
+    <%= link_to omniauth_authorize_path(resource_name, :google_oauth2) do %>
+      <%= content_tag :span, image_tag("google.svg", alt: "google", class: "button__image") + t(:google_btn), class: "button button--large button--white button--social" %>
+    <% end %>
+    <%= link_to omniauth_authorize_path(resource_name, :facebook) do %>
+      <%= content_tag :span, image_tag("facebook.svg", alt: "facebook", class: "button__image") + t(:facebook_btn), class: "button button--large button--white button--social" %>
     <% end %>
   </div>
   <div class="signup__bottom">
     <span class="signup__remark"><%= t(:remark_to_login) %></span>
-    <%= render "devise/shared/link_to_log_in" %>
+    <%= link_to t(:log_in), new_session_path(resource_name) %>
 
   </div>
 

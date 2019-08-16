@@ -16,7 +16,4 @@
 @import "bootstrap";
 @import "base/*";
 @import "fonts/*";
-@import "modules/*";
-@import "modules/start/*";
-@import "modules/login/*";
-@import "modules/signup/*";
+@import "modules/**/*";
