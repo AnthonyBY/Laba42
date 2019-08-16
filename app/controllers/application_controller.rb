@@ -29,7 +29,6 @@ class ApplicationController < ActionController::Base
 
   def set_role
     # use strong assignment, for wrong params
-    binding.pry
     current_user.role = :customer if params[:role] == :customer
     current_user.role = :developer if params[:role] == :developer
     current_user.save!
