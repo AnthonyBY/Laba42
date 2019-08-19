@@ -8,9 +8,8 @@ class ProfileController < ApplicationController
 
   def customer_setup_info; end
 
-  # This module smells of :reek:NilCheck
   def update_role
-    role = params[:role]&.to_sym
+    role = params[:role].to_sym
     raise "Unknown role: #{role}" unless User::USER_ROLES.key?(role)
     @user.update(role: role)
     redirect_to '/profile/customer_setup_info'
