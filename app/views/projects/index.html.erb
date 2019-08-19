@@ -10,6 +10,7 @@
     <tr>
       <th>Title</th>
       <th>Info</th>
+      <th>Creator</th>
       <th></th>
     </tr>
 
@@ -17,6 +18,7 @@
       <tr>
         <td><%= project.title %></td>
         <td><%= project.info %></td>
+        <td><%= project.user.name %></td>
         <td><%= link_to 'Show', project_path(project) %></td>
       </tr>
     <% end %>

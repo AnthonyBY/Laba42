@@ -2,26 +2,22 @@
 
 class ProjectsController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
+  authorize_resource
+  load_resource except: %i[show index]
 
   def index
-    @projects = Project.all
+    @projects = Project.includes(:user).load
   end
 
   def show
-    @project = Project.find(params[:id])
+    @project = Project.includes(:user).find(params[:id])
   end
 
-  def new
-    @project = Project.new
-  end
+  def new; end
 
-  def edit
-    @project = current_user.projects.find(params[:id])
-  end
+  def edit; end
 
   def create
-    @project = current_user.projects.new(project_params)
-
     if @project.save
       redirect_to projects_path
     else
@@ -30,8 +26,6 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    @project = current_user.projects.find(params[:id])
-
     if @project.update(project_params)
       redirect_to @project
     else
@@ -40,9 +34,7 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    @project = current_user.projects.find(params[:id])
     @project.destroy
-
     redirect_to projects_path
   end
 
