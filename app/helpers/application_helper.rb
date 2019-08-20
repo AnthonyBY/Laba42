@@ -2,6 +2,6 @@
 
 module ApplicationHelper
   def show_devise_link?
-    %w[sessions registrations passwords].none? { |n| n == controller_name }
+    !controller_name.in? %w[sessions registrations passwords]
   end
 end
