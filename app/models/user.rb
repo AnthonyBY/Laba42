@@ -10,6 +10,8 @@ class User < ApplicationRecord
 
   has_many :projects, dependent: :destroy
   validates :name, presence: true
+  USER_ROLES = {customer: 0, developer: 1}.freeze
+  enum role: USER_ROLES
 
   def self.from_omniauth(auth)
     # Either create a User record or update it based on the provider (Google) and the UID
