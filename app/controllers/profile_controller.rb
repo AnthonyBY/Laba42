@@ -10,8 +10,11 @@ class ProfileController < ApplicationController
   def customer_setup_info; end
 
   def update_role
+    raise 'Role already set!' unless @user.role
+
     role = params[:role].to_sym
     raise "Unknown role: #{role}" unless User::USER_ROLES.key?(role)
+
     @user.update(role: role)
     redirect_to '/profile/customer_setup_info'
   end
