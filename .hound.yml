@@ -2,12 +2,9 @@ fail_on_violations: true
 
 rubocop:
   config_file: .rubocop.yml
-  version: 0.54.0
+  version: 0.72.0
 
 reek:
   enabled: true
   config_file: .reek.yml
   version: 5.0.2
-
-jshint:
-  enabled: false

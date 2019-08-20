@@ -44,20 +44,17 @@ gem 'bootstrap', '~> 4.3.1'
 gem 'normalize-rails', '~> 4.1', '>= 4.1.1'
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'pry-rails'
   gem 'pry-nav'
+  gem 'pry-rails'
 end
 
 group :development do
-  # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'reek', '~> 5.0', '>= 5.0.2', require: false
+  gem 'rubocop', '~> 0.72.0', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'rubocop', '~> 0.54.0', require: false
-  gem 'reek', '~> 5.0', '>= 5.0.2', require: false
+  gem 'web-console', '>= 3.3.0'
 end
 
 group :test do
@@ -70,6 +67,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-gem 'omniauth-google-oauth2', '~> 0.2.2'
-gem 'omniauth-facebook'
+
 gem 'google-api-client', '~> 0.13.6'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2', '~> 0.2.2'
