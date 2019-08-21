@@ -5,4 +5,9 @@ class Project < ApplicationRecord
 
   validates :title, presence: true
   validates :info, presence: true
+
+   include PgSearch::Model
+  pg_search_scope :search_by_projects,
+                  against: %i[title info],
+                  using: { tsearch: { prefix: true }}
 end

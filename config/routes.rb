@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     get 'developer_setup_info'
   end
 
-  get 'results', to: 'results#index', as: 'results'
+  get 'results', to: 'projects#index', as: 'results'
 
 end
 # rubocop:enable Layout/SpaceInsideHashLiteralBraces
