@@ -71,3 +71,5 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'google-api-client', '~> 0.13.6'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2', '~> 0.2.2'
+
+gem 'cancancan'
