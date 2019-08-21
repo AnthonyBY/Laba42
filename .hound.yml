@@ -8,3 +8,6 @@ reek:
   enabled: true
   config_file: .reek.yml
   version: 5.0.2
+
+jshint:
+  config_file: .jshintrc
