@@ -14,6 +14,5 @@ Rails.application.routes.draw do
   end
 
   get 'results', to: 'projects#index', as: 'results'
-
 end
 # rubocop:enable Layout/SpaceInsideHashLiteralBraces

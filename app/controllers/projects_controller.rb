@@ -6,10 +6,10 @@ class ProjectsController < ApplicationController
   load_resource except: %i[show index]
 
   def index
-    if params[:query].nil?
-      @projects = Project.includes(:user).load
+    if params[:query].presence
+      @projects = Project.includes(:user).search_by_projects(params[:query])
     else
-      @projects = Project.search_by_projects(params[:query])
+      @projects = Project.includes(:user).load
     end
   end
 
