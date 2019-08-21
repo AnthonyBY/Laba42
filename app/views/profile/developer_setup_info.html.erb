@@ -1,6 +1,18 @@
-<h1>
-  DEVELOPER SETUP INFO
-</h1>
+<div class="user-form">
+  <h1 class="user-form__title"><%= t(:developer_registration_head_text) %></h1>
+  <%= form_with scope: :post, url: profile_path do %>
 
+    <div class="container">
 
-<%= link_to 'вернуться к списку проектов', projects_path %>
+    <div class="setup-info">
+      <% @all_skills.each do |key, value| %>
+        <%= check_box_tag key %>
+        <%= label_tag(key, value) %>
+      <% end %>
+    </div>
+
+    <div class="form_button">
+      <%= submit_tag t(:next_button), class: "button button--blue button--large user-form__button"%>
+    </div>
+  <% end %>
+</div>

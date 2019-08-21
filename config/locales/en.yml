@@ -33,6 +33,7 @@ en:
   about: "About"
   alias1: "Didn't receive confirmation instructions?"
   alias2: "Didn't receive unlock instructions?"
+  developer_registration_head_text: "What do you do?"
   email: "Email"
   facebook: "Facebook"
   facebook_btn: "Enter through Facebook"

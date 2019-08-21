@@ -9,6 +9,12 @@ class ProfileController < ApplicationController
 
   def customer_setup_info; end
 
+  def developer_setup_info
+    @all_skills = {
+      ruby: 'Ruby', java: 'Java', kotlin: 'Kotlin'
+    }
+  end
+
   def update_role
     raise 'Role already set!' if @user.role
 
