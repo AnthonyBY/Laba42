@@ -4,8 +4,13 @@
   <p>Find me in app/views/projects/index.html.erb</p>
 
   <%= link_to 'Разместить проект', new_project_path %>
+<% end %>
 
-  <% end %>
+<%= form_tag results_path, method: :get, role: 'search' do %>
+  <%= text_field_tag :query, params[:query] %>
+  <%= submit_tag "Искать", name: nil %>
+<% end %>
+<body>
   <table>
     <tr>
       <th>Title</th>
@@ -23,3 +28,4 @@
       </tr>
     <% end %>
   </table>
+</body>
