@@ -26,9 +26,6 @@ class ProfileController < ApplicationController
 
     if @user.update(role: role)
       redirect_to "/profile/#{params[:role]}_setup_info"
-    else
-      # flash message role setup fail
-      redirect_to '/profile/edit_role'
     end
   end
 
@@ -42,8 +39,6 @@ class ProfileController < ApplicationController
     if @user.update(profile_params)
       # render 'profile/edit_profile'
       redirect_to root_path
-    else
-      redirect_to "/profile/#{@user.role}_setup_info"
     end
   end
 
