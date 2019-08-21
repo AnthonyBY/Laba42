@@ -11,7 +11,10 @@ class ProfileController < ApplicationController
 
   def developer_setup_info
     @all_skills = {
-      ruby: 'Ruby', java: 'Java', kotlin: 'Kotlin'
+      ruby: 'Ruby', java: 'Java', kotlin: 'Kotlin', swift: 'Swift', go: 'Go', php: 'PHP',
+      cplusplus: 'C++', c: 'C', python: 'Python', javascript: 'JavaScript', csharp: 'C#',
+      rust: 'Rust', html: 'HTML', css: 'CSS', sql: 'SQL', visualbasic: 'Visual Basic',
+      dotnet: '.NET', objectivec: 'Objective-C'
     }
   end
 
