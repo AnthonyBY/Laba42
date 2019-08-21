@@ -55,7 +55,19 @@
       background-color: $white-color;
     }
   }
+
+  &--choice {
+    border: 0.09375rem solid $main-blue;
+    width: 10.3125rem;
+
+    &:hover {
+      background-color: $button-hover;
+      color: $white-color;
+    }
+
+    &:active {
+      background-color: $button-press;
+      color: $white-color;
+    }
+  }
 }
-
-
-
