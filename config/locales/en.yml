@@ -84,3 +84,7 @@ en:
   destroy: "Delete"
   edit: "Edit"
   apply: "Applied"
+  forgot_password?: "Forgot password?"
+  forgot_password_label: "Write your e-mail and we will send a link to change the password"
+  i_remember_password: "I remember my password. Sign in"
+  send_link: "Send link"

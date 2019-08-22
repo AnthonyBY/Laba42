@@ -54,3 +54,7 @@ ru:
   destroy: "Удалить"
   edit: "Редактировать"
   apply: "Откликнулись"
+  forgot_password?: "Забыли пароль?"
+  forgot_password_label: "Напишите свой e-mail и мы вышлем ссылку для смены пароля"
+  i_remember_password: "Я помню мой пароль. Войти"
+  send_link: "Выслать ссылку"
