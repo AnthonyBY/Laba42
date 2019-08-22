@@ -20,10 +20,18 @@
 <section class="start-secondary">
   <h3 class="start-secondary__title"><%= t(:show_wow) %></h3>
   <div class="start-secondary__wrapper">
-    <% 9.times do %>
-      <div class="start-secondary__item">
-        <%= image_tag("rectangle-small.svg", alt: "rectangle-small") %>
-      </div>
+    <% @projects.each do |p|  %>
+      <%= link_to project_path(p) do %>
+        <div class="start-secondary__item">
+          <div class="card" style="width: 24rem; height: 12rem; justify-content: space-around">
+            <div class="card-body">
+              <h5 class="card-title" style="font-size: medium; color: #212121"><%= p.title %></h5>
+              <hr>
+              <p class="card-text" style="font-size: smaller; color: #9d9ca2"><%= p.info[0..150] %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </section>

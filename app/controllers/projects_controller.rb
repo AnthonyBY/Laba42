@@ -11,7 +11,7 @@ class ProjectsController < ApplicationController
       @projects = @projects.search(params[:query])
       @projects_filtered = true
     end
-    @projects = @projects.includes(:user).load
+    @projects = @projects.includes(:user).load.reverse
   end
 
   def show
