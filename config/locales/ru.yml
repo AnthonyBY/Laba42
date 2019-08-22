@@ -58,3 +58,6 @@ ru:
   forgot_password_label: "Напишите свой e-mail и мы вышлем ссылку для смены пароля"
   i_remember_password: "Я помню мой пароль. Войти"
   send_link: "Выслать ссылку"
+  think_up_password_title: "Придумайте новый пароль"
+  think_up_password_label: "Пароль должен содержать не менее 6 символов"
+  confirm_password_button: "Подтвердить пароль"
