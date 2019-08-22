@@ -2,7 +2,7 @@
   <div class="flex-grow-1"><%= link_to image_tag("laba42.svg", alt: "logo"), root_path %></div>
 
   <% if show_devise_link? %>
-    <div><%= link_to image_tag("search.svg", alt: "search") %></div>
+    <div><%= link_to image_tag("search.svg", alt: "search"), projects_path %></div>
     <% if user_signed_in? %>
       <%= link_to destroy_user_session_path, method: :delete do %>
         <%= content_tag :span, t(:log_out), class: "site-header__enter" %>

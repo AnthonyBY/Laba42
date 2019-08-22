@@ -67,3 +67,7 @@ en:
   customer_registration_head_text_muted: "Tell us about yourself and get started!"
   input_company_name: "Name your company"
   input_phone: "Your number"
+  post_project: "Post a project"
+  search: "Search"
+  show: "Show details"
+  back_to_all_project: "Back to the list of projects"

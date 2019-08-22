@@ -3,9 +3,15 @@
   <h1>Projects#index</h1>
   <p>Find me in app/views/projects/index.html.erb</p>
 
-  <%= link_to 'Разместить проект', new_project_path %>
+  <%= link_to t(:post_project), new_project_path %>
+<% end %>
 
-  <% end %>
+<%= form_tag projects_path, method: :get, role: t(:search) do %>
+  <%= text_field_tag :query, params[:query] %>
+  <%= submit_tag t(:search), name: nil %>
+<% end %>
+
+<body>
   <table>
     <tr>
       <th>Title</th>
@@ -19,7 +25,12 @@
         <td><%= project.title %></td>
         <td><%= project.info %></td>
         <td><%= project.user.name %></td>
-        <td><%= link_to 'Show', project_path(project) %></td>
+        <td><%= link_to t(:show), project_path(project) %></td>
       </tr>
     <% end %>
   </table>
+</body>
+
+<% if @projects_filtered%>
+  <%= link_to t(:back_to_all_project), projects_path %>
+<% end %>

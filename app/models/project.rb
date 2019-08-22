@@ -5,4 +5,6 @@ class Project < ApplicationRecord
 
   validates :title, presence: true
   validates :info, presence: true
+
+  include Searchable::Project
 end
