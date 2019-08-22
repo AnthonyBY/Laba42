@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# rubocop:disable Layout/SpaceInsideHashLiteralBraces
 Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root to: 'home#index'
@@ -12,7 +11,4 @@ Rails.application.routes.draw do
     get 'customer_setup_info'
     get 'developer_setup_info'
   end
-
-  get 'results', to: 'projects#index', as: 'results'
 end
-# rubocop:enable Layout/SpaceInsideHashLiteralBraces

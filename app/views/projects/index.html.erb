@@ -6,7 +6,7 @@
   <%= link_to 'Разместить проект', new_project_path %>
 <% end %>
 
-<%= form_tag results_path, method: :get, role: 'search' do %>
+<%= form_tag projects_path, method: :get, role: 'search' do %>
   <%= text_field_tag :query, params[:query] %>
   <%= submit_tag "Искать", name: nil %>
 <% end %>
@@ -30,3 +30,7 @@
     <% end %>
   </table>
 </body>
+
+<% if @projects_filtered%>
+  <%= link_to 'вернуться к списку проектов', projects_path %>
+<% end %>
