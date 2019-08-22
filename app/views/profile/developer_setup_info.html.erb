@@ -1,12 +1,12 @@
 <div class="user-form">
   <h1 class="user-form__title"><%= t(:developer_registration_head_text) %></h1>
-  <%= form_with scope: :post, url: profile_path do %>
+  <%= form_tag(profile_path, method: :patch) do %>
 
     <div class="container">
 
     <div class="setup-info">
       <% @all_skills.each do |key, value| %>
-        <%= check_box_tag key %>
+        <%= check_box_tag 'skills[]', value %>
         <%= label_tag(key, value) %>
       <% end %>
     </div>

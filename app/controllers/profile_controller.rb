@@ -46,7 +46,7 @@ class ProfileController < ApplicationController
   protected
 
   def profile_params
-    params.permit(%i[info name phone_number company_name])
+    params.permit([:info, :name, :phone_number, :company_name, skills: []])
   end
 
   def set_user
