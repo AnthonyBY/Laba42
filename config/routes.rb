@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :applies
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root to: 'home#index'
 
   resources :projects
+  resources :applies
   resource :profile, controller: 'profile', only: %i[edit update] do
     post 'update_role'
     get 'edit_role'

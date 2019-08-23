@@ -15,19 +15,6 @@ ActiveRecord::Schema.define(version: 2019_08_23_111552) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "agreed_users", force: :cascade do |t|
-    t.jsonb "info"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "agreed_users_projects", force: :cascade do |t|
-    t.bigint "agreed_user_id"
-    t.bigint "project_id"
-    t.index ["agreed_user_id"], name: "index_agreed_users_projects_on_agreed_user_id"
-    t.index ["project_id"], name: "index_agreed_users_projects_on_project_id"
-  end
-
   create_table "applies", force: :cascade do |t|
     t.integer "project_id"
     t.integer "user_id"
