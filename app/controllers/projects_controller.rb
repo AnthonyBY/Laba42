@@ -6,12 +6,16 @@ class ProjectsController < ApplicationController
   load_resource except: %i[show index]
 
   def index
-    @projects = Project.default_scoped
     if params[:query].presence
-      @projects = @projects.search(params[:query]).reverse
+      @projects = Project.includes(:user)
+                         .search(params[:query])
+                         .sort_by do |p|
+        p.created_at.to_i
+      end
       @projects_filtered = true
+    else
+      @projects = Project.includes(:user)
     end
-    @projects = @projects.includes(:user).load.reverse
   end
 
   def show
