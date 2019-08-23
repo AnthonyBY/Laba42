@@ -19,7 +19,6 @@
     <%= link_to t(:apply_project),{ controller: 'applies', action: 'create', project: @project.id},
                   {method: :post} %>
   </div>
-  <%= binding.pry %>
 
   <% if can? :manage, @project %>
     <%= link_to 'редактировать', edit_project_path(@project) %>
