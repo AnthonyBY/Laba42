@@ -9,6 +9,7 @@ class User < ApplicationRecord
           :omniauthable, omniauth_providers: %i[google_oauth2 facebook]
 
   has_many :projects, dependent: :destroy
+  has_many :applies, dependent: :destroy
   validates :name, presence: true
   USER_ROLES = {customer: 0, developer: 1}.freeze
   enum role: USER_ROLES
