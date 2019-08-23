@@ -1,25 +1,27 @@
-<p id="notice"><%= notice %></p>
+<% if user_signed_in? %>
 
-<h1>Applies</h1>
+  <p id="notice"><%= notice %></p>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <h1>Applies current_user.name</h1>
 
-  <tbody>
-    <% @applies.each do |apply| %>
+  <body>
+    <table>
       <tr>
-        <td><%= link_to 'Show', apply %></td>
-        <td><%= link_to 'Edit', edit_apply_path(apply) %></td>
-        <td><%= link_to 'Destroy', apply, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Title</th>
+        <th>Info</th>
+        <th colspan="3"></th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
+      <% @applies.each do |apply| %>
+        <tr>
+          <td><%= apply.project.title %></td>
+          <td><%= apply.project.info %></td>
+          <td><%= link_to 'Refuse', apply, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </table>
+  <body>
+<% end %>
 
-<%= link_to 'New Apply', new_apply_path %>
+<%= link_to t(:back_to_all_project), projects_path %>
