@@ -8,7 +8,7 @@ class ProjectsController < ApplicationController
   def index
     @projects = Project.default_scoped
     if params[:query].presence
-      @projects = @projects.search(params[:query])
+      @projects = @projects.search(params[:query]).reverse
       @projects_filtered = true
     end
     @projects = @projects.includes(:user).load.reverse
