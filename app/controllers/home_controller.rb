@@ -2,6 +2,6 @@
 
 class HomeController < ApplicationController
   def index
-    @projects = Project.last(9).reverse
+    @projects = Project.limit(9).order(created_at: :desc)
   end
 end

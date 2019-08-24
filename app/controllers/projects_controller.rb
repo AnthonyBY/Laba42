@@ -7,14 +7,10 @@ class ProjectsController < ApplicationController
 
   def index
     if params[:query].presence
-      @projects = Project.includes(:user)
-                         .search(params[:query])
-                         .sort_by do |p|
-        p.created_at.to_i
-      end
+      @projects = projects_sort_by_desc.search(params[:query])
       @projects_filtered = true
     else
-      @projects = Project.includes(:user)
+      @projects = projects_sort_by_desc
     end
   end
 
@@ -51,5 +47,9 @@ class ProjectsController < ApplicationController
 
   def project_params
     params.require(:project).permit(:title, :info)
+  end
+
+  def projects_sort_by_desc
+    @projects = Project.includes(:user).reorder(created_at: :desc)
   end
 end
