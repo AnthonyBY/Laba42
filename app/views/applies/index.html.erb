@@ -17,7 +17,9 @@
         <tr>
           <td><%= apply.project.title %></td>
           <td><%= apply.project.info %></td>
-          <td><%= link_to 'Refuse', apply, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% if can? :destroy, apply %>
+            <td><%= link_to 'Refuse', apply, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
         </tr>
       <% end %>
     </table>

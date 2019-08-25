@@ -2,10 +2,10 @@
 
 class AppliesController < ApplicationController
   before_action :authenticate_user!
+  authorize_resource
+  load_resource except: %i[create]
 
-  def index
-    @applies = current_user.applies
-  end
+  def index; end
 
   def create
     @apply = Apply.new(project_id: params[:project], user_id: current_user.id)
@@ -17,7 +17,6 @@ class AppliesController < ApplicationController
   end
 
   def destroy
-    @apply = current_user.applies.find(params[:id])
     @apply.destroy
     redirect_to applies_path
   end
