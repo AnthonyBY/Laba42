@@ -1,12 +1,21 @@
 ru:
+  activerecord:
+    errors:
+      models:
+        project:
+          attributes:
+            title:
+              blank: 'не может быть пустым'
+            info:
+              blank: 'не может быть пустым'
+            deadline:
+              blank: 'не может быть пустым'
   about: "О нас"
   about_company: "О компании"
   about_yourself: "Расскажите о себе"
-  alias1: "Не получили подтверждающие инустркции?"
-  alias2: "Не получили разблокирующих инструкций"
   bad_note: "Ой, кажется такая почта уже есть"
   company_name: "Имя Вашей компании"
-  alias1: "Не получили подтверждающие инустркции?"
+  alias1: "Не получили подтверждающие инструкции?"
   alias2: "Не получили разблокирующих инструкций"
   customer: "Работников"
   developer: "Работу"
@@ -61,7 +70,6 @@ ru:
   refuse_project: "Отказаться"
   applies: "Заинтересовавшие вас, проекты"
   title: "Заголовок"
-  info: "Инфо"
   delete_confirm: "Вы уверены?"
   author: "Автор"
   destroy: "Удалить"
@@ -74,3 +82,18 @@ ru:
   think_up_password_title: "Придумайте новый пароль"
   think_up_password_label: "Пароль должен содержать не менее 6 символов"
   confirm_password_button: "Подтвердить пароль"
+  new_project: "Новый проект"
+  title_project: "Название проекта/задания"
+  info_project: "Описание проекта/задания"
+  keywords_project: "Ключевые слова(через пробел /css html ruby/)"
+  errors_title: "неверный ввод:"
+  type_project: "Тип проекта:"
+  project: "Проект"
+  test_task: "Тестовое задание"
+  cost: "Стоимость"
+  fixed_price: "Фиксированная цена"
+  negotiable_price: "Договорная цена"
+  free: "Бесплатно"
+  return_to_list_project: "вернуться к списку проектов"
+  deadline: "Дата окончания"
+  edit_project: "Редактирование проекта"
