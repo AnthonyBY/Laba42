@@ -8,6 +8,6 @@ class Ability
     return unless user
 
     can :manage, Project, user_id: user.id
-    can %i[create read destroy], Apply, user_id: user.id
+    can :manage, Apply, user_id: user.id
   end
 end

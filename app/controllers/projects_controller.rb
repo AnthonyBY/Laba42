@@ -16,6 +16,9 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.includes(:user).find(params[:id])
+    if current_user
+      @apply = @project.applies.where(user_id: current_user.id).first
+    end
   end
 
   def new; end

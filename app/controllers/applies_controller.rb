@@ -8,8 +8,7 @@ class AppliesController < ApplicationController
   def index; end
 
   def create
-    # @apply = Apply.new(project_id: params[:project_id], user_id: current_user.id)
-    @apply = Apply.new(apply_params)
+    @apply = Apply.new(apply_params.merge(user_id: current_user.id))
     if @apply.save
       redirect_to applies_path
     else
@@ -25,6 +24,6 @@ class AppliesController < ApplicationController
   private
 
   def apply_params
-    params.permit(:project_id).merge(user_id: current_user.id)
+    params.permit(:project_id)
   end
 end

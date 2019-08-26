@@ -10,6 +10,7 @@ class User < ApplicationRecord
 
   has_many :projects, dependent: :destroy
   has_many :applies, dependent: :destroy
+  has_many :applied_to_projects, through: :applies, class_name: "Project", foreign_key: "project_id", source: :user
   validates :name, presence: true
   USER_ROLES = {customer: 0, developer: 1}.freeze
   enum role: USER_ROLES
