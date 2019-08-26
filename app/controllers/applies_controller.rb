@@ -12,7 +12,7 @@ class AppliesController < ApplicationController
     if @apply.save
       redirect_to applies_path
     else
-      redirect_to "/projects/#{params[:project_id]}", notice: 'We have a problem.'
+      redirect_to "/projects/#{params[:project_id]}"
     end
   end
 
