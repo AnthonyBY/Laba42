@@ -1,37 +1,25 @@
-<%= form_with(model: @user, local: true) do |user| %>
+<div class="user-form">
+  <h1 class="user-form__title"><%= t(:profile_edit) %></h1>
+  <%= form_with url: profile_path, method: :patch do %>
 
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@user.errors.count, "error") %> prohibited
-        this user from being saved:
-      </h2>
-      <ul>
-        <% @user.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
+    <div class="form-field">
+      <%= text_field_tag :name, @user.name, placeholder:  t(:name) %>
+    </div>
+
+    <div class="form-field">
+      <%= text_field_tag :phone_number, @user.phone_number, placeholder:  t(:input_phone) %>
+    </div>
+
+    <div class="form-field">
+      <%= text_field_tag :skills, @user.skills, placeholder:  t(:skills) %>
+    </div>
+
+    <div class="form-field">
+      <%= text_field_tag :info, @user.info, placeholder:  t(:info) %>
+    </div>
+
+    <div class="user-form__center">
+      <%= submit_tag t(:next_button), class: "button button--blue button--large user-form__button"%>
     </div>
   <% end %>
-
-  <p>
-    <%= form.label :name %><br>
-    <%= form.text_field :name %>
-  </p>
-
-  <p>
-    <%= form.label :skills %><br>
-    <%= form.text_field :skills %>
-  </p>
-
-  <p>
-    <%= form.label :info %><br>
-    <%= form.text_area :info %>
-  </p>
-
-  <p>
-    <%= form.submit %>
-  </p>
-
-<% end %>
-
+</div>
