@@ -1,5 +1,3 @@
-<% if user_signed_in? %>
-
 <h1>All users</h1>
 
   <% @users.each do |user| %>
@@ -7,4 +5,3 @@
       <%= user.name %>
     </li>
   <% end %>
- <% end %>
