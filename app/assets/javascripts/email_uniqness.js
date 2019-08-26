@@ -68,7 +68,8 @@ if (userEmail) {
         } else if (xmlhttp.readyState == 4 && xmlhttp.status == 204) {
           goodAlert();
         }
-      }
+      };
+
       xmlhttp.open("GET", "/uniqness/" + userEmail.value, true);
       xmlhttp.send();
     } else {
