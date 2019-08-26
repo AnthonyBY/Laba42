@@ -38,9 +38,6 @@ cron.log
 # Ignore database settings
 /config/database.yml
 
-# Ignore secret info
-/config/credentials.yml.enc
-
 /public/packs
 /public/packs-test
 /node_modules
