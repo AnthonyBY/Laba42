@@ -16,7 +16,7 @@
 <% if user_signed_in? %>
 
   <div>
-    <%= link_to t(:apply_project),{ controller: 'applies', action: 'create', project: @project.id},
+    <%= link_to t(:apply_project),{ controller: 'applies', action: 'create', project_id: @project.id},
                   {method: :post} %>
   </div>
 
