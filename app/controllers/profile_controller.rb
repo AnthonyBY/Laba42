@@ -9,6 +9,15 @@ class ProfileController < ApplicationController
 
   def customer_setup_info; end
 
+  def developer_setup_info
+    @all_skills = {
+      ruby: 'Ruby', java: 'Java', kotlin: 'Kotlin', swift: 'Swift', go: 'Go', php: 'PHP',
+      cplusplus: 'C++', c: 'C', python: 'Python', javascript: 'JavaScript', csharp: 'C#',
+      rust: 'Rust', html: 'HTML', css: 'CSS', sql: 'SQL', visualbasic: 'Visual Basic',
+      dotnet: '.NET', objectivec: 'Objective-C'
+    }
+  end
+
   def update_role
     raise 'Role already set!' if @user.role
 
@@ -37,7 +46,7 @@ class ProfileController < ApplicationController
   protected
 
   def profile_params
-    params.permit(%i[info name phone_number company_name])
+    params.permit([:info, :name, :phone_number, :company_name, skills: []])
   end
 
   def set_user
