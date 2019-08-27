@@ -1,7 +1,11 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :users, only: :index
+  resources :users, only: :index do
+    collection do
+      post 'email_exists'
+    end
+  end
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root to: 'home#index'
 

@@ -11,6 +11,10 @@
     position: relative;
   }
 
+  &--hide {
+    display: none;
+  }
+
   input {
     background-color: $white-color;
     border: 1px solid $social-btn-border;
@@ -45,4 +49,34 @@
       color: $button-press;
     }
   }
+}
+
+.bad-note {
+  color: $bad-note;
+  font-size: 0.875rem;
+  left: 1.4375rem;
+  position: absolute;
+  top: 0.3rem;
+
+  img {
+    margin-bottom: 0.25rem;
+    margin-left: 0.3125rem;
+  }
+}
+
+.good-note {
+  color: $good-note;
+  font-size: 0.875rem;
+  left: 1.4375rem;
+  position: absolute;
+  top: 0.3rem;
+
+  img {
+    margin-bottom: 0.25rem;
+    margin-left: 0.3125rem;
+  }
+}
+
+.not-allowed {
+  cursor: not-allowed;
 }

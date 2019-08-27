@@ -42,6 +42,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # Laba42 gems
 gem 'bootstrap', '~> 4.3.1'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'normalize-rails', '~> 4.1', '>= 4.1.1'
 gem 'react-rails'
 gem 'webpacker'
