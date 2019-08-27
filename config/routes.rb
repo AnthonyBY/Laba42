@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   resources :projects
+  resources :applies
   resource :profile, controller: 'profile', only: %i[edit update] do
     post 'update_role'
     get 'edit_role'

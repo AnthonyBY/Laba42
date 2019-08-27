@@ -1,24 +1,34 @@
 <p>
-  <strong>Title:</strong>
+  <strong><%= t(:title) %>:</strong>
   <%= @project.title %>
 </p>
 
 <p>
-  <strong>Creator:</strong>
+  <strong><%= t(:author) %>:</strong>
   <%= @project.user.name %>
 </p>
 
 <p>
-  <strong>Info:</strong>
+  <strong><%= t(:info) %>:</strong>
   <%= @project.info %>
 </p>
 
 <% if user_signed_in? %>
+
+  <div>
+    <% if @apply %>
+      <p><%= t(:apply)%> <%= @apply.created_at.localtime.strftime('%d/%m/%Y %H:%M') %></p>
+    <% else %>
+      <%= link_to t(:apply_project),{ controller: 'applies', action: 'create', project_id: @project.id},
+              {method: :post} %>
+    <% end %>
+  </div>
+
   <% if can? :manage, @project %>
-    <%= link_to 'редактировать', edit_project_path(@project) %>
-    <%= link_to 'Удалить', project_path(@project),
+    <%= link_to t(:edit), edit_project_path(@project) %>
+    <%= link_to t(:destroy), project_path(@project),
                               method: :delete,
-                              data: { confirm: 'Are you sure?' } %>
+                              data: { confirm: t(:delete_confirm) } %>
   <% end %>
 <% end %>
-<%= link_to 'вернуться к списку проектов', projects_path %>
+<%= link_to t(:back_to_all_project), projects_path %>
