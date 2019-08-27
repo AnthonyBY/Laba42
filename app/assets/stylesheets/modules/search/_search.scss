@@ -1,0 +1,26 @@
+.search {
+  border: none;
+  border-radius: 0.5rem;
+  box-shadow: 0rem 0.25rem 0.9375rem rgba($search-shadow, 0.05);
+  font-size: 1.125rem;
+  padding: 2.9375rem 6.125rem;
+  width: 71.25rem;
+
+  &__image {
+    position: absolute;
+    right: 6.125rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &--disable {
+    display: none;
+  }
+}
+
+input.search {
+  background-image: url(asset-path("search-2.svg"));
+  background-position: top 3rem left 6.125rem;
+  background-repeat: no-repeat;
+  text-indent: 2.5rem;
+}
