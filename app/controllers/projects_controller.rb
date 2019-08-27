@@ -6,12 +6,12 @@ class ProjectsController < ApplicationController
   load_resource except: %i[show index]
 
   def index
+    @projects = Project.default_scoped
     if params[:query].presence
-      @projects = projects_sort_by_desc.search(params[:query])
+      @projects = @projects.search(params[:query])
       @projects_filtered = true
-    else
-      @projects = projects_sort_by_desc
     end
+    @projects = @projects.includes(:user).reorder(created_at: :desc).load
   end
 
   def show
@@ -47,9 +47,5 @@ class ProjectsController < ApplicationController
 
   def project_params
     params.require(:project).permit(:title, :info)
-  end
-
-  def projects_sort_by_desc
-    @projects = Project.includes(:user).reorder(created_at: :desc)
   end
 end
