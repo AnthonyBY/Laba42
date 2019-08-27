@@ -7,19 +7,19 @@
     </div>
 
     <div class="form-field">
+      <%= text_field_tag :phone_number, @user.phone_number, placeholder:  t(:phone_number) %>
+    </div>
+
+    <div class="form-field">
       <%= text_field_tag :company_name, @user.company_name, placeholder:  t(:company_name) %>
     </div>
 
     <div class="form-field">
-      <%= text_field_tag :phone_number, @user.phone_number, placeholder:  t(:input_phone) %>
-    </div>
-
-    <div class="form-field">
-      <%= text_field_tag :info, @user.info, placeholder:  t(:info) %>
+      <%= text_field_tag :info, @user.info, placeholder:  t(:about_company) %>
     </div>
 
     <div class="user-form__center">
-      <%= submit_tag t(:next_button), class: "button button--blue button--large user-form__button"%>
+      <%= submit_tag t(:save), class: "button button--blue button--large user-form__button"%>
     </div>
   <% end %>
 </div>
