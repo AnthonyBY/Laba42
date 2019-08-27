@@ -7,15 +7,22 @@
     </div>
 
     <div class="form-field">
-      <%= text_field_tag :phone_number, @user.phone_number, placeholder:  t(:input_phone) %>
+      <%= text_field_tag :phone_number, @user.phone_number, placeholder:  t(:phone_number) %>
     </div>
 
     <div class="form-field">
-      <%= text_field_tag :skills, @user.skills, placeholder:  t(:skills) %>
+      <%= text_field_tag :info, @user.info, placeholder:  t(:about_yourself) %>
     </div>
 
-    <div class="form-field">
-      <%= text_field_tag :info, @user.info, placeholder:  t(:info) %>
+    <h2>
+      <%= t(:skills) %>
+    </h2>
+
+    <div class="setup-info">
+      <% User::SKILLS.each do |value| %>
+        <%= check_box_tag 'skills[]', value, @user.skills.include?(value) %>
+        <%= label_tag(value.underscore, value) %>
+      <% end %>
     </div>
 
     <div class="user-form__center">

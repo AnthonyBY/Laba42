@@ -14,6 +14,11 @@ class User < ApplicationRecord
   validates :name, presence: true
   USER_ROLES = {customer: 0, developer: 1}.freeze
   enum role: USER_ROLES
+  SKILLS = [
+    'Ruby', 'Java', 'Kotlin', 'Swift', 'Go', 'PHP', 'C++', 'C', 'Python',
+    'JavaScript', 'C#', 'Rust', 'HTML', 'CSS', 'SQL', 'Visual Basic',
+    '.NET', 'Objective-C'
+  ]
 
   def self.from_omniauth(auth)
     # Either create a User record or update it based on the provider (Google) and the UID

@@ -31,6 +31,8 @@
 
 en:
   about: "About"
+  about_company: "About company"
+  about_yourself: "Tell about yourself"
   alias1: "Didn't receive confirmation instructions?"
   alias2: "Didn't receive unlock instructions?"
   bad_note: "Ouch! It seems this email already exists"
