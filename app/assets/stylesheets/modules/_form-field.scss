@@ -5,6 +5,10 @@
     right: 1.31rem;
     top: 50%;
     transform: translateY(-50%);
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   &__relative {

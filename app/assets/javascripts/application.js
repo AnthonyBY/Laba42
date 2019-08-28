@@ -19,6 +19,7 @@
 document.addEventListener("turbolinks:load", function(){
   const userEmail = document.querySelector("#email_check");
   const searchClose = document.querySelector("#search_close");
+  let eyeClosed = document.querySelector("#eye_closed_pass");
 
   if (userEmail) {
 
@@ -74,6 +75,7 @@ document.addEventListener("turbolinks:load", function(){
   if (searchClose) {
     const searchToggle = document.querySelector("#search_toggle");
     const searchImg = document.querySelector("#search_img");
+    let query = document.querySelector("#query");
 
     searchClose.addEventListener("click", function() {
       searchToggle.classList.add("search--disable");
@@ -82,7 +84,43 @@ document.addEventListener("turbolinks:load", function(){
 
     searchImg.addEventListener("click", function() {
       searchToggle.classList.remove("search--disable");
+      query.focus();
       this.classList.add("search--disable");
     });
+  }
+
+  if (eyeClosed) {
+    let eyeOpen = document.querySelector("#eye_open_pass");
+    let eyeClosedConfirm = document.querySelector("#eye_closed_pass_confirm");
+    let pass = document.querySelector("#pass");
+
+    eyeClosed.addEventListener("click", function() {
+      this.classList.add("search--disable");
+      eyeOpen.classList.remove("search--disable");
+      pass.type = 'text';
+    });
+
+    eyeOpen.addEventListener("click", function() {
+      this.classList.add("search--disable");
+      eyeClosed.classList.remove("search--disable");
+      pass.type = 'password';
+    });
+
+    if (eyeClosedConfirm) {
+      let eyeOpenConfirm = document.querySelector("#eye_open_pass_confirm");
+      let passConfirm = document.querySelector("#pass_confirm");
+
+      eyeClosedConfirm.addEventListener("click", function() {
+        this.classList.add("search--disable");
+        eyeOpenConfirm.classList.remove("search--disable");
+        passConfirm.type = 'text';
+      });
+
+      eyeOpenConfirm.addEventListener("click", function() {
+        this.classList.add("search--disable");
+        eyeClosedConfirm.classList.remove("search--disable");
+        passConfirm.type = 'password';
+      });
+    }
   }
 });

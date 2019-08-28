@@ -30,7 +30,7 @@
       <div class="start-secondary__item">
         <div class="start-secondary__item-wrapper">
           <h5 class="start-secondary__item-title" ><%= p.title %></h5>
-          <span class="start-secondary__item-subtitle-item"><%= t(:published) %><%= p.created_at.to_date %></span>
+          <span class="start-secondary__item-subtitle-item"><%= t(:published) %><%= p.created_at.localtime.strftime('%d/%m/%Y') %></span>
           <p class="start-secondary__item-text" ><%= p.info[0..120] %>...</p>
         </div>
         <%= link_to project_path(p) do %>

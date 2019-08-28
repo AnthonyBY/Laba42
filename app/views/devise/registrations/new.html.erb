@@ -15,13 +15,15 @@
     </div>
 
     <div class="form-field form-field__relative">
-      <span class="form-field__image"><%= image_tag("eye.svg", alt: "eye") %></span>
-      <%= f.password_field :password, autocomplete: "new-password", placeholder: t(:password) %>
+      <span class="form-field__image search--disable" id="eye_open_pass"><%= image_tag("eye.svg", alt: "eye") %></span>
+      <span class="form-field__image" id="eye_closed_pass"><%= image_tag("closed-eye.svg", alt: "closed-eye") %></span>
+      <%= f.password_field :password, id: "pass", autocomplete: "new-password", placeholder: t(:password) %>
     </div>
 
     <div class="form-field form-field__relative">
-      <span class="form-field__image"><%= image_tag("eye.svg", alt: "eye") %></span>
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: t(:password_confirm) %>
+      <span class="form-field__image search--disable" id="eye_open_pass_confirm"><%= image_tag("eye.svg", alt: "eye") %></span>
+      <span class="form-field__image" id="eye_closed_pass_confirm"><%= image_tag("closed-eye.svg", alt: "closed-eye") %></span>
+      <%= f.password_field :password_confirmation, id: "pass_confirm", autocomplete: "new-password", placeholder: t(:password_confirm) %>
     </div>
 
     <%= f.submit t(:sign_up), class: "button button--blue button--login button--stretch", id: "reg_submit"  %>
