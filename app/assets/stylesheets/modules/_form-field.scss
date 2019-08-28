@@ -7,6 +7,10 @@
     transform: translateY(-50%);
   }
 
+  &__relative {
+    position: relative;
+  }
+
   &__absolute {
     position: absolute;
     z-index: 5;
