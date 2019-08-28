@@ -11,7 +11,7 @@
     <div class="form-field form-field__relative">
       <div id="bad_note" class="form-field--hide bad-note"><%= t(:bad_note) %><%= image_tag("sad.svg", alt: "sad") %></div>
       <div id="good_note" class="form-field--hide good-note"><%= t(:good_note) %><%= image_tag("like.svg", alt: "like") %></div>
-      <%= f.email_field :email, autocomplete: "email", placeholder: t(:email) %>
+      <%= f.email_field :email, id: "email_check", autocomplete: "email", placeholder: t(:email) %>
     </div>
 
     <div class="form-field form-field__relative">

@@ -1,4 +1,3 @@
-
 ru:
   about: "О нас"
   about_company: "О компании"
@@ -27,11 +26,13 @@ ru:
   let_acquainted: "Давайте знакомиться!"
   log_in: "Войти"
   log_out: "Выйти"
+  lets_search: "Давай что-нибудь найдём для тебя"
   name: "Ваше имя"
   password: "Ваш пароль"
   password_confirm: "Подтвердите пароль"
   phone_number: "Телефонный номер"
   profile_edit: "Обнови свой профиль"
+  published: "Опубликовано "
   remark_to_login: "Уже есть аккаунт?"
   remark_to_signup: "если ещё не с нами"
   save: "Сохранить"
@@ -46,6 +47,7 @@ ru:
   start_page_subtitle: "Есть что предложить ребятам, стартующим в айти?"
   start_page_title: "Поможем найти первую работу или перспективного коллегу!"
   support: "Поддержка"
+  take_job: "Взяться за работу"
   telegram: "Мы в Telegram"
   customer_registration_head_text: "Супер! Много талантливых ребят уже ждут ваши задачи!"
   customer_registration_head_text_muted: "Расскажите о себе и начнем работать!"

@@ -1,36 +1,39 @@
-<% if user_signed_in? %>
-
-  <h1>Projects#index</h1>
-  <p>Find me in app/views/projects/index.html.erb</p>
-
-  <%= link_to t(:post_project), new_project_path %>
-<% end %>
-
-<%= form_tag projects_path, method: :get, role: t(:search) do %>
-  <%= text_field_tag :query, params[:query] %>
-  <%= submit_tag t(:search), name: nil %>
-<% end %>
-
-<body>
-  <table>
-    <tr>
-      <th>Title</th>
-      <th>Info</th>
-      <th>Creator</th>
-      <th></th>
-    </tr>
-
-    <% @projects.each do |project| %>
-      <tr>
-        <td><%= project.title %></td>
-        <td><%= project.info %></td>
-        <td><%= project.user.name %></td>
-        <td><%= link_to t(:show), project_path(project) %></td>
-      </tr>
+<section class="form-field__absolute search--disable" id="search_toggle">
+  <%= image_tag("close.svg", alt: "close", class: "search__image", id: "search_close") %>
+  <%= form_tag projects_path, method: :get, role: t(:search) do %>
+    <%= text_field_tag :query, params[:query], class: "search", placeholder: t(:lets_search) %>
+  <% end %>
+</section>
+<section class="start-secondary">
+  <h3 class="start-secondary__title"><%= t(:show_wow) %></h3>
+  <div class="start-secondary__wrapper">
+    <% @projects.each do |project|  %>
+      <div class="start-secondary__item">
+        <div class="start-secondary__item-wrapper">
+          <h5 class="start-secondary__item-title" ><%= project.title %></h5>
+          <span class="start-secondary__item-subtitle-item"><%= t(:published) %><%= project.created_at.to_date %></span>
+          <p class="start-secondary__item-text" ><%= project.info[0..120] %>...</p>
+        </div>
+        <%= link_to project_path(project) do %>
+          <%= content_tag :span, t(:take_job), class: "button button--blue button--stretch button--large button--list-project" %>
+        <% end %>
+      </div>
     <% end %>
-  </table>
-</body>
-
-<% if @projects_filtered%>
-  <%= link_to t(:back_to_all_project), projects_path %>
-<% end %>
+  </div>
+</section>
+<section class="start-third">
+  <% if user_signed_in? %>
+    <%= link_to new_project_path do %>
+      <%= content_tag :span, t(:post_project), class: "button button--large button--white" %>
+    <% end %>
+  <% end %>
+  <% if @projects_filtered%>
+    <%= link_to projects_path do %>
+      <%= content_tag :span, t(:back_to_all_project), class: "button button--large button--white" %>
+    <% end %>
+  <% else %>
+    <%= link_to do %>
+      <%= content_tag :span, t(:show_more), class: "button button--large button--white" %>
+    <% end %>
+  <% end %>
+</section>

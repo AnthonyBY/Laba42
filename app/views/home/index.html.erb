@@ -1,3 +1,9 @@
+<section class="form-field__absolute search--disable" id="search_toggle">
+  <%= image_tag("close.svg", alt: "close", class: "search__image", id: "search_close") %>
+  <%= form_tag projects_path, method: :get, role: t(:search) do %>
+    <%= text_field_tag :query, params[:query], class: "search", placeholder: t(:lets_search) %>
+  <% end %>
+</section>
 <section class="start-large">
   <div class="start-large__text-context">
     <h1 class="start-large__title"><%= t(:start_page_title) %></h1>
@@ -21,17 +27,16 @@
   <h3 class="start-secondary__title"><%= t(:show_wow) %></h3>
   <div class="start-secondary__wrapper">
     <% @projects.each do |p|  %>
-      <%= link_to project_path(p) do %>
-        <div class="start-secondary__item">
-          <div class="card" style="width: 24rem; height: 12rem; justify-content: space-around">
-            <div class="card-body">
-              <h5 class="card-title" style="font-size: medium; color: #212121"><%= p.title %></h5>
-              <hr>
-              <p class="card-text" style="font-size: smaller; color: #9d9ca2"><%= p.info[0..150] %></p>
-            </div>
-          </div>
+      <div class="start-secondary__item">
+        <div class="start-secondary__item-wrapper">
+          <h5 class="start-secondary__item-title" ><%= p.title %></h5>
+          <span class="start-secondary__item-subtitle-item"><%= t(:published) %><%= p.created_at.to_date %></span>
+          <p class="start-secondary__item-text" ><%= p.info[0..120] %>...</p>
         </div>
-      <% end %>
+        <%= link_to project_path(p) do %>
+          <%= content_tag :span, t(:take_job), class: "button button--blue button--stretch button--large button--list-project" %>
+        <% end %>
+      </div>
     <% end %>
   </div>
 </section>
