@@ -14,14 +14,14 @@
       <%= text_field_tag :info, @user.info, placeholder:  t(:about_yourself) %>
     </div>
 
-    <h2>
+    <h2 style="text-align:center;">
       <%= t(:skills) %>
     </h2>
 
     <div class="setup-info">
-      <% User::SKILLS.each do |value| %>
-        <%= check_box_tag 'skills[]', value, @user.skills.include?(value) %>
-        <%= label_tag(value.underscore, value) %>
+      <% User::SKILLS.each_with_index do |value, index| %>
+        <%= check_box_tag 'skills[]', value, @user.skills.include?(value), id: "user_skills_#{index}" %>
+        <%= label_tag("user_skills_#{index}", value) %>
       <% end %>
     </div>
 
