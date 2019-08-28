@@ -34,6 +34,10 @@ class ProfileController < ApplicationController
 
   def edit; end
 
+  def customer_edit; end
+
+  def developer_edit; end
+
   def update
     if @user.update(profile_params)
       # render 'profile/edit_profile'

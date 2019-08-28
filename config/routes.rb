@@ -16,5 +16,7 @@ Rails.application.routes.draw do
     get 'edit_role'
     get 'customer_setup_info'
     get 'developer_setup_info'
+    get 'customer_edit'
+    get 'developer_edit'
   end
 end
