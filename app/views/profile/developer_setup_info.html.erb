@@ -3,9 +3,9 @@
   <%= form_tag(profile_path, method: :patch) do %>
 
     <div class="setup-info">
-      <% @all_skills.each do |key, value| %>
-        <%= check_box_tag 'skills[]', value %>
-        <%= label_tag(key, value) %>
+      <% User::SKILLS.each_with_index do |value, index| %>
+        <%= check_box_tag 'skills[]', value, @user.skills.include?(value), id: "user_skills_#{index}" %>
+        <%= label_tag("user_skills_#{index}", value) %>
       <% end %>
     </div>
 
