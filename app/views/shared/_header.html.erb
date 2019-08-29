@@ -7,7 +7,7 @@
     <% if user_signed_in? %>
       <div class="dropdown">
         <%= image_tag("user.svg", alt: "user", class: "dropdown__img") %>
-        <div class="dropdown__content">
+        <div class="dropdowncontent">
           <%= link_to cabinet_profile_path, method: :get do %>
             <%= content_tag :span, t(:my_profile), class: "dropdown__item" %>
           <% end %>
