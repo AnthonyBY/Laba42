@@ -1,9 +1,3 @@
-<section class="form-field__absolute search--disable" id="search_toggle">
-  <%= image_tag("close.svg", alt: "close", class: "search__image", id: "search_close") %>
-  <%= form_tag projects_path, method: :get, role: t(:search) do %>
-    <%= text_field_tag :query, params[:query], class: "search", placeholder: t(:lets_search) %>
-  <% end %>
-</section>
 <section class="start-secondary">
   <h3 class="start-secondary__title"><%= t(:show_wow) %></h3>
   <div class="start-secondary__wrapper">

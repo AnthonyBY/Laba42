@@ -1,4 +1,4 @@
-<section class="signup">
+<section class="signup" id="signup">
   <h2 class="signup__title"><%= t(:sign_up_greeting) %></h2>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -42,9 +42,6 @@
     <%= link_to t(:log_in), new_session_path(resource_name) %>
 
   </div>
-
-
-
 </section>
 
 

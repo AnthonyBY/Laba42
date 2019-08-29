@@ -3,11 +3,17 @@
 
   <% if show_devise_link? %>
     <div id="search_icon" ><%= image_tag("search.svg", alt: "search") %></div>
+    <div class="form-field__absolute search--disable" id="search_toggle">
+      <%= image_tag("close.svg", alt: "close", class: "search__image", id: "search_close") %>
+      <%= form_tag projects_path, method: :get, role: t(:search) do %>
+        <%= text_field_tag :query, params[:query], autofocus: "autofocus", class: "search", placeholder: t(:lets_search) %>
+      <% end %>
+    </div>
 
     <% if user_signed_in? %>
       <div class="dropdown">
         <%= image_tag("user.svg", alt: "user", class: "dropdown__img") %>
-        <div class="dropdowncontent">
+        <div class="dropdown--content">
           <%= link_to cabinet_profile_path, method: :get do %>
             <%= content_tag :span, t(:my_profile), class: "dropdown__item" %>
           <% end %>
@@ -22,5 +28,4 @@
       <% end %>
     <% end %>
   <% end %>
-
 </header>

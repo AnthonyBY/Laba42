@@ -1,4 +1,4 @@
-<div class="login">
+<div class="login" id="login">
   <section class="login-first">
     <%= image_tag("clap.svg", alt: "clap", class: "login-first__image") %>
     <h1 class="login-first__title"><%= t(:greeting) %></h1>
@@ -18,7 +18,7 @@
       <div class="form-field form-field__relative">
         <span class="form-field__image search--disable" id="eye_open_pass"><%= image_tag("eye.svg", alt: "eye") %></span>
         <span class="form-field__image" id="eye_closed_pass"><%= image_tag("closed-eye.svg", alt: "closed-eye") %></span>
-        <%= f.password_field :password, id: "pass", autocomplete: "current-password", placeholder: t(:password) %>
+        <%= f.password_field :password, id: "pass", autocomplete: "new-password", placeholder: t(:password) %>
       </div>
       <%= f.submit t(:log_in), class: "button button--blue button--login" %>
       <span class="form-field">
@@ -34,6 +34,3 @@
     <%= image_tag("login_pic.svg", alt: "login", class: "login-second__image") %>
   </section>
 </div>
-
-
-
