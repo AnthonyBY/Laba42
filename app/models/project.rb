@@ -10,6 +10,8 @@ class Project < ApplicationRecord
   validates :deadline, presence: true
   validates :cost_type, presence: true
   validates :project_type, presence: true
+  validates :cost, presence: true
+  validates :skills, presence: true
   validate :validate_deadline_date
 
   include Searchable::Project
