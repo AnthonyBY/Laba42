@@ -1,33 +1,68 @@
-<%= form_with(model: @project, local: true) do |form| %>
+<div class="form-input">
+  <%= form_with(model: @project, local: true) do |form| %>
+    <% if @project.errors.any? %>
+      <div class="card w-100">
+        <div class="card-header">
+          <%= @project.errors.count %> <%= t(:errors_title) %>
+        </div>
+        <ul class="card-body">
+            <% @project.errors.full_messages.each do |msg| %>
+              <div class="form-main__label form-main__label__margin0">
+                <li><%= msg %></li>
+              </div>
+            <% end %>
+        </ul>
+      </div>
+    <% end %>
 
-  <% if @project.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@project.errors.count, "error") %> prohibited
-        this project from being saved:
-      </h2>
-      <ul>
-        <% @project.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
+    <div class="form-input__input-title">
+      <%= form.label t(:title_project), class: 'form-main__label'%><br>
+      <%= form.text_field :title, class: 'form-main__input' %>
     </div>
+
+    <div class="form-input__input-title">
+      <%= form.label t(:keywords_project), class: 'form-main__label' %><br>
+      <%= form.text_field :skills, class: 'form-main__input' %>
+    </div>
+
+    <div>
+      <%= form.label t(:type_project), class: 'form-main__label' %>
+      <div>
+        <%= form.radio_button :project_type, 'project_type' %>
+        <%= form.label t(:project), class: 'form-main__label form-main__label__margin0' %>
+        <%= form.radio_button :project_type, 'test_type', class: 'form-main__label__margin-left' %>
+        <%= form.label t(:test_task), class: 'form-main__label form-main__label__margin0' %>
+      </div>
+    </div>
+
+    <div class="form-input__cost-block">
+      <div class="form-input__cost-block__input">
+        <%= form.label t(:cost), class: 'form-main__label'  %>
+        <p><%= form.text_field :cost, class: 'form-main__input'  %></p>
+      </div>
+      <div class="form-input__cost-block__radio-buttons">
+        <%= form.radio_button :cost_type, 'price' %>
+        <%= form.label t(:fixed_price), class: 'form-main__label'%>
+        <%= form.radio_button :cost_type, 'contract_price', class: 'form-main__label__margin-left' %>
+        <%= form.label t(:negotiable_price), class: 'form-main__label' %>
+        <%= form.radio_button :cost_type, 'free', class: 'form-main__label__margin-left'  %>
+        <%= form.label t(:free), class: 'form-main__label' %>
+      </div>
+    </div>
+
+    <div>
+      <%= form.label t(:deadline), class: 'form-main__label' %>
+      <p><%= form.date_field :deadline, class: 'form-main__input'   %></p>
+    </div>
+
+    <div>
+      <%= form.label t(:info_project), class: 'form-main__label'%><br>
+      <p><%= form.text_area :info, class: 'form-main__text-area' %></p>
+    </div>
+
+    <div>
+      <%= form.submit t(:post_project), class: 'button button--blue button--login mt-3 mb-3'%>
+    </div>
+    <%= link_to t(:return_to_list_project), projects_path %>
   <% end %>
-
-  <p>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-  </p>
-
-  <p>
-    <%= form.label :info %><br>
-    <%= form.text_area :info %>
-  </p>
-
-  <p>
-    <%= form.submit %>
-  </p>
-
-<% end %>
-
-<%= link_to 'вернуться к списку проектов', projects_path %>
+</div>

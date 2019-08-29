@@ -1,0 +1,31 @@
+.form-input {
+  background-color: $white-color;
+  border: 0 solid $light-gray;
+  border-radius: 0.6rem;
+  box-shadow: 0 1px 10px $shadow-body;
+  margin-left: 5rem;
+  padding-bottom: 5rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  width: 60rem;
+
+  &__input-title {
+
+    input {
+      height: 2.75rem;
+      width: 100%;
+    }
+  }
+
+  &__cost-block {
+    display: flex;
+
+    &__input {
+      width: 31%;
+    }
+
+    &__radio-buttons {
+      margin-top: 2.7rem;
+    }
+  }
+}

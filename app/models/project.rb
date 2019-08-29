@@ -6,6 +6,22 @@ class Project < ApplicationRecord
 
   validates :title, presence: true
   validates :info, presence: true
+  validates :deadline, presence: true
+  validates :cost_type, presence: true
+  validates :project_type, presence: true
+  validate :validate_deadline_date
 
   include Searchable::Project
+
+  COST_TYPE = { price: 0, contract_price: 1, free: 2 }.freeze
+  enum cost_type: COST_TYPE
+
+  TYPE_TASK = { project_type: 0, test_type: 1 }.freeze
+  enum project_type: TYPE_TASK
+
+  protected
+
+  def validate_deadline_date
+    errors.add(:deadline, 'is invalid') if deadline? && Date.today >= deadline
+  end
 end
