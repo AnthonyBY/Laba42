@@ -29,5 +29,7 @@ class ApplicationController < ActionController::Base
 
   rescue_from CanCan::AccessDenied do
     redirect_to edit_role_profile_path unless current_user.role?
+
+    redirect_to root_path
   end
 end

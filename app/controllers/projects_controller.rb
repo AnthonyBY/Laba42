@@ -19,10 +19,6 @@ class ProjectsController < ApplicationController
     @apply = @project.applies.where(user_id: current_user.id).first if current_user
   end
 
-  def new; end
-
-  def edit; end
-
   def create
     if @project.save!
       redirect_to projects_path

@@ -19,7 +19,7 @@ class User < ApplicationRecord
     'Ruby', 'Java', 'Kotlin', 'Swift', 'Go', 'PHP', 'C++', 'C', 'Python',
     'JavaScript', 'C#', 'Rust', 'HTML', 'CSS', 'SQL', 'Visual Basic',
     '.NET', 'Objective-C'
-  ]
+  ].freeze
 
   def self.from_omniauth(auth)
     # Either create a User record or update it based on the provider (Google) and the UID
