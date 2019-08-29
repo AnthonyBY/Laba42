@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root to: 'home#index'
 
-  resources :projects
+  resources :projects do
+    resources :comments
+  end
   resources :applies
   resource :profile, controller: 'profile', only: %i[edit update] do
     post 'update_role'

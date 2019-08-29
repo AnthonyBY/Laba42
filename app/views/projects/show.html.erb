@@ -32,3 +32,9 @@
   <% end %>
 <% end %>
 <%= link_to t(:back_to_all_project), projects_path %>
+
+<h2>Comments</h2>
+<%= render @project.comments %>
+
+<h2>Add a comment:</h2>
+<%= render 'comments/form' %>
