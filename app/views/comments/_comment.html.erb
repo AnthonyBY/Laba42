@@ -9,8 +9,12 @@
     <%= comment.created_at.localtime.strftime('%d/%m/%Y %H:%M') %>
   </table>
 
-  <p>
-    <%= link_to 'Remove Comment', [comment.comment_owner, comment],
-                 method: :delete,
-                 data: { confirm: 'Are you sure?' } %>
-  </p>
+<% if user_signed_in? %>
+  <% if can? :destroy, comment %>
+    <p>
+      <%= link_to 'Remove Comment', comment,
+                   method: :delete,
+                   data: { confirm: t(:delete_confirm) } %>
+    </p>
+  <% end %>
+<% end %>

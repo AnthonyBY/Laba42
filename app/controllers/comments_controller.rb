@@ -2,8 +2,10 @@
 
 class CommentsController < ApplicationController
   before_action :authenticate_user!
-  # load_resource except: %i[create]
+  load_resource except: %i[create]
   authorize_resource
+
+  def index; end
 
   def create
     @project = Project.find(project_id)
@@ -15,21 +17,9 @@ class CommentsController < ApplicationController
     end
   end
 
-  # def update
-  #   if @comment.update(comment_params)
-  #     redirect_to @project
-  #   else
-  #     render 'edit'
-  #   end
-  # end
-
   def destroy
-    @project = Project.find(project_id)
-    @comment = @project.comments.find(params[:id])
     @comment.destroy
-    redirect_to project_path(@project)
-
-    # @comment.destroy
+    redirect_to project_path(@comment.comment_owner.id)
   end
 
   private

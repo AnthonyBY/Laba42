@@ -36,5 +36,22 @@
 <h2>Comments</h2>
 <%= render @project.comments %>
 
-<h2>Add a comment:</h2>
-<%= render 'comments/form' %>
+<% if user_signed_in? %>
+
+  <h2>Add a comment:</h2>
+
+  <%= form_with(model: @project.comments.build, local: true) do |form| %>
+    <div>
+      <p>
+        <%= form.label :content %><br>
+        <%= form.text_area :content %>
+      </p>
+
+      <%= hidden_field_tag :project_id, @project.id %>
+
+      <p>
+        <%= form.submit %>
+      </p>
+    </div>
+  <% end %>
+<% end %>
