@@ -1,18 +1,18 @@
   <table>
-    <strong>Commenter:</strong>
+    <strong><%= t(:author) %>:</strong>
     <%= comment.user.name %>
 
-    <strong>Comment:</strong>
+    <strong><%= t(:comment) %>:</strong>
     <%= comment.content %>
 
-    <strong>Published:</strong>
+    <strong><%= t(:published) %>:</strong>
     <%= comment.created_at.localtime.strftime('%d/%m/%Y %H:%M') %>
   </table>
 
 <% if user_signed_in? %>
   <% if can? :destroy, comment %>
     <p>
-      <%= link_to 'Remove Comment', comment,
+      <%= link_to t(:del_comment), comment,
                    method: :delete,
                    data: { confirm: t(:delete_confirm) } %>
     </p>

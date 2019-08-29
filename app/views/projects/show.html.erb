@@ -33,17 +33,17 @@
 <% end %>
 <%= link_to t(:back_to_all_project), projects_path %>
 
-<h2>Comments</h2>
+<h2><%= t(:comments) %>:</h2>
 <%= render @project.comments %>
 
 <% if user_signed_in? %>
 
-  <h2>Add a comment:</h2>
+  <h2><%= t(:add_comment) %>:</h2>
 
   <%= form_with(model: @project.comments.build, local: true) do |form| %>
     <div>
       <p>
-        <%= form.label :content %><br>
+        <%= form.label t(:comment) %><br>
         <%= form.text_area :content %>
       </p>
 
