@@ -2,11 +2,20 @@
   <div class="flex-grow-1"><%= link_to image_tag("laba42.svg", alt: "logo"), root_path %></div>
 
   <% if show_devise_link? %>
-    <div id="search_img" ><%= image_tag("search.svg", alt: "search") %></div>
+    <div id="search_icon" ><%= image_tag("search.svg", alt: "search") %></div>
+
     <% if user_signed_in? %>
-      <%= link_to destroy_user_session_path, method: :delete do %>
-        <%= content_tag :span, t(:log_out), class: "site-header__enter" %>
-      <% end %>
+      <div class="dropdown">
+        <%= image_tag("user.svg", alt: "user", class: "dropdown__img") %>
+        <div class="dropdown__content">
+          <%= link_to cabinet_profile_path, method: :get do %>
+            <%= content_tag :span, t(:my_profile), class: "dropdown__item" %>
+          <% end %>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+            <%= content_tag :span, t(:log_out), class: "dropdown__item" %>
+          <% end %>
+        </div>
+      </div>
     <% else %>
       <%= link_to new_user_session_path do %>
         <%= content_tag :span, t(:log_in), class: "site-header__enter" %>

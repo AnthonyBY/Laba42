@@ -74,15 +74,15 @@ document.addEventListener("turbolinks:load", function(){
 
   if (searchClose) {
     const searchToggle = document.querySelector("#search_toggle");
-    const searchImg = document.querySelector("#search_img");
+    const searchIcon = document.querySelector("#search_icon");
     let query = document.querySelector("#query");
 
     searchClose.addEventListener("click", function() {
       searchToggle.classList.add("search--disable");
-      searchImg.classList.remove("search--disable");
+      searchIcon.classList.remove("search--disable");
     });
 
-    searchImg.addEventListener("click", function() {
+    searchIcon.addEventListener("click", function() {
       searchToggle.classList.remove("search--disable");
       query.focus();
       this.classList.add("search--disable");

@@ -36,6 +36,7 @@ ru:
   log_in: "Войти"
   log_out: "Выйти"
   lets_search: "Давай что-нибудь найдём для тебя"
+  my_profile: "Мой профиль"
   name: "Ваше имя"
   password: "Ваш пароль"
   password_confirm: "Подтвердите пароль"

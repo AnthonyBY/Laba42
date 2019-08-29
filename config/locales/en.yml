@@ -50,6 +50,7 @@ en:
   log_in: "Login"
   log_out: "Log out"
   lets_search: "Let's search something for you"
+  my_profile: "My profile"
   name: "Your name"
   password: "Your password"
   password_confirm: "Confirm your password"

@@ -37,8 +37,17 @@ class ProfileController < ApplicationController
 
   def update
     if @user.update(profile_params)
-      # render 'profile/edit_profile'
-      redirect_to root_path
+      redirect_to cabinet_profile_path
+    else
+      redirect_to "/profile/#{@user.role}_setup_info"
+    end
+  end
+
+  def cabinet
+    if @user.role == 'developer'
+      render 'profile/developer_cabinet'
+    else
+      render 'profile/customer_cabinet'
     end
   end
 
