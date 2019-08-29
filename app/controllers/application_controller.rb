@@ -4,6 +4,15 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
 
+  def after_sign_in_path_for(resource)
+    stored_location_for(resource) ||
+      if current_user.role
+        super
+      else
+        edit_role_profile_path
+      end
+  end
+
   protected
 
   def set_locale
