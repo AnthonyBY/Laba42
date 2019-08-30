@@ -9,6 +9,9 @@
   </head>
   <body>
     <div class="wrapper">
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, class: "alert alert-info" %>
+      <% end %>
       <%= render partial: "shared/header" %>
       <%= yield %>
       <%= render partial: "shared/footer" %>
