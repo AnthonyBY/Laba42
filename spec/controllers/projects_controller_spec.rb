@@ -6,9 +6,17 @@ RSpec.describe ProjectsController, type: :controller do
       name: 'midd',
       email: 'user@example.org',
       password: 'very-secret',
-      role: :developer
+      role: :customer
     )
-    @project = Project.create(title: 'Project1', info: 'info to project 1', user: @user)
+    @project = Project.create(
+      title: 'Project1',
+      info: 'info to project 1',
+      user: @user,
+      cost: '12',
+      cost_type: 'price',
+      project_type: 'project_type',
+      deadline: '2020-06-06'
+    )
     sign_in @user
   end
 
@@ -44,8 +52,16 @@ RSpec.describe ProjectsController, type: :controller do
     end
 
     it 'not author' do
-      user2 = User.create(name: 'midd22', email: 'usetrr@example.org', password: 'ver12y-secret')
-      project2 = Project.create(title: 'Project1', info: 'info for project 1', user: user2)
+      user2 = User.create(name: 'midd22', email: 'usetrr@example.org', password: 'ver12y-secret', role: 'customer')
+      project2 = Project.create(
+        title: 'Project12',
+        info: 'info to project 12',
+        user: user2,
+        cost: '12',
+        cost_type: 'price',
+        project_type: 'project_type',
+        deadline: '2020-06-06'
+      )
       expect do
         post :update, params: { id: project2.id, project: { title: 'Get error',
                                                             info: 'body error' } }
@@ -55,7 +71,14 @@ RSpec.describe ProjectsController, type: :controller do
 
   context 'project #create with' do
     it 'correct params' do
-      project_params = { title: 'New project to create', info: 'body for create' }
+      project_params = {
+        title: 'Project1',
+        info: 'info to project 1',
+        cost: '12',
+        cost_type: 'price',
+        project_type: 'project_type',
+        deadline: '2020-06-06'
+      }
       post :create, params: { project: project_params }
       expect(response).to redirect_to(projects_path)
       expect(Project.exists?(project_params)).to be_truthy

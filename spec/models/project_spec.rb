@@ -10,7 +10,21 @@ RSpec.describe Project, type: :model do
       expect(project.errors.messages[:user]).to include('must exist')
     end
     it 'create with user' do
-      project = Project.new(title: 'Best title', info: 'Best info', user: User.new)
+      user = User.create!(
+        name: 'midd22',
+        email: 'user@example.org',
+        password: 'very-secret',
+        role: :customer
+      )
+      project = Project.create(
+        title: 'Project1',
+        info: 'info to project 1',
+        user: user,
+        cost: '12',
+        cost_type: 'price',
+        project_type: 'project_type',
+        deadline: '2020-06-06'
+      )
       expect(project.valid?).to eq(true)
     end
   end
