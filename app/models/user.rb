@@ -13,7 +13,7 @@ class User < ApplicationRecord
   has_many :applied_to_projects, through: :applies, class_name: "Project", foreign_key: "project_id", source: :user
   has_many :comments, dependent: :destroy
   validates :name, presence: true
-  USER_ROLES = {customer: 0, developer: 1}.freeze
+  USER_ROLES = { customer: 0, developer: 1 }.freeze
   enum role: USER_ROLES
   SKILLS = [
     'Ruby', 'Java', 'Kotlin', 'Swift', 'Go', 'PHP', 'C++', 'C', 'Python',
@@ -34,5 +34,11 @@ class User < ApplicationRecord
         refresh_token: auth.credentials.refresh_token
       )
     end
+  end
+
+  def skills=(args)
+    raise 'array expected' unless args.is_a?(Array)
+
+    super
   end
 end

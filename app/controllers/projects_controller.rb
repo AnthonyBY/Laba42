@@ -2,8 +2,8 @@
 
 class ProjectsController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
-  authorize_resource
   load_resource except: %i[show index]
+  authorize_resource
 
   def index
     @projects = Project.default_scoped
