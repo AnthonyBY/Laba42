@@ -3,6 +3,7 @@
 class Project < ApplicationRecord
   belongs_to :user
   has_many :applies, dependent: :destroy
+  has_many :comments, as: :comment_owner, dependent: :destroy
 
   validates :title, presence: true
   validates :info, presence: true
