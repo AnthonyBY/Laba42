@@ -8,13 +8,9 @@ class CommentsController < ApplicationController
   def index; end
 
   def create
-    @project = Project.find(project_id)
-    @comment = @project.comments.new(comment_params.merge(user_id: current_user.id, comment_owner_id: project_id))
-    if @comment.save
-      redirect_to project_path(@project)
-   else
-      redirect_to project_path(@project)
-    end
+    @project = Project.find(params[:project_id])
+    @comment = @project.comments.create(comment_params.merge(user_id: current_user.id, comment_owner_id: params[:project_id]))
+    redirect_to project_path(@project)
   end
 
   def destroy
@@ -25,9 +21,5 @@ class CommentsController < ApplicationController
   private
     def comment_params
       params.require(:comment).permit(:content)
-    end
-
-    def project_id
-      params[:project_id]
     end
 end
