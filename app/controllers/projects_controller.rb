@@ -20,7 +20,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    if @project.save!
+    if @project.save
       redirect_to projects_path
     else
       render 'new'
@@ -28,7 +28,7 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    if @project.update!(project_params)
+    if @project.update(project_params)
       redirect_to @project
     else
       render 'edit'
