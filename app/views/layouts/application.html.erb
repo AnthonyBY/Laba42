@@ -9,10 +9,8 @@
   </head>
   <body>
     <div class="wrapper">
-      <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, class: "alert alert-info" %>
-      <% end %>
       <%= render partial: "shared/header" %>
+      <%= render partial: 'shared/flashes' %>
       <%= yield %>
       <%= render partial: "shared/footer" %>
     </div>
