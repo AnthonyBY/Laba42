@@ -1,1 +1,32 @@
-<h1>Hi developer!</h1>
+<section class="top-menue">
+  <%= link_to "#" do %>
+    <%= content_tag :span, t(:all_projects), class: "top-menue__item-first" %>
+  <% end %>
+  <%= link_to "#" do %>
+    <%= content_tag :span, t(:my_projects), class: "top-menue__item" %>
+  <% end %>
+  <%= link_to "#" do %>
+    <%= content_tag :span, t(:favorites), class: "top-menue__item" %>
+  <% end %>
+</section>
+<h1 class="developer__title"><%= t(:this_we_find) %></h1>
+<section class="start-secondary__wrapper">
+  <% @projects.each do |project|  %>
+    <div class="start-secondary__item">
+      <div class="start-secondary__item-wrapper">
+        <h5 class="start-secondary__item-title" ><%= project.title %></h5>
+        <span class="start-secondary__item-subtitle-item"><%= t(:published) %><%= project.created_at.localtime.strftime('%d/%m/%Y') %></span>
+        <p class="start-secondary__item-text" ><%= project.info[0..120] %>...</p>
+      </div>
+      <%= link_to project_path(project) do %>
+        <%= content_tag :span, t(:take_job), class: "button button--blue button--stretch button--large button--list-project" %>
+      <% end %>
+    </div>
+  <% end %>
+</section>
+<section class="start-third">
+  <%= link_to do %>
+    <%= content_tag :span, t(:show_more), class: "button button--large button--white" %>
+   <% end %>
+</section>
+
