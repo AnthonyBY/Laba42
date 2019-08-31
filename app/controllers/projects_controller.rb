@@ -16,14 +16,8 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.includes(:user).find(params[:id])
-    if current_user
-      @apply = @project.applies.where(user_id: current_user.id).first
-    end
+    @apply = @project.applies.where(user_id: current_user.id).first if current_user
   end
-
-  def new; end
-
-  def edit; end
 
   def create
     if @project.save
@@ -49,6 +43,7 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:title, :info, :cost, :cost_type, :project_type, :deadline, skills:[])
+    params.require(:project).permit(:title, :info, :cost, :cost_type,
+                                    :project_type, :deadline, skills: [])
   end
 end

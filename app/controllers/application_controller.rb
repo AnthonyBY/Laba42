@@ -3,7 +3,15 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
-  before_action :handle_unfilled_role
+
+  def after_sign_in_path_for(resource)
+    stored_location_for(resource) ||
+      if current_user.role
+        super
+      else
+        edit_role_profile_path
+      end
+  end
 
   protected
 
@@ -19,7 +27,9 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
 
-  def handle_unfilled_role
-    redirect_to '/profile/edit_role' if current_user && !current_user.role
+  rescue_from CanCan::AccessDenied do
+    redirect_to edit_role_profile_path unless current_user.role?
+
+    redirect_to root_path
   end
 end

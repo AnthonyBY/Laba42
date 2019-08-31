@@ -13,6 +13,19 @@
   <%= @project.info %>
 </p>
 
+<p>
+  <strong><%= t(:skills) %>:</strong>
+  <%= @project.skills*", " %>
+</p>
+
+<p>
+  <strong><%= t(:cost) %>:</strong>
+  <%= @project.cost %>
+</p>
+<p>
+  <strong><%= t(:deadline) %>:</strong>
+  <%= @project.deadline %>
+</p>
 <% if user_signed_in? %>
 
   <div>

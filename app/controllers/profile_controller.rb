@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class ProfileController < ApplicationController
-  skip_before_action :handle_unfilled_role, only: %i[edit_role update_role]
   before_action :authenticate_user!
   before_action :set_user
 
