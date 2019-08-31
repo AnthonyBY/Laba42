@@ -9,8 +9,12 @@ class CommentsController < ApplicationController
 
   def create
     @project = Project.find(params[:project_id])
-    @comment = @project.comments.create(comment_params.merge(user_id: current_user.id, comment_owner_id: params[:project_id]))
-    redirect_to project_path(@project)
+    @comment = @project.comments.new(comment_params.merge(user_id: current_user.id, comment_owner_id: params[:project_id]))
+    if @comment.save
+      redirect_to project_path(@project)
+    else
+      redirect_to project_path(@project), alert: @comment.errors.full_messages
+    end
   end
 
   def destroy

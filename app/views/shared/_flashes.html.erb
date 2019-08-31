@@ -1,0 +1,13 @@
+<% flash.each do |type, msg| %>
+
+  <% if type == 'notice'%>
+    <div class="alert alert-success alert-dismissible fade show">
+  <% end %>
+
+  <% if type == 'alert' %>
+    <div class="alert alert-danger alert-dismissible fade show">
+  <% end %>
+
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <%= msg %></div>
+<% end %>
