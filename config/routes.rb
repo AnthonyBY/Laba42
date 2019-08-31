@@ -19,5 +19,6 @@ Rails.application.routes.draw do
     get 'developer_setup_info'
     get 'customer_edit'
     get 'developer_edit'
+    get 'cabinet'
   end
 end

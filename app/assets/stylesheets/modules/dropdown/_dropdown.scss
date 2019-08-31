@@ -1,0 +1,45 @@
+.dropdown {
+  position: relative;
+
+  &--content {
+    background-color: $white-color;
+    border-radius: 0.625rem;
+    box-shadow: 0 0.25rem 0.625rem 0 rgba($black-color-specific, 0.2);
+    display: none;
+    min-width: 10rem;
+    overflow: hidden;
+    position: absolute;
+    right: 2.1875rem;
+    z-index: 6;
+  }
+
+  &__item {
+    color: $black-color;
+    display: block;
+    font-size: 1rem;
+    padding: 0.875rem 1.5rem;
+    text-decoration: none;
+
+    &:hover {
+      background-color: $button-hover;
+      color: $white-color;
+    }
+
+    &:active {
+      background-color: $button-press;
+      color: $white-color;
+    }
+  }
+
+  &__img {
+    margin-left: 2.813rem;
+    margin-right: 2.188rem;
+  }
+
+  &:hover {
+
+    .dropdown--content {
+      display: block;
+    }
+  }
+}
