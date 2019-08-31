@@ -2,8 +2,19 @@ ru:
   activerecord:
     errors:
       models:
+        user:
+          attributes:
+            email:
+              blank: 'не может быть пустым'
+              invalid: 'недействительный'
+            name:
+              blank: 'не может быть пустым'
+            password:
+              blank: 'не может быть пустым'
         project:
           attributes:
+            user:
+              required: 'должен существовать'
             title:
               blank: 'не может быть пустым'
             info:

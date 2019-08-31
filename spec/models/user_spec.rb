@@ -11,19 +11,19 @@ RSpec.describe User, type: :model do
     it 'wrong mail' do
       @user.email = 'midda'
       expect(@user.valid?).to eq(false)
-      expect(@user.errors.messages[:email].first).to eq('is invalid')
+      expect(@user.errors.messages[:email].first).to eq('имеет неверное значение')
     end
 
     it 'empty name' do
       @user.name = ''
       expect(@user.valid?).to eq(false)
-      expect(@user.errors.messages[:name].first).to eq("can't be blank")
+      expect(@user.errors.messages[:name].first).to eq('не может быть пустым')
     end
 
     it 'empty password' do
       @user.password = ''
       expect(@user.valid?).to eq(false)
-      expect(@user.errors.messages[:password].first).to eq("can't be blank")
+      expect(@user.errors.messages[:password].first).to eq('не может быть пустым')
     end
   end
 

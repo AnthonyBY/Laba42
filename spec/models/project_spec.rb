@@ -7,7 +7,7 @@ RSpec.describe Project, type: :model do
     it 'not create without user' do
       project = Project.new(title: 'Best title', info: 'Best info')
       expect(project.valid?).to eq(false)
-      expect(project.errors.messages[:user]).to include('must exist')
+      expect(project.errors.messages[:user]).to include('не может отсутствовать')
     end
     it 'create with user' do
       user = User.create!(
