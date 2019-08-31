@@ -33,17 +33,19 @@ document.addEventListener("turbolinks:load", function(){
             regSubmit.addClass("not-allowed");
           };
 
-    function flip(clickElem, addElem, removeElem) {
+    function flip(clickElem, addElem, removeElem, input, param) {
       clickElem.on("click", function() {
         addElem.addClass("search--disable");
         removeElem.removeClass("search--disable");
+        input.attr("type", param);
+
       });
     }
 
-    flip(eyeClosed, eyeClosed, eyeOpened);
-    flip(eyeOpened, eyeOpened, eyeClosed);
-    flip(eyeClosedConfirm, eyeClosedConfirm, eyeOpenConfirm, passConfirm.attr("type","text"));
-    flip(eyeOpenConfirm, eyeOpenConfirm, eyeClosedConfirm);
+    flip(eyeClosed, eyeClosed, eyeOpened, pass, "text");
+    flip(eyeOpened, eyeOpened, eyeClosed, pass, "password");
+    flip(eyeClosedConfirm, eyeClosedConfirm, eyeOpenConfirm, passConfirm, "text");
+    flip(eyeOpenConfirm, eyeOpenConfirm, eyeClosedConfirm, passConfirm, "password");
 
     userEmail.keyup(function() {
       if (regExpEmail.test(userEmail.val())) {
