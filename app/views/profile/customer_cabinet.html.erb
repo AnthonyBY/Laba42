@@ -1,1 +1,53 @@
-<h1>Hi customer!</h1>
+<div class="customer">
+  <section class="customer__dashboard">
+    <div class="customer-relative">
+      <%= image_tag("arrow.svg", alt: "arrow", class: "customer__arrow") %>
+      <%= link_to do %>
+        <%= content_tag :span, image_tag("folders.svg", alt: "folders", class: "customer__img") + t(:projects) %>
+      <% end %>
+    </div>
+    <div class="customer-relative">
+      <%= image_tag("arrow.svg", alt: "arrow", class: "customer__arrow") %>
+      <%= link_to do %>
+        <%= content_tag :span, image_tag("messages.svg", alt: "messages", class: "customer__img") + t(:messages) %>
+      <% end %></div>
+    <div class="customer-relative">
+      <%= image_tag("arrow.svg", alt: "arrow", class: "customer__arrow") %>
+      <%= link_to do %>
+        <%= content_tag :span, image_tag("avatar.svg", alt: "avatar", class: "customer__img") + t(:my_profile) %>
+      <% end %>
+    </div>
+    <div class="customer-relative">
+      <%= image_tag("arrow.svg", alt: "arrow", class: "customer__arrow") %>
+      <%= link_to do %>
+        <%= content_tag :span, image_tag("settings.svg", alt: "settings", class: "customer__img") + t(:settings) %>
+      <% end %>
+    </div>
+    <div class="customer-relative">
+      <%= image_tag("arrow.svg", alt: "arrow", class: "customer__arrow") %>
+      <%= link_to do %>
+        <%= content_tag :span, image_tag("add.svg", alt: "add", class: "customer__img") + t(:add_task) %>
+      <% end %>
+    </div>
+  </section>
+
+  <section class="customer__body">
+    <div class="customer-body-wrapper">
+      <h1 class="customer__title"><%= t(:responses) %></h1>
+      <div class="customer__response">
+        <%= image_tag("respons.png", alt: "response") %>
+      </div>
+      <div class="customer__response">
+        <%= image_tag("respons.png", alt: "response") %>
+      </div>
+      <div class="customer__response">
+        <%= image_tag("respons.png", alt: "response") %>
+      </div>
+      <div class="customer__fixed">
+        <%= link_to new_project_path do %>
+          <%= image_tag("plus.svg", alt: "plus") %>
+        <% end %>
+      </div>
+    </div>
+  </section>
+</div>
