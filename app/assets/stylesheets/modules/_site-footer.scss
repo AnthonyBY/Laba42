@@ -16,6 +16,12 @@
     transform: translate(-50%, -50%);
   }
 
+  &__wrapper {
+    height: 3rem;
+    margin: 0 auto;
+    max-width: 71.25rem;
+  }
+
   a {
     color: $footer-blue;
 

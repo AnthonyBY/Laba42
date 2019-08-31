@@ -10,4 +10,5 @@ img {
 .wrapper {
   margin: 0 auto;
   max-width: 71.25rem;
+  min-height: calc(100vh - 10rem);
 }
