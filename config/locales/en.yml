@@ -30,7 +30,11 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  about: "About"
+  footer:
+    about: "About"
+    support: "Support"
+    telegram: "Telegram Chat"
+    facebook: "Facebook"
   about_company: "About company"
   about_yourself: "Tell about yourself"
   alias1: "Didn't receive confirmation instructions?"
@@ -41,14 +45,13 @@ en:
   company_name: "Company name"
   developer_registration_head_text: "What do you do?"
   email: "Email"
-  facebook: "Facebook"
   facebook_btn: "Enter through Facebook"
   favorites: "Favorites"
   forgot_pass: "Remind me my password, please"
   good_note: "This email is suited"
   google_btn: "Enter through Google"
   greeting: "Welcome!"
-  info: "About"
+  info: "Description"
   introduce_yourself: "Please, introduce yourself"
   log_in: "Login"
   log_out: "Log out"
@@ -77,9 +80,7 @@ en:
   start_page_button: "Post project"
   start_page_subtitle: "Is there anything to offer the guys starting in IT?"
   start_page_title: "We gonna help you to find your first job or a promising colleague!"
-  support: "Support"
   take_job: "More details"
-  telegram: "Telegram Chat"
   this_we_find: "This we've found special for you"
   let_acquainted: "Let`s gets acquainted!"
   wu_search: "What are you looking for?"
