@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   authorize_resource except: %i[email_exists]
   load_resource

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Searchable
   module Project
     extend ActiveSupport::Concern
@@ -7,7 +9,7 @@ module Searchable
       pg_search_scope(
         :search,
         against: %i[title info],
-        using: { tsearch: { prefix: true } },
+        using: { tsearch: { prefix: true } }
       )
     end
   end

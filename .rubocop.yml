@@ -1,31 +1,26 @@
 AllCops:
   TargetRubyVersion: 2.6
-  Include:
-    - 'config.ru'
-    - 'Gemfile'
-    - 'Guardfile'
-    - 'Rakefile'
-
   Exclude:
-    - 'app/views/**/*'
+    - 'db/**/*'
+    - 'Rakefile'
+    - 'config.ru'
     - 'bin/*'
-    - 'db/schema.rb'
-    - 'db/migrate/*'
-    - 'log/**/*'
-    - 'node_modules/**/*'
-    - 'public/**/*'
-    - 'scripts/**/*'
     - 'vendor/**/*'
-    - 'tmp/**/*'
-    - '.git/**/*'
-
-Style/FrozenStringLiteralComment:
-  Enabled: false
+    - 'node_modules/**/*'
+    - 'spec/**/*'
 
 Style/Documentation:
   Enabled: false
 
 
 Metrics/LineLength:
-  Max: 100
+  Max: 160
 
+Metrics/AbcSize:
+  Max: 20
+
+Metrics/BlockLength:
+  Max: 35
+
+Metrics/MethodLength:
+  Max: 20
