@@ -1,0 +1,23 @@
+.top-menue {
+
+  border-bottom: 1px solid $top-menue-border;
+  display: flex;
+  justify-content: space-between;
+  padding: 1.06rem 0 0.75rem;
+  width: 26.125rem;
+
+  a {
+    text-decoration: none;
+  }
+
+  &__item {
+    color: $black-color;
+    text-align: center;
+
+    &-first {
+      border-bottom: 1px solid $main-blue;
+      color: $main-blue;
+      padding-bottom: 0.75rem;
+    }
+  }
+}
