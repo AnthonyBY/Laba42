@@ -6,7 +6,7 @@ ru:
           attributes:
             email:
               blank: 'не может быть пустым'
-              invalid: 'недействительный'
+              invalid: 'имеет неверное значение'
             name:
               blank: 'не может быть пустым'
             password:
@@ -14,14 +14,18 @@ ru:
         project:
           attributes:
             user:
-              required: 'должен существовать'
+              required: 'не может отсутствовать'
             title:
               blank: 'не может быть пустым'
             info:
               blank: 'не может быть пустым'
             deadline:
               blank: 'не может быть пустым'
-  about: "О нас"
+  footer:
+    about: "О нас"
+    support: "Поддержка"
+    telegram: "Мы в Telegram"
+    facebook: "Мы в Facebook"
   about_company: "О компании"
   about_yourself: "Расскажите о себе"
   add_task: "Добавить задачу"
@@ -33,7 +37,6 @@ ru:
   customer: "Работников"
   developer: "Работу"
   developer_registration_head_text: "Чем занимаешься?"
-  facebook: "Мы в Facebook"
   facebook_btn: "Войти через Facebook"
   favorites: "Избранное"
   email: "Ваша электронная почта"
@@ -41,7 +44,7 @@ ru:
   good_note: "Эта почта подходит"
   google_btn: "Войти через Google"
   greeting: "Добро пожаловать!"
-  info: "О Вас"
+  info: "Описание"
   introduce_yourself: "Представьтесь, пожалуйста"
   input_name: "Ваше имя"
   input_company_name: "Название вашей компании"
@@ -74,9 +77,7 @@ ru:
   start_page_button: "Разместить проект"
   start_page_subtitle: "Есть что предложить ребятам, стартующим в айти?"
   start_page_title: "Поможем найти первую работу или перспективного коллегу!"
-  support: "Поддержка"
   take_job: "Подробнее"
-  telegram: "Мы в Telegram"
   this_we_find: "Это мы нашли специально для тебя"
   customer_registration_head_text: "Супер! Много талантливых ребят уже ждут ваши задачи!"
   customer_registration_head_text_muted: "Расскажите о себе и начнем работать!"
