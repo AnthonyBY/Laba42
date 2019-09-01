@@ -23,9 +23,7 @@ class ProfileController < ApplicationController
     role = params[:role].to_sym
     raise "Unknown role: #{role}" unless User::USER_ROLES.key?(role)
 
-    if @user.update(role: role)
-      redirect_to "/profile/#{params[:role]}_setup_info"
-    end
+    redirect_to "/profile/#{params[:role]}_setup_info" if @user.update(role: role)
   end
 
   def edit; end
