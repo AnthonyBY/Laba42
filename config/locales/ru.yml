@@ -21,6 +21,8 @@ ru:
               blank: 'не может быть пустым'
             deadline:
               blank: 'не может быть пустым'
+            skills:
+              blank: 'не может быть пустым'
   footer:
     about: "О нас"
     support: "Поддержка"
@@ -123,3 +125,19 @@ ru:
   comments: "Комментарии"
   del_comment: "Удалить комментарий"
   add_comment: "Добавить комментарий"
+  project_owner_name: "Имя владельца проекта"
+  project_owner_company_name: "Имя компании"
+  require_skills: "Требуемые навыки"
+  status: "Статус"
+  denied: "отказано"
+  waiting: "ожидание"
+  accept: "принят"
+  delete_project: "Удалить"
+  your_projects: "Ваши проекты"
+  make_sure: "Убедитесь"
+  not_empty: "не пустые поля"
+  your_applies_empty: "у вас нет откликов..."
+  post: "Разместить"
+  no_projects: "у вас нет проектов..."
+  closed: "Закрыт"
+  quit: "Отказался от отклика"

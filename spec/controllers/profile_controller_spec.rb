@@ -34,7 +34,7 @@ RSpec.describe ProfileController, type: :controller do
     it 'update' do
       @user.update(role: :developer)
       post 'update', params: { phone_number: '3423432', company_name: 'company_name user' }
-      expect(response).to redirect_to(cabinet_profile_url)
+      expect(response).to redirect_to(cabinet_profile_path)
       @user.reload
       expect(@user.phone_number).to eq('3423432')
       expect(@user.company_name).to eq('company_name user')

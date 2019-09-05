@@ -1,34 +1,39 @@
 <div class="customer">
   <section class="customer__dashboard">
-    <div class="customer-relative">
-      <%= image_tag("arrow.svg", alt: "arrow", class: "customer__arrow") %>
-      <%= link_to do %>
-        <%= content_tag :span, image_tag("folders.svg", alt: "folders", class: "customer__img") + t(:projects) %>
-      <% end %>
-    </div>
-    <div class="customer-relative">
-      <%= image_tag("arrow.svg", alt: "arrow", class: "customer__arrow") %>
-      <%= link_to do %>
+    <%= link_to my_projects_path do %>
+      <div class="customer-relative">
+        <%= image_tag("arrow.svg", alt: "arrow", class: "customer__arrow") %>
+          <%= content_tag :span, image_tag("folders.svg", alt: "folders", class: "customer__img") + t(:projects) %>
+      </div>
+    <% end %>
+
+    <%= link_to do %>
+      <div class="customer-relative">
+        <%= image_tag("arrow.svg", alt: "arrow", class: "customer__arrow") %>
         <%= content_tag :span, image_tag("messages.svg", alt: "messages", class: "customer__img") + t(:messages) %>
-      <% end %></div>
-    <div class="customer-relative">
-      <%= image_tag("arrow.svg", alt: "arrow", class: "customer__arrow") %>
-      <%= link_to do %>
+      </div>
+    <% end %>
+
+    <%= link_to customer_edit_profile_path do %>
+      <div class="customer-relative">
+        <%= image_tag("arrow.svg", alt: "arrow", class: "customer__arrow") %>
         <%= content_tag :span, image_tag("avatar.svg", alt: "avatar", class: "customer__img") + t(:my_profile) %>
-      <% end %>
-    </div>
-    <div class="customer-relative">
-      <%= image_tag("arrow.svg", alt: "arrow", class: "customer__arrow") %>
-      <%= link_to do %>
+      </div>
+    <% end %>
+
+    <%= link_to do %>
+      <div class="customer-relative">
+        <%= image_tag("arrow.svg", alt: "arrow", class: "customer__arrow") %>
         <%= content_tag :span, image_tag("settings.svg", alt: "settings", class: "customer__img") + t(:settings) %>
-      <% end %>
-    </div>
-    <div class="customer-relative">
-      <%= image_tag("arrow.svg", alt: "arrow", class: "customer__arrow") %>
-      <%= link_to do %>
+      </div>
+    <% end %>
+
+    <%= link_to new_project_path do %>
+      <div class="customer-relative">
+        <%= image_tag("arrow.svg", alt: "arrow", class: "customer__arrow") %>
         <%= content_tag :span, image_tag("add.svg", alt: "add", class: "customer__img") + t(:add_task) %>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </section>
 
   <section class="customer__body">

@@ -1,0 +1,15 @@
+<% if session[:field_errors] %>
+    <div class="card text-white bg-danger mt-3" style="max-width: 25rem; font-size: 0.8rem; margin-bottom: -10rem">
+      <div class="card-header"><%= t(:make_sure) %>:</div>
+      <div class="card-body">
+        <div class="card-text">
+           <div class="mr-3">-<%= t(:name) %></div>
+           <div>-<%= t(:phone_number) %></div>
+           <div>-<%= t(:company_name) %></div>
+
+        </div>
+      </div>
+      <div class="card-footer"><%= t(:not_empty) %></div>
+    </div>
+<% end %>
+<% session[:field_errors] = nil %>

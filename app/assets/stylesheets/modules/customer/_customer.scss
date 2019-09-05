@@ -2,8 +2,8 @@
   display: flex;
 
   &__dashboard {
-    background-color: $white-color;
-    width: 16rem;
+    background-color: $background-light-gray;
+    width: 18rem;
 
     a {
       color: rgba($customer-blue, 0.9);
@@ -20,8 +20,17 @@
   }
 
   &-relative {
-    padding: 1.375rem 0;
+    background-color: $white-color;
+    border: 0.09rem solid $skills-blue-opacity;
+    border-radius: 0.2rem;
+    margin: 0 auto 0.3rem;
+    padding: 1.375rem 1rem;
     position: relative;
+
+    &:hover {
+      background-color: $skills-blue-opacity;
+      border-radius: 0.2rem;
+    }
   }
 
   &__arrow {

@@ -4,7 +4,7 @@
     <h2 class="start-large__subtitle"><%= t(:start_page_subtitle) %></h2>
     <div>
       <% if user_signed_in? %>
-        <% if current_user.role == 'customer' %>
+        <% if current_user.customer? %>
          <%= link_to new_project_path  do %>
           <%= content_tag :span, t(:start_page_button), class: "button button--blue button--large" %>
          <% end %>
@@ -23,21 +23,21 @@
   <h3 class="start-secondary__title"><%= t(:show_wow) %></h3>
   <div class="start-secondary__wrapper">
     <% @projects.each do |p|  %>
+      <%= link_to project_path(p), style: 'text-decoration: none; color: black;' do %>
       <div class="start-secondary__item">
         <div class="start-secondary__item-wrapper">
           <h5 class="start-secondary__item-title" ><%= p.title %></h5>
           <span class="start-secondary__item-subtitle-item"><%= t(:published) %><%= p.created_at.localtime.strftime('%d/%m/%Y') %></span>
-          <p class="start-secondary__item-text" ><%= p.info[0..120] %>...</p>
+          <div class="start-secondary__item-text" ><%= markdown(p.info.html_safe) %></div>
         </div>
-        <%= link_to project_path(p) do %>
-          <%= content_tag :span, t(:take_job), class: "button button--blue button--stretch button--large button--list-project" %>
+          <% content_tag :span, t(:take_job) %>
         <% end %>
       </div>
     <% end %>
   </div>
 </section>
 <section class="start-third">
-  <%= link_to do %>
-    <%= content_tag :span, t(:show_more), class: "button button--large button--white" %>
+  <%= link_to projects_path do %>
+    <%= content_tag :span, t(:show_more), class: "button button--large button--light-gray" %>
    <% end %>
 </section>

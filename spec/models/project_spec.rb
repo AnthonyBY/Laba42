@@ -23,7 +23,8 @@ RSpec.describe Project, type: :model do
         cost: '12',
         cost_type: 'price',
         project_type: 'project_type',
-        deadline: '2020-06-06'
+        deadline: '2020-06-06',
+        skills: 'java ruby'
       )
       expect(project.valid?).to eq(true)
     end

@@ -56,6 +56,17 @@
     }
   }
 
+  &--light-gray {
+    background-color: $background-light-gray;
+    color: $main-blue;
+
+    &:hover {
+      background-color: $skills-blue-opacity;
+      box-shadow: 0.5rem 0.3rem 1rem $skills-blue-opacity;
+      transition-duration: 0.6s;
+    }
+  }
+
   &--choice {
     border: 0.09375rem solid $main-blue;
     width: 10.3125rem;

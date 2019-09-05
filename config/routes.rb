@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     devise_for :users, skip: :omniauth_callbacks
     root to: 'home#index'
 
+    get 'my_projects', to: 'home#my_projects'
+
     resources :projects
     resources :comments
     resources :applies

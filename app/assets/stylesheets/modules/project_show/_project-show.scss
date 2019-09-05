@@ -1,0 +1,126 @@
+.in-line-items {
+  display: flex;
+}
+
+.margin-1-2rem {
+  margin-top: 1.2rem;
+}
+
+.disable-sides-margin {
+  margin: 1rem 0;
+  min-height: 9rem;
+  padding: 1rem;
+  width: 100%;
+}
+
+.gray-text {
+  color: $gray;
+  font-size: 0.9rem;
+}
+
+.project {
+
+  &__cost {
+    background-color: $background-yellow-light;
+    font-size: 1rem;
+    height: 3.3rem;
+    min-width: 10rem;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  &__title {
+    font-size: 1.9rem;
+    padding: 0 1rem;
+  }
+
+  &__edit-links {
+    background-color: $shadow-body;
+    font-size: 1rem;
+    padding: 0 2rem;
+  }
+
+  &__expires {
+    color: $light-gray;
+    font-size: 0.8125rem;
+    margin-bottom: 1.25rem;
+    margin-right: 2rem;
+    margin-top: 1rem;
+  }
+
+  &__company-name {
+    background-color: $shadow-body;
+    margin: 0.2rem 0;
+    padding: 0.2rem 1.5rem;
+  }
+
+  &__skills {
+    margin-top: 1.75rem;
+
+    &__title {
+      margin: 0.5rem 0;
+    }
+
+    &__item {
+      background-color: $skills-blue-opacity;
+      color: $footer-blue;
+      margin-right: 0.5rem;
+      padding: 0.2rem 1rem;
+    }
+  }
+
+  &__apply-text {
+    color: $black-color;
+    width: 10rem;
+  }
+
+  &__button-position {
+    margin-top: 0;
+  }
+
+  &__backlink-margin {
+    margin: 2rem 0;
+  }
+
+
+  &__comments {
+    &__title {
+      background-color: $background-light-gray;
+      border-bottom: 2px solid $light-gray;
+      font-size: 1.5rem;
+      margin: 2rem 0;
+      text-align: left;
+    }
+
+    &__item {
+      border: 2px solid $shadow-body;
+      margin: 0.5rem 2rem;
+      min-height: 4rem;
+      width: 95%;
+    }
+
+    &__item-own-name {
+      background-color: $white-color;
+    }
+
+    &__owner {
+      color: $footer-blue;
+      font-size: 1.2rem;
+      font-style: italic;
+      margin-left: 2rem;
+    }
+
+    &__content {
+      min-height: 1rem;
+      padding-left: 1rem;
+    }
+
+    &__created-at {
+      margin-bottom: 0;
+      margin-left: 1rem;
+      text-align: right;
+    }
+  }
+}
+
+

@@ -1,0 +1,10 @@
+<% if apply %>
+  <div class="project__company-name col-md-3">
+    <%= t(:status) %>:
+    <%= t(:denied) if apply.denied? %>
+    <%= t(:waiting) if apply.waiting? %>
+    <%= t(:accept) if apply.accept? %>
+    <%= t(:closed) if apply.closed? %>
+    <%= t(:quit) if apply.quit? %>
+  </div>
+<% end %>

@@ -17,7 +17,8 @@ RSpec.describe ProjectsController, type: :controller do
       cost: '12',
       cost_type: 'price',
       project_type: 'project_type',
-      deadline: '2020-06-06'
+      deadline: '2020-06-06',
+      skills: 'java ruby'
     )
     sign_in @user
   end
@@ -62,7 +63,8 @@ RSpec.describe ProjectsController, type: :controller do
         cost: '12',
         cost_type: 'price',
         project_type: 'project_type',
-        deadline: '2020-06-06'
+        deadline: '2020-06-06',
+        skills: 'java ruby'
       )
       expect do
         post :update, params: { id: project2.id, project: { title: 'Get error',
@@ -74,16 +76,18 @@ RSpec.describe ProjectsController, type: :controller do
   context 'project #create with' do
     it 'correct params' do
       project_params = {
-        title: 'Project1',
+        title: 'Project12',
         info: 'info to project 1',
-        cost: '12',
+        cost: 12,
         cost_type: 'price',
         project_type: 'project_type',
-        deadline: '2020-06-06'
+        deadline: '2020-06-06'.to_date,
+        user_id: @user.id,
+        skills: 'css ruby'
       }
       post :create, params: { project: project_params }
       expect(response).to redirect_to(projects_path)
-      expect(Project.exists?(project_params)).to be_truthy
+      expect(Project.exists?(project_params.first(7).to_h)).to be_truthy
     end
 
     it 'wrong params' do

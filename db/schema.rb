@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_28_094931) do
+ActiveRecord::Schema.define(version: 2019_08_31_221601) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2019_08_28_094931) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "apply_status", default: 0, null: false
     t.index ["project_id", "user_id"], name: "index_applies_on_project_id_and_user_id", unique: true
   end
 
@@ -41,10 +42,10 @@ ActiveRecord::Schema.define(version: 2019_08_28_094931) do
     t.jsonb "skills", default: [], null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "project_type", default: 0
-    t.integer "cost", default: 0
-    t.integer "cost_type", default: 0
-    t.date "deadline"
+    t.integer "project_type", default: 0, null: false
+    t.integer "cost", default: 0, null: false
+    t.integer "cost_type", default: 0, null: false
+    t.date "deadline", null: false
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 

@@ -9,11 +9,7 @@ class AppliesController < ApplicationController
 
   def create
     @apply = Apply.new(apply_params.merge(user_id: current_user.id))
-    if @apply.save
-      redirect_to applies_path
-    else
-      redirect_to "/projects/#{params[:project_id]}"
-    end
+    redirect_to "/projects/#{params[:project_id]}" if @apply.save
   end
 
   def destroy

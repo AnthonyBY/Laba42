@@ -36,12 +36,13 @@ class ProfileController < ApplicationController
     if @user.update(profile_params)
       redirect_to cabinet_profile_path
     else
-      redirect_to "/profile/#{@user.role}_setup_info"
+      session[:field_errors] = true
+      redirect_back(fallback_location: customer_edit)
     end
   end
 
   def cabinet
-    if @user.role == 'developer'
+    if @user.developer?
       @projects = Project.all
       render 'profile/developer_cabinet'
     else

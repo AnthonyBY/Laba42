@@ -6,11 +6,13 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.3'
 
 gem 'devise', '~> 4.6'
+gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'pg_search', '~> 2.3'
+gem 'redcarpet'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -68,9 +70,9 @@ group :test do
   gem 'selenium-webdriver'
   gem 'simplecov'
   # Easy installation and use of chromedriver to run system tests with Chrome
-  gem 'chromedriver-helper'
   gem 'rspec', '~> 3.8'
   gem 'rspec-rails', '~> 3.8'
+  gem 'webdrivers'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -79,5 +81,4 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'google-api-client', '~> 0.13.6'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2', '~> 0.2.2'
-
 gem 'cancancan'

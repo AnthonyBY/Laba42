@@ -1,70 +1,119 @@
-<p>
-  <strong><%= t(:title) %>:</strong>
-  <%= @project.title %>
-</p>
+<%= render partial: "shared/top-vertical-menu" %>
 
-<p>
-  <strong><%= t(:author) %>:</strong>
-  <%= @project.user.name %>
-</p>
-
-<p>
-  <strong><%= t(:info) %>:</strong>
-  <%= @project.info %>
-</p>
-
-<p>
-  <strong><%= t(:skills) %>:</strong>
-  <%= @project.skills*", " %>
-</p>
-
-<p>
-  <strong><%= t(:cost) %>:</strong>
-  <%= @project.cost %>
-</p>
-<p>
-  <strong><%= t(:deadline) %>:</strong>
-  <%= @project.deadline %>
-</p>
-<% if user_signed_in? %>
-
-  <div>
-    <% if @apply %>
-      <p><%= t(:apply)%> <%= @apply.created_at.localtime.strftime('%d/%m/%Y %H:%M') %></p>
-    <% else %>
-      <%= link_to t(:apply_project),{ controller: 'applies', action: 'create', project_id: @project.id},
-              {method: :post} %>
+<div class="margin-1-2rem in-line-items">
+  <div class="project__cost">
+    <%= t(:project) %>:
+    <%= @project.cost %> $
+  </div>
+  <div class="project__title">
+    <%= @project.title %>
+    <% if can? :manage, @project %>
+        <%= link_to t(:edit), edit_project_path(@project), class: 'project__edit-links' %>
+        <%= link_to t(:destroy), project_path(@project),
+                    method: :delete,
+                    data: { confirm: t(:delete_confirm) }, class: 'project__edit-links' %>
     <% end %>
   </div>
+</div>
 
-  <% if can? :manage, @project %>
-    <%= link_to t(:edit), edit_project_path(@project) %>
-    <%= link_to t(:destroy), project_path(@project),
-                              method: :delete,
-                              data: { confirm: t(:delete_confirm) } %>
-  <% end %>
-<% end %>
-<%= link_to t(:back_to_all_project), projects_path %>
+<div class="in-line-items">
+  <div class="project__expires">
+      <%= t(:created_at) %>:
+      <%= @project.created_at.strftime("%d  %h  %Y") %>
+  </div>
+  <div class="project__expires">
+    <%= t(:expires) %>:
+    <%= @project.deadline.strftime("%d  %h  %Y") %>
+  </div>
+</div>
 
-<h2><%= t(:comments) %>:</h2>
-<%= render @project.comments %>
-
-<% if user_signed_in? %>
-
-  <h2><%= t(:add_comment) %>:</h2>
-
-  <%= form_with(model: @project.comments.build, local: true) do |form| %>
-    <div>
+  <% if @project.user.company_name %>
+    <div class="in-line-items">
+      <div class="project__company-name">
+        <a class="gray-text"><%= t(:project_owner_company_name) %>:</a>
+        <%= @project.user.company_name %>
+      </div>
+    </div>
+    <div class="in-line-items">
+      <div class="project__company-name">
+        <a class="gray-text"><%= t(:project_owner_name) %>:</a>
+        <%= @project.user.name %>
+      </div>
+    </div>
+  <%  end %>
+  <div class="form-input disable-sides-margin">
+    <%= markdown(@project.info) %>
+  </div>
+  <% unless @project.skills.empty? %>
+    <div class="project__skills">
+      <div class="project__skills__title">
+        <%= t(:require_skills) %>:
+      </div>
       <p>
-        <%= form.label t(:comment) %><br>
-        <%= form.text_area :content %>
-      </p>
-
-      <%= hidden_field_tag :project_id, @project.id %>
-
-      <p>
-        <%= form.submit %>
+      <div class="in-line-items">
+        <% @project.skills.each do |s| %>
+            <% if s.is_a?(Array) %>
+            <% s.each do |i| %>
+              <div class="project__skills__item">
+                <%= i.upcase %>
+              </div>
+            <% end %>
+              <% else %>
+            <div class="project__skills__item">
+              <%= s.upcase %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
       </p>
     </div>
   <% end %>
-<% end %>
+    <% if @apply %>
+    <%= link_to applies_path, style: 'text-decoration: none; color: black;' do  %>
+      <p class="project__apply-text">
+        <div class="button--blue button--large" style="background-color: rgba(79,128,77,0.52); text-align: center">
+        <%= t(:apply)%>
+        <%= @apply.created_at.localtime.strftime('%d/%m/%Y %H:%M') %>
+        </div>
+      </p>
+
+    <%= render partial: "shared/status-line", locals: { apply: @apply } %>
+
+    <% end %>
+    <% else %>
+      <%= button_to t(:apply_project), {controller: 'applies', action: 'create', project_id: @project.id}, class: 'button button--blue button--login project__button-position' %>
+    <% end %>
+<div class=" project__backlink-margin">
+
+  <%= link_to t(:back_to_all_project), projects_path,class: 'project__company-name' %>
+</div>
+
+
+
+  <div class="project__comments__title"><%= t(:comments) %>:</div>
+
+  <% @project.comments.each do | comment | %>
+  <div class="project__comments__item">
+    <div class="project__comments__item-own-name">
+      <p class="project__comments__owner"><%= comment.user.name %>:</p>
+      <div class="project__comments__content"><%= markdown(comment.content) %></div>
+      <p class="project__expires project__comments__created-at"><%= comment.created_at.localtime.strftime('%d/%m/%Y %H:%M') %></p>
+    </div>
+  </div>
+  <%end %>
+
+  <% if user_signed_in? %>
+    <%= form_with(model: @project.comments.build, local: true) do |form| %>
+      <div>
+        <p>
+          <%= form.label t(:comment) %><br>
+          <%= form.text_area :content, class: 'form-main__text-area'%>
+        </p>
+        <%= hidden_field_tag :project_id, @project.id %>
+        <p>
+          <%= form.submit t(:post), class: 'button button--white button--large button--choice' %>
+        </p>
+      </div>
+    <% end %>
+  <% end %>
+</div>

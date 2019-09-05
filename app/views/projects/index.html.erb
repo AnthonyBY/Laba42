@@ -3,13 +3,13 @@
   <div class="start-secondary__wrapper">
     <% @projects.each do |project|  %>
       <div class="start-secondary__item">
+        <%= link_to project_path(project), style: 'text-decoration: none; color: black;'  do %>
         <div class="start-secondary__item-wrapper">
           <h5 class="start-secondary__item-title" ><%= project.title %></h5>
           <span class="start-secondary__item-subtitle-item"><%= t(:published) %><%= project.created_at.localtime.strftime('%d/%m/%Y') %></span>
-          <p class="start-secondary__item-text" ><%= project.info[0..120] %>...</p>
+          <div class="start-secondary__item-text" ><%= markdown(project.info) %>...</div>
         </div>
-        <%= link_to project_path(project) do %>
-          <%= content_tag :span, t(:take_job), class: "button button--blue button--stretch button--large button--list-project" %>
+          <% content_tag :span, t(:take_job), class: "button button--blue button--stretch button--large button--list-project" %>
         <% end %>
       </div>
     <% end %>
@@ -19,17 +19,17 @@
   <% if user_signed_in? %>
     <% if current_user.role =='customer' %>
       <%= link_to new_project_path do %>
-        <%= content_tag :span, t(:post_project), class: "button button--large button--white" %>
+        <%= content_tag :span, t(:post_project), class: "button button--large button--light-gray" %>
       <% end %>
     <% end %>
   <% end %>
   <% if @projects_filtered%>
     <%= link_to projects_path do %>
-      <%= content_tag :span, t(:back_to_all_project), class: "button button--large button--white" %>
+      <%= content_tag :span, t(:back_to_all_project), class: "button button--large button--light-gray" %>
     <% end %>
   <% else %>
-    <%= link_to do %>
-      <%= content_tag :span, t(:show_more), class: "button button--large button--white" %>
+    <% link_to do %>
+      <% content_tag :span, t(:show_more), class: "button button--large button--light-gray" %>
     <% end %>
   <% end %>
 </section>
