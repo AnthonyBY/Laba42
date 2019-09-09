@@ -55,6 +55,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'bullet', '~> 5.7', '>= 5.7.5'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'reek', '~> 5.0', '>= 5.0.2', require: false
   gem 'rubocop', '~> 0.72.0', require: false
