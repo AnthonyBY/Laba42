@@ -1,0 +1,25 @@
+<div class="start-secondary__item">
+  <div class="start-secondary__item-wrapper">
+    <div class="start-secondary__item-title" ><%= p.title %></div>
+    <div class="start-secondary__item-subtitle-item"><%= t(:published) %><%= p.created_at.localtime.strftime('%d/%m/%Y') %></div>
+    <div class="start-secondary__item-text" ><%= markdown(p.info.html_safe) %></div>
+    <div class="start-secondary__item_skills">
+      <% p.skills.each do |s| %>
+        <% if s.is_a?(Array) %>
+          <% s.each do |i| %>
+            <div class="start-secondary__item_skills-unit">
+              <%= i.upcase %>
+            </div>
+          <% end %>
+        <% else %>
+          <div class="start-secondary__item_skills-unit">
+            <%= s.upcase %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <%= link_to project_path(p), style: 'button button--blue button--large' do %>
+    <% content_tag :span, t(:take_job) %>
+  <% end %>
+</div>

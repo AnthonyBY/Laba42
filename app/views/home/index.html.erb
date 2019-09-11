@@ -23,16 +23,7 @@
   <h3 class="start-secondary__title"><%= t(:show_wow) %></h3>
   <div class="start-secondary__wrapper">
     <% @projects.each do |p|  %>
-      <%= link_to project_path(p), style: 'text-decoration: none; color: black;' do %>
-      <div class="start-secondary__item">
-        <div class="start-secondary__item-wrapper">
-          <h5 class="start-secondary__item-title" ><%= p.title %></h5>
-          <span class="start-secondary__item-subtitle-item"><%= t(:published) %><%= p.created_at.localtime.strftime('%d/%m/%Y') %></span>
-          <div class="start-secondary__item-text" ><%= markdown(p.info.html_safe) %></div>
-        </div>
-          <% content_tag :span, t(:take_job) %>
-        <% end %>
-      </div>
+    <%= render partial: 'shared/project_mini_card_main', locals: {p: p} %>
     <% end %>
   </div>
 </section>
