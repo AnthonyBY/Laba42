@@ -1,8 +1,15 @@
 <div class="start-secondary__item">
   <div class="start-secondary__item-wrapper">
     <div class="start-secondary__item-title" ><%= p.title %></div>
-    <div class="start-secondary__item-subtitle-item"><%= t(:published) %><%= p.created_at.localtime.strftime('%d/%m/%Y') %></div>
-    <div class="start-secondary__item-text" ><%= markdown(p.info.html_safe) %></div>
+    <div class="start-secondary__item-subtitle">
+      <div>
+        <%= t(:published) %><%= p.created_at.localtime.strftime('%d/%m/%Y') %>
+      </div>
+      <div>
+        <%= t(:expires) %>: <%= p.deadline.strftime('%d/%m/%Y') %>
+      </div>
+    </div>
+    <div class="start-secondary__item-text" ><%= markdown(p.info) %></div>
     <div class="start-secondary__item_skills">
       <% p.skills.each do |s| %>
         <% if s.is_a?(Array) %>
@@ -19,7 +26,7 @@
       <% end %>
     </div>
   </div>
-  <%= link_to project_path(p), style: 'button button--blue button--large' do %>
+  <%= button_to project_path(p), class: 'button button--blue button--large start-secondary__button', method: :get do %>
     <% content_tag :span, t(:take_job) %>
   <% end %>
 </div>
