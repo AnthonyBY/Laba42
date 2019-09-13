@@ -61,12 +61,13 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
+  # To indicate errors without a red stop screen,
+  # swap the comments on the last two lines.
   config.after_initialize do
-    # Enable bullet in your application
     Bullet.enable = true
-    # Bullet.rails_logger = true
+    Bullet.rails_logger = true
     Bullet.bullet_logger = true
-    Bullet.add_footer = true
-    # Bullet.raise = true
+    # Bullet.add_footer = true
+    Bullet.raise = true
   end
 end
