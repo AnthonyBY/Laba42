@@ -11,6 +11,10 @@ module ApplicationHelper
     true
   end
 
+  def user_in_profile?
+    controller_name.in?('profile')
+  end
+
   # This method smells of :reek:UtilityFunction
   def markdown(text)
     Markdown.new(text, :hard_wrap, :autolink).to_html.html_safe

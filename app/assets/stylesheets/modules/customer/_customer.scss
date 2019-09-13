@@ -1,44 +1,9 @@
+.background-color-empty-card {
+  background-color: $background-apply-card-empty;
+}
+
 .customer {
   display: flex;
-
-  &__dashboard {
-    background-color: $background-light-gray;
-    width: 18rem;
-
-    a {
-      color: rgba($customer-blue, 0.9);
-    }
-
-    a:hover {
-      color: rgba($customer-blue, 0.9);
-      text-decoration: none;
-    }
-  }
-
-  &__img {
-    margin-right: 0.625rem;
-  }
-
-  &-relative {
-    background-color: $white-color;
-    border: 0.09rem solid $skills-blue-opacity;
-    border-radius: 0.2rem;
-    margin: 0 auto 0.3rem;
-    padding: 1.375rem 1rem;
-    position: relative;
-
-    &:hover {
-      background-color: $skills-blue-opacity;
-      border-radius: 0.2rem;
-    }
-  }
-
-  &__arrow {
-    position: absolute;
-    right: 1.25rem;
-    top: 50%;
-    transform: translateY(-50%);
-  }
 
   &__body {
     background-color: $background-light-gray;
@@ -46,21 +11,29 @@
   }
 
   &-body-wrapper {
-    margin: 2.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 3.8125rem;
   }
 
-  &__title {
-    color: $customer-blue-title;
-    font-size: 2.25rem;
-  }
 
-  &__response {
-    margin: 0.625rem 0;
-  }
+  &__apply-item {
+    border-radius: 0.625rem;
+    box-shadow: 0 0 0.5rem 0 rgba($black-color-specific, 0.15);
+    color: $black-color;
+    height: 17rem;
+    margin-top: 2.5rem;
+    text-decoration: none;
+    width: 34.5rem;
 
-  &__fixed {
-    position: fixed;
-    right: 10%;
-    top: 80%;
+    &:hover {
+      bottom: 0.25rem;
+      box-shadow: 0 0.2rem 0.3rem 0.2rem rgba($black-color-specific, 0.1);
+      color: $black-color;
+      position: relative;
+      text-decoration: none;
+      top: -0.3rem;
+    }
   }
 }

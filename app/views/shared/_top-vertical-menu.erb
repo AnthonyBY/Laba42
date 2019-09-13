@@ -1,20 +1,20 @@
-<section class="top-menue">
+<section class="top-menu">
   <%= link_to projects_path do %>
-    <%= content_tag :span, t(:all_projects), class: "top-menue__item-first" %>
+    <%= content_tag :span, t(:all_projects), class: "top-menu__item-first" %>
   <% end %>
   <% if current_user %>
     <% if current_user.customer? %>
       <%= link_to my_projects_path do %>
-        <%= content_tag :span, t(:my_projects), class: "top-menue__item" %>
+        <%= content_tag :span, t(:my_projects), class: "top-menu__item" %>
       <% end %>
     <% end %>
     <% if current_user.developer? %>
       <%= link_to applies_path do %>
-        <%= content_tag :span, t(:apply), class: "top-menue__item" %>
+        <%= content_tag :span, t(:apply), class: "top-menu__item" %>
       <% end %>
     <% end %>
   <% end %>
   <%= link_to "#" do %>
-    <%= content_tag :span, t(:favorites), class: "top-menue__item" %>
+    <%= content_tag :span, t(:favorites), class: "top-menu__item" %>
   <% end %>
 </section>

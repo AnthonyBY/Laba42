@@ -1,0 +1,22 @@
+.top-menu-customer {
+  display: flex;
+  font-size: 0.8125rem;
+  font-weight: normal;
+  padding-top: 0.2rem;
+
+  a {
+    text-decoration: none;
+  }
+
+  &__item {
+    color: $black-color;
+    margin-right: 2rem;
+
+    &-active {
+      color: $main-blue;
+      font-weight: bold;
+      margin-right: 2rem;
+      text-align: center;
+    }
+  }
+}

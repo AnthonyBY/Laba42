@@ -141,3 +141,12 @@ ru:
   no_projects: "у вас нет проектов..."
   closed: "Закрыт"
   quit: "Отказался от отклика"
+  seekers: "Соискатели"
+  profile: "Профиль"
+  active: "Активные"
+  inactive: "Неактивные"
+  add_new_project_or_task: "Добавить новый проект или задание"
+  project_assigned: "Проект назначен"
+  choose_developer: "Выберите кандидата для исполнения проекта"
+  feedback: "Отклики"
+  create_your_first_project: "Создайте свой первый проект.  Ребята ждут интересные задачи!"

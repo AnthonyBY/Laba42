@@ -1,6 +1,29 @@
 <header class="site-header">
   <div class="flex-grow-1"><%= link_to image_tag("laba42.svg", alt: "logo"), root_path %></div>
 
+
+  <% if user_in_profile? %>
+
+    <div class="flex-grow-1">
+      <div class="top-menu-customer">
+
+        <%= link_to projects_path, class: 'top-menu-customer__item-active' do  %>
+          <%= content_tag :span, t(:my_projects) %>
+        <% end %>
+
+        <%= link_to projects_path, class: 'top-menu-customer__item' do %>
+          <%= content_tag :span, t(:seekers) %>
+        <% end %>
+
+        <%= link_to projects_path, class: 'top-menu-customer__item' do %>
+          <%= content_tag :span, t(:profile) %>
+        <% end %>
+
+      </div>
+    </div>
+
+  <% end %>
+
   <% if show_devise_link? %>
     <div id="search_icon" ><%= image_tag("search.svg", alt: "search") %></div>
     <div class="form-field__absolute search--disable" id="search_toggle">

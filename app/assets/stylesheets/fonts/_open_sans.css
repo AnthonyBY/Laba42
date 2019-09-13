@@ -1,6 +1,6 @@
 @font-face {
-  font-family: "Open Sans";
-  src: local("OpenSans-SemiBold"), local("OpenSans-Bold"),
-       url(asset-path("fonts/open_sans/OpenSans-SemiBold.ttf")) format("truetype"),
-       url(asset-path("fonts/open_sans/OpenSans-Bold.ttf")) format("truetype");
+    font-family: "Open-Sans";
+    src: local("OpenSans-Regular"), local("OpenSans-Regular"),
+        url(asset-path("fonts/OpenSans-Regular.ttf")) format("truetype"),
+        url(asset-path("fonts/OpenSans-SemiBold.ttf")) format("truetype");
 }

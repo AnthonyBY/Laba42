@@ -9,10 +9,15 @@
   </head>
   <body>
     <div class="wrapper">
-      <%= render partial: "shared/header" %>
-      <%= render partial: 'shared/flashes' %>
-      <%= yield %>
+      <div class="wrapper__head">
+        <%= render partial: "shared/header" %>
+        <%= render partial: 'shared/flashes' %>
+      </div>
+      <div class="wrapper__main">
+        <%= yield %>
+      </div>
     </div>
+
     <%= render partial: "shared/footer" %>
   </body>
 </html>

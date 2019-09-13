@@ -1,58 +1,41 @@
-<div class="customer">
-  <section class="customer__dashboard">
-    <%= link_to my_projects_path do %>
-      <div class="customer-relative">
-        <%= image_tag("arrow.svg", alt: "arrow", class: "customer__arrow") %>
-          <%= content_tag :span, image_tag("folders.svg", alt: "folders", class: "customer__img") + t(:projects) %>
-      </div>
-    <% end %>
+<section class="top-menu">
+  <%= link_to '#' do %>
+    <%= content_tag :span, t(:active), class: "top-menu__item-active" %>
+  <% end %>
+  <%= link_to "#" do %>
+    <%= content_tag :span, t(:inactive), class: "top-menu__item" %>
+  <% end %>
+</section>
 
-    <%= link_to do %>
-      <div class="customer-relative">
-        <%= image_tag("arrow.svg", alt: "arrow", class: "customer__arrow") %>
-        <%= content_tag :span, image_tag("messages.svg", alt: "messages", class: "customer__img") + t(:messages) %>
-      </div>
-    <% end %>
-
-    <%= link_to customer_edit_profile_path do %>
-      <div class="customer-relative">
-        <%= image_tag("arrow.svg", alt: "arrow", class: "customer__arrow") %>
-        <%= content_tag :span, image_tag("avatar.svg", alt: "avatar", class: "customer__img") + t(:my_profile) %>
-      </div>
-    <% end %>
-
-    <%= link_to do %>
-      <div class="customer-relative">
-        <%= image_tag("arrow.svg", alt: "arrow", class: "customer__arrow") %>
-        <%= content_tag :span, image_tag("settings.svg", alt: "settings", class: "customer__img") + t(:settings) %>
-      </div>
-    <% end %>
-
-    <%= link_to new_project_path do %>
-      <div class="customer-relative">
-        <%= image_tag("arrow.svg", alt: "arrow", class: "customer__arrow") %>
-        <%= content_tag :span, image_tag("add.svg", alt: "add", class: "customer__img") + t(:add_task) %>
-      </div>
-    <% end %>
-  </section>
-
-  <section class="customer__body">
+<section class="customer__body">
     <div class="customer-body-wrapper">
-      <h1 class="customer__title"><%= t(:responses) %></h1>
-      <div class="customer__response">
-        <%= image_tag("respons.png", alt: "response") %>
-      </div>
-      <div class="customer__response">
-        <%= image_tag("respons.png", alt: "response") %>
-      </div>
-      <div class="customer__response">
-        <%= image_tag("respons.png", alt: "response") %>
-      </div>
-      <div class="customer__fixed">
-        <%= link_to new_project_path do %>
-          <%= image_tag("plus.svg", alt: "plus") %>
+
+      <% if true #if user have project %>
+        
+        <% %w(new_apply applied choose_applier).each do |state| %>
+
+          <%= link_to '', class:'customer__apply-item' do  %>
+              <%= render partial: 'shared/apply_cards/apply-card', locals: {state: state} %>
+          <% end %>
+
         <% end %>
-      </div>
+
+          <%= link_to new_project_path, class:'customer__apply-item background-color-empty-card' do %>
+             <%= render partial: 'shared/apply_cards/apply-card-empty' %>
+          <%end %>
+
+      <% elsif true # if user no project %>
+
+        <div class="apply-card-zero_state">
+
+          <div class="apply-card-zero_state-title"><%= t(:create_your_first_project) %></div>
+
+          <%= link_to new_project_path, class:'customer__apply-item background-color-empty-card' do %>
+          <%= render partial: 'shared/apply_cards/apply-card-empty' %>
+        <%end %>
+
+        </div>
+
+      <% end %>
     </div>
-  </section>
-</div>
+</section>

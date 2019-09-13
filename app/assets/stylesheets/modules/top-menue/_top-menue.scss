@@ -1,10 +1,13 @@
-.top-menue {
+.top-menu {
 
   border-bottom: 1px solid $top-menue-border;
   display: flex;
+  font-size: 0.975rem;
+  font-weight: normal;
   justify-content: space-between;
-  padding: 1.06rem 0 0.75rem;
-  width: 26.125rem;
+  margin-top: 2rem;
+  padding-bottom: 0.5rem;
+  width: 12.75rem;
 
   a {
     text-decoration: none;
@@ -14,10 +17,12 @@
     color: $black-color;
     text-align: center;
 
-    &-first {
-      border-bottom: 1px solid $main-blue;
+    &-active {
+      border-bottom: 2px solid $main-blue;
       color: $main-blue;
-      padding-bottom: 0.75rem;
+      font-weight: bold;
+      padding-bottom: 0.52rem;
     }
   }
 }
+

@@ -1,0 +1,156 @@
+.apply-card {
+  margin: 1.5rem 1rem 0;
+
+  &-zero_state {
+    margin: 10rem auto;
+
+    &-title {
+      font-size: 1.125rem;
+      line-height: 150%;
+      margin-left: 1rem;
+      text-align: center;
+      width: 18rem;
+    }
+  }
+
+
+  &-head {
+    display: flex;
+    height: 1.5rem;
+    margin-bottom: 0.75rem;
+
+    &-title {
+      display: inline-block;
+      font-size: 1.125rem;
+      font-weight: bold;
+      height: 1.5rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      width: 30rem;
+    }
+
+    &-dots {
+      color: $dots-apply-card;
+      font-size: 1.5rem;
+      margin-left: auto;
+      position: relative;
+      text-orientation: mixed;
+      writing-mode: vertical-rl;
+
+    }
+  }
+
+  &-info {
+    display: flex;
+    height: 1.5rem;
+    justify-content: space-between;
+    line-height: 1.8rem;
+    margin-bottom: 0.75rem;
+
+    &-type {
+      background-color: $background-yellow-light;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.0825rem;
+      text-align: center;
+      text-transform: uppercase;
+      width: 9.5rem;
+    }
+
+    &-time {
+      color: $black-color-opacity-0-6;
+      font-size: 0.75rem;
+      max-width: 11rem;
+      min-width: 9.4375rem;
+    }
+  }
+
+  &-body {
+    font-size: 0.875rem;
+    font-weight: normal;
+    height: 2.7rem;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    width: 32.5rem;
+  }
+
+  &-skills {
+    display: flex;
+    flex-wrap: wrap;
+    height: 1.25rem;
+    overflow: hidden;
+
+    &-item {
+      background-color: $skills-blue-opacity;
+      color: $footer-blue;
+      font-size: 0.7875rem;
+      height: 1.25rem;
+      letter-spacing: 0.0425rem;
+      margin-right: 0.5rem;
+      padding: 0.1rem 0.5rem;
+      text-transform: uppercase;
+    }
+  }
+
+  &-footer {
+    border-top: 1px solid $skills-blue-opacity;
+    display: flex;
+    font-size: 0.8125rem;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: 0.0425rem;
+    line-height: 1.125rem;
+    margin-top: 1.5rem;
+    padding: 1.7rem 0;
+
+    &-new {
+      margin-right: 0.5rem;
+    }
+
+    &-new_dig {
+      background-color: $main-blue;
+      border-radius: 1rem;
+      color: $white-color;
+      font-weight: bold;
+      margin-right: 2rem;
+      margin-top: -0.3rem;
+      padding: 0.3rem;
+    }
+
+    &-all_apply {
+      margin-right: 0.5rem;
+    }
+
+    &-all_dig {
+      font-weight: bold;
+    }
+
+    &-views {
+      color: $black-color-opacity-0-6;
+      margin-left: auto;
+    }
+
+    &-assignes_developer {
+      color: $main-blue;
+    }
+
+    &-choose_developer {
+      color: $black-color-opacity-0-6;
+      font-weight: normal;
+      margin-right: 1rem;
+    }
+  }
+
+  &-add_project {
+    color: $main-blue;
+    font-weight: 600;
+    padding-top: 3.3rem;
+    text-align: center;
+
+    &-plus {
+      font-size: 3rem;
+      font-weight: 400;
+    }
+  }
+}

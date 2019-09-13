@@ -1,8 +1,8 @@
 $background: #f8f9fb;
 
 body {
-  font-family: 'Open Sans', sans-serif;
   background-color: $background;
+  font-family: 'Open-Sans', sans-serif;
 }
 
 img {
@@ -12,6 +12,18 @@ img {
 
 .wrapper {
   margin: 0 auto;
-  max-width: 71.25rem;
+  max-width: 90rem;
   min-height: calc(100vh - 10rem);
+
+  &__main {
+    margin: 0 auto;
+    max-width: 71.25rem;
+  }
+
+  &__head {
+    background-color: $white-color;
+    margin: 0 auto;
+    max-width: 90rem;
+    padding: 0 9.375rem;
+  }
 }
