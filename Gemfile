@@ -55,6 +55,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'bullet', '~> 5.7', '>= 5.7.5'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'reek', '~> 5.0', '>= 5.0.2', require: false
   gem 'rubocop', '~> 0.72.0', require: false
@@ -78,7 +79,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
+gem 'cancancan'
 gem 'google-api-client', '~> 0.13.6'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2', '~> 0.2.2'
-gem 'cancancan'
