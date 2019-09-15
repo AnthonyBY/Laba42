@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   context 'should not valid with' do
     before(:each) do
-      @user = User.create(email: 'midda999@mail.ru', name: 'Anton', password: '123456')
+      @user = User.create(email: 'midda999@mail.ru', name: 'Anton', password: '123456', confirmed_at: Time.now.utc)
     end
 
     it 'wrong mail' do

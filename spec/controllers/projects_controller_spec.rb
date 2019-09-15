@@ -8,6 +8,7 @@ RSpec.describe ProjectsController, type: :controller do
       name: 'midd',
       email: 'user@example.org',
       password: 'very-secret',
+      confirmed_at: Time.now.utc,
       role: :customer
     )
     @project = Project.create(
@@ -17,7 +18,7 @@ RSpec.describe ProjectsController, type: :controller do
       cost: '12',
       cost_type: 'price',
       project_type: 'project_type',
-      deadline: '2020-06-06',
+      deadline: rand(1.month).seconds.from_now,
       skills: 'java ruby'
     )
     sign_in @user
@@ -55,7 +56,7 @@ RSpec.describe ProjectsController, type: :controller do
     end
 
     it 'not author' do
-      user2 = User.create(name: 'midd22', email: 'usetrr@example.org', password: 'ver12y-secret', role: 'customer')
+      user2 = User.create(name: 'midd22', email: 'usetrr@example.org', password: 'ver12y-secret', confirmed_at: Time.now.utc, role: 'customer')
       project2 = Project.create(
         title: 'Project12',
         info: 'info to project 12',
@@ -63,7 +64,7 @@ RSpec.describe ProjectsController, type: :controller do
         cost: '12',
         cost_type: 'price',
         project_type: 'project_type',
-        deadline: '2020-06-06',
+        deadline: rand(1.month).seconds.from_now,
         skills: 'java ruby'
       )
       expect do
@@ -81,7 +82,7 @@ RSpec.describe ProjectsController, type: :controller do
         cost: 12,
         cost_type: 'price',
         project_type: 'project_type',
-        deadline: '2020-06-06'.to_date,
+        deadline: rand(1.month).seconds.from_now.to_date,
         user_id: @user.id,
         skills: 'css ruby'
       }
