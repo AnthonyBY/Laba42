@@ -24,16 +24,29 @@
       <%= form.label t(:keywords_project), class: 'form-main__label' %><br>
       <%= form.text_field :skills, class: 'form-main__input' %>
     </div>
-
-    <div>
       <%= form.label t(:type_project), class: 'form-main__label' %>
-      <div>
-        <%= form.radio_button :project_type, 'project_type' %>
-        <%= form.label t(:project), class: 'form-main__label form-main__label__margin0' %>
-        <%= form.radio_button :project_type, 'test_type', class: 'form-main__label__margin-left' %>
-        <%= form.label t(:test_task), class: 'form-main__label form-main__label__margin0' %>
+
+
+
+
+    <div class="in-line-items">
+      <div class="radio in-line-items">
+        <%= form.radio_button :project_type,'project_type', type: 'radio'  %>
+        <div class="radio-label">
+        <%= form.label t(:project), class: 'radio-project_type' %>
+        </div>
+      </div>
+
+      <div class="radio in-line-items">
+        <%= form.radio_button :project_type,'test_type', type: 'radio' %>
+        <div class="radio-label">
+        <%= form.label t(:test_task), class: 'radio-project_type' %>
+        </div>
       </div>
     </div>
+
+
+
 
     <div class="form-input__cost-block">
       <div class="form-input__cost-block__input">
@@ -41,12 +54,8 @@
         <p><%= form.text_field :cost, class: 'form-main__input'  %></p>
       </div>
       <div class="form-input__cost-block__radio-buttons">
-        <%= form.radio_button :cost_type, 'price' %>
-        <%= form.label t(:fixed_price), class: 'form-main__label'%>
-        <%= form.radio_button :cost_type, 'contract_price', class: 'form-main__label__margin-left' %>
-        <%= form.label t(:negotiable_price), class: 'form-main__label' %>
         <%= form.radio_button :cost_type, 'free', class: 'form-main__label__margin-left'  %>
-        <%= form.label t(:free), class: 'form-main__label' %>
+        <%= form.label t(:without_payment), class: 'form-main__label form-main__label__font14' %>
       </div>
     </div>
 
