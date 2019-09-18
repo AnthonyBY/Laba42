@@ -1,0 +1,21 @@
+language: ruby
+services:
+  - postgresql
+rvm:
+  - 2.6.3
+cache:
+  directories:
+  - /home/travis/.rvm/
+  bundler: true
+  yarn: true
+before_install:
+  - gem install bundler -v 2.0.2
+  - cp config/database.yml.travis config/database.yml
+  - bundle install
+  - psql -c 'create database laba42_test;' -U postgres
+  - bundle exec rake db:migrate
+  - bundle exec rake db:test:prepare
+script:
+  - "bundle exec rspec"
+  - "bundle exec rubocop"
+  - "bundle exec reek"
