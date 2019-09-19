@@ -22,23 +22,23 @@
 
     <div class="form-input__input-title">
       <%= form.label t(:keywords_project), class: 'form-main__label' %><br>
-      <%= form.text_field :skills, class: 'form-main__input' %>
+      <%= form.text_field :skills, type:"text", id:"tag-input" %>
     </div>
       <%= form.label t(:type_project), class: 'form-main__label' %>
 
 
     <div class="in-line-items">
       <div class="radio in-line-items">
-        <%= form.radio_button :project_type,'project_type', type: 'radio'  %>
+        <%= form.radio_button :project_type,'project_type', type: 'radio', id: 'radio_but_project'  %>
         <div class="radio-label">
         <%= form.label t(:project), class: 'radio-project_type' %>
         </div>
       </div>
 
       <div class="radio in-line-items">
-        <%= form.radio_button :project_type,'test_type', type: 'radio' %>
+        <%= form.radio_button :project_type,'test_type', type: 'radio', id: 'test_project_checkbox' %>
         <div class="radio-label">
-        <%= form.label t(:test_task), class: 'radio-project_type', id: 'test_project_checkbox' %>
+        <%= form.label t(:test_task), class: 'radio-project_type' %>
         </div>
       </div>
     </div>
