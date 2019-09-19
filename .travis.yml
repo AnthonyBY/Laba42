@@ -19,3 +19,10 @@ script:
   - "bundle exec rspec"
   - "bundle exec rubocop"
   - "bundle exec reek"
+deploy:
+  provider: heroku
+  api_key:
+    secure: "RUhtOpPyD81IwF7x8p5OJqrMn+HZT/luKhqlvoe0gCrIaRVWSK3kA3mQDO2clTw+v25KYvmlot2PPq0WNED/dsKXo50ExZPaV7I03bL7TJN0tKWs+O5G56r7MzkUVWn84KN5bf7hIFb3yMbNP+x6P6QELj86dBeRmZuIOU3251j7A7jO5T0prFAoxIw2oF3oFXLox1GmKoLnYyDa99XsOkiotT/m8poQeaABA6CKEWe0/qdrTgA8G3JPGmdttmwSKw8j02nQiSCPe7na4JjtHubmbqYLJefTptJc9oLFShU8aT415y/iV1nvEB6q6Eq9t1R4MNpA+tPhjJzV0wYOT5079axtgaGKqLAMTdReHr+1BkPi8S3ZsAFEtGXhP8BdeGvu9nI81+CgihOvZ6Ou1u5qmRQzF6lHfrq5X7jcN5sHRzGpO8jBS9bCt+3IRad3uvQQVZdsTZY9FObPoBFtUHQMVML3Iecc3zp3kAdR4gDcIzqjbJk+e/ZYO7/78KlwhKEpwCMEkmqGHq5Ker/3wWlnbebfl6Yu1cZr6+hVlcINtTcklSSelknt2VMqaB9KQWUW+rrD0MmPWeWohfuAX6KosYblTbYsZzhFtNftNJul8LwlP+Er2Ncq2Il+g3AhDDiL8YdeL2CUD4yOlTNFnkAQaQVxbfJqur80dA2jUbs="
+  app: pure-inlet-49848
+  on:
+    repo: AnthonyBY/Laba42
