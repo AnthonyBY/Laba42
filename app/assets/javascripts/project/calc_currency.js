@@ -1,15 +1,15 @@
 document.addEventListener("turbolinks:load", function(){
     $("#new_project").ready(function() {
-        let radio_but_test = document.getElementById('test_project_checkbox');
         let radio_but_project = document.getElementById('radio_but_project');
+        let radio_but_test = document.getElementById('test_project_checkbox');
         let currency_block = document.getElementById('currency_block');
         let currency;
 
-        radio_but_test.onclick = function () {
-            currency_block.style.display = 'none';
-        };
         radio_but_project.onclick = function () {
             currency_block.style.display = 'flex';
+        };
+        radio_but_test.onclick = function () {
+            currency_block.style.display = 'none';
         };
 
         (function() {

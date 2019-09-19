@@ -1,7 +1,8 @@
 document.addEventListener("turbolinks:load", function(){
     $("#new_project").ready(function() {
         (function(){
-            let TagsInput = function(opts){
+
+            var TagsInput = function(opts){
                 this.options = Object.assign(TagsInput.defaults , opts);
                 this.original_input = document.getElementById(opts.selector);
                 this.arr = [];
@@ -9,7 +10,8 @@ document.addEventListener("turbolinks:load", function(){
                 this.input = document.createElement('input');
                 buildUI(this);
                 addEvents(this);
-            };
+            }
+
 
             TagsInput.prototype.addTag = function(string){
 
@@ -17,24 +19,24 @@ document.addEventListener("turbolinks:load", function(){
                     return ;
 
                 this.arr.push(string);
-                let tagInput = this;
+                var tagInput = this;
 
 
-                let tag = document.createElement('span');
+                var tag = document.createElement('span');
                 tag.className = this.options.tagClass;
                 tag.innerText = string;
 
-                let closeIcon = document.createElement('a');
+                var closeIcon = document.createElement('a');
                 closeIcon.innerHTML = '&times;';
                 closeIcon.addEventListener('click' , function(e){
                     e.preventDefault();
-                    let tag = this.parentNode;
+                    var tag = this.parentNode;
 
-                    for(let i =0 ;i < tagInput.wrapper.childNodes.length ; i++){
-                        if(tagInput.wrapper.childNodes[i] === tag)
+                    for(var i =0 ;i < tagInput.wrapper.childNodes.length ; i++){
+                        if(tagInput.wrapper.childNodes[i] == tag)
                             tagInput.deleteTag(tag , i);
                     }
-                });
+                })
 
 
                 tag.appendChild(closeIcon);
@@ -42,7 +44,7 @@ document.addEventListener("turbolinks:load", function(){
                 this.original_input.value = this.arr.join(',');
 
                 return this;
-            };
+            }
 
 
 
@@ -51,7 +53,8 @@ document.addEventListener("turbolinks:load", function(){
                 this.arr.splice( i , 1);
                 this.original_input.value =  this.arr.join(',');
                 return this;
-            };
+            }
+
 
             TagsInput.prototype.anyErrors = function(string){
                 if( this.options.max != null && this.arr.length >= this.options.max ){
@@ -60,27 +63,27 @@ document.addEventListener("turbolinks:load", function(){
                 }
 
                 if(!this.options.duplicate && this.arr.indexOf(string) != -1 ){
-                    console.log('duplicate found " '+string+' " ');
+                    console.log('duplicate found " '+string+' " ')
                     return true;
                 }
 
                 return false;
-            };
+            }
 
 
             TagsInput.prototype.addData = function(array){
-                let plugin = this;
+                var plugin = this;
 
                 array.forEach(function(string){
                     plugin.addTag(string);
-                });
+                })
                 return this;
-            };
+            }
 
 
             TagsInput.prototype.getInputString = function(){
                 return this.arr.join(',');
-            };
+            }
 
 
             // Private function to initialize the UI Elements
@@ -91,12 +94,14 @@ document.addEventListener("turbolinks:load", function(){
                 tags.original_input.parentNode.insertBefore(tags.wrapper , tags.original_input);
             }
 
+
+
             function addEvents(tags){
                 tags.wrapper.addEventListener('click' ,function(){
                     tags.input.focus();
                 });
                 tags.input.addEventListener('keydown' , function(e){
-                    let str = tags.input.value.trim();
+                    var str = tags.input.value.trim();
                     if( !!(~[9 , 13 , 188].indexOf( e.keyCode ))  )
                     {
                         tags.input.value = "";
@@ -106,19 +111,28 @@ document.addEventListener("turbolinks:load", function(){
                 });
             }
 
+
             TagsInput.defaults = {
                 selector : '',
                 wrapperClass : 'tags-input-wrapper',
                 tagClass : 'tag',
                 max : null,
                 duplicate: false
-            };
+            }
+
+            var tagInput = new TagsInput({
+                selector: 'tag-input'
+            });
 
             window.TagsInput = TagsInput;
-        })();
 
-        let tagInput = new TagsInput({
-            selector: 'tag-input'
-        });
+
+            $('form').on('keypress', e => {
+
+                if (e.keyCode == 13) {
+                    return false;
+                }
+            });
+        })();
     });
 });
