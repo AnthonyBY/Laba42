@@ -1,4 +1,4 @@
-<div class="form-input">
+<div class="form-input" id="new_project">
   <%= form_with(model: @project, local: true) do |form| %>
     <% if @project.errors.any? %>
       <div class="card w-100">
@@ -27,8 +27,6 @@
       <%= form.label t(:type_project), class: 'form-main__label' %>
 
 
-
-
     <div class="in-line-items">
       <div class="radio in-line-items">
         <%= form.radio_button :project_type,'project_type', type: 'radio'  %>
@@ -40,24 +38,33 @@
       <div class="radio in-line-items">
         <%= form.radio_button :project_type,'test_type', type: 'radio' %>
         <div class="radio-label">
-        <%= form.label t(:test_task), class: 'radio-project_type' %>
+        <%= form.label t(:test_task), class: 'radio-project_type', id: 'test_project_checkbox' %>
         </div>
       </div>
     </div>
 
+    <div class="form-input__cost-block in-line-items" id ="currency_block">
+      <div>
+        <%= form.label t(:cost), class: 'form-main__label form-main__label__margin0'  %>
+        <div class="in-line-items">
+          <p><%= form.text_field :cost, class: 'form-input__cost-block__cost-field', id: 'currency_input'  %></p>
+          <div class="form-input__cost-block__currency">
+            BYN
+          </div>
+          <div class="form-input__cost-block__calc-currency" id="currency_calc_view">
 
-
-
-    <div class="form-input__cost-block">
-      <div class="form-input__cost-block__input">
-        <%= form.label t(:cost), class: 'form-main__label'  %>
-        <p><%= form.text_field :cost, class: 'form-main__input'  %></p>
+          </div>
+        </div>
       </div>
-      <div class="form-input__cost-block__radio-buttons">
-        <%= form.radio_button :cost_type, 'free', class: 'form-main__label__margin-left'  %>
-        <%= form.label t(:without_payment), class: 'form-main__label form-main__label__font14' %>
+
+      <div class="checkbox-wrap in-line-items">
+        <div class="checkbox">
+          <%= form.check_box :cost_type, {}, 'free', 'price' %>
+          <%= form.label :cost_type, t(:without_payment), class: 'pt-1' %>
+        </div>
       </div>
     </div>
+
 
     <div>
       <%= form.label t(:deadline), class: 'form-main__label' %>

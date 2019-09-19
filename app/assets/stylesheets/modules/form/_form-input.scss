@@ -18,14 +18,33 @@
   }
 
   &__cost-block {
-    display: flex;
+    margin-top: 3rem;
 
-    &__input {
-      width: 31%;
+    &__cost-field {
+      border: 0.0625rem solid $light-gray;
+      border-radius: 0.25rem 0 0 0.25rem;
+      height: 2.75rem;
+      text-align: center;
+      width: 9.375rem;
     }
 
-    &__radio-buttons {
-      margin-top: 2.7rem;
+    &__currency {
+      border: 0.0625rem solid $light-gray;
+      border-left: 0;
+      border-radius: 0 0.25rem 0.25rem 0;
+      font-size: 0.875rem;
+      height: 2.75rem;
+      padding-top: 0.6rem;
+      text-align: center;
+      width: 5.625rem;
+    }
+    &__calc-currency {
+      color: $dots-apply-card;
+      height: 2.75rem;
+      margin-left: 0.5rem;
+      padding-top: 0.6rem;
+      text-align: left;
+      width: 4rem;
     }
   }
 }
