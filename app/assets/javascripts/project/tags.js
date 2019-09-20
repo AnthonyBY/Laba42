@@ -1,16 +1,16 @@
 $(document).on ('turbolinks:load', function (){
         if(document.getElementById("new_project")!=null){
 
-            let radio_but_project = document.getElementById('radio_but_project');
-            let radio_but_test = document.getElementById('test_project_checkbox');
-            let currency_block = document.getElementById('currency_block');
+            let radioButProject = document.getElementById('radio_but_project');
+            let radioButTest = document.getElementById('test_project_checkbox');
+            let currencyBlock = document.getElementById('currency_block');
             let currency;
 
-            radio_but_project.onclick = function () {
-                currency_block.style.display = 'flex';
+            radioButProject.onclick = function () {
+                currencyBlock.style.display = 'flex';
             };
-            radio_but_test.onclick = function () {
-                currency_block.style.display = 'none';
+            radioButTest.onclick = function () {
+                currencyBlock.style.display = 'none';
             };
 
             (function() {
@@ -20,9 +20,9 @@ $(document).on ('turbolinks:load', function (){
             })();
 
             let input = document.getElementById('currency_input');
-            let calc_out =  document.getElementById('currency_calc_view');
+            let calcOut =  document.getElementById('currency_calc_view');
             input.oninput = function() {
-                calc_out.innerHTML = ' ≈ '+ Math.floor(input.value/currency) + ' $';
+                calcOut.innerHTML = ' ≈ '+ Math.floor(input.value/currency) + ' $';
             };
 
             (function(){
