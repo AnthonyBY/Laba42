@@ -52,7 +52,7 @@ $(document).on ('turbolinks:load', function (){
                     tag.innerText = string;
 
                     var closeIcon = document.createElement('a');
-                    closeIcon.innerHTML = '&times;';
+                    closeIcon.innerHTML = '×';
                     closeIcon.addEventListener('click' , function(e){
                         e.preventDefault();
                         var tag = this.parentNode;
