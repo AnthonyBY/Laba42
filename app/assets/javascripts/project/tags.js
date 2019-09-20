@@ -39,6 +39,7 @@ $(document).on ('turbolinks:load', function (){
 
 
                 TagsInput.prototype.addTag = function(string){
+                    string = string.toUpperCase();
 
                     if(this.anyErrors(string))
                         return ;
