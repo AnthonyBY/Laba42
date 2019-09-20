@@ -292,7 +292,7 @@ GEM
       rspec-mocks (~> 3.8.0)
       rspec-support (~> 3.8.0)
     rspec-support (3.8.2)
-    rubocop (0.72.0)
+    rubocop (0.74.0)
       jaro_winkler (~> 1.5.1)
       parallel (~> 1.10)
       parser (>= 2.6)
@@ -412,10 +412,10 @@ DEPENDENCIES
   rails-controller-testing
   react-rails
   redcarpet
-  reek (~> 5.0, >= 5.0.2)
+  reek (~> 5.4)
   rspec (~> 3.8)
   rspec-rails (~> 3.8)
-  rubocop (~> 0.72.0)
+  rubocop (~> 0.74.0)
   sass-rails (~> 5.0)
   selenium-webdriver
   simplecov
