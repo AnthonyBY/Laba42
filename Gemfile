@@ -57,8 +57,8 @@ end
 group :development do
   gem 'bullet', '~> 5.7', '>= 5.7.5'
   gem 'listen', '>= 3.0.5', '< 3.2'
-  gem 'reek', '~> 5.0', '>= 5.0.2', require: false
-  gem 'rubocop', '~> 0.72.0', require: false
+  gem 'reek', '~> 5.4', require: false
+  gem 'rubocop', '~> 0.74.0', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
@@ -69,7 +69,7 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'rails-controller-testing'
   gem 'selenium-webdriver'
-  gem 'simplecov'
+  gem 'simplecov', require: false
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'rspec', '~> 3.8'
   gem 'rspec-rails', '~> 3.8'
