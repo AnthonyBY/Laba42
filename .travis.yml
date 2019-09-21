@@ -9,7 +9,6 @@ cache:
   bundler: true
   yarn: true
 before_install:
-  - gem install bundler -v 2.0.2
   - cp config/database.yml.travis config/database.yml
   - bundle install
   - psql -c 'create database laba42_test;' -U postgres
