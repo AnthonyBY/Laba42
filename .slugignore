@@ -1,0 +1,10 @@
+# See https://devcenter.heroku.com/articles/slug-compiler for more about ignoring files with .slugignore.
+#
+# The .slugignore file contains filenames of the repository files that are not needed to run your application on heroku and causes files to be removed after you push code to Heroku and before the buildpack runs. This lets you prevent large files from being included in the final slug. Unlike .gitignore, .slugignore does not support negated ! patterns.
+# Smaller slugs can be transferred to the dyno manager more quickly, allowing for more immediate scaling. You should try to keep your slugs as small and nimble as possible.
+# The maximum allowed slug size (after compression) is 500 MB.
+
+*.psd
+*.pdf
+/test
+/spec
