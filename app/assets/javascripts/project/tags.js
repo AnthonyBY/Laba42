@@ -21,13 +21,15 @@ $(document).on ('turbolinks:load', function (){
 
             let input = document.getElementById('currency_input');
             let calcOut =  document.getElementById('currency_calc_view');
+            let tagInput = document.getElementById('tag-input');
             input.oninput = function() {
                 calcOut.innerHTML = ' ≈ '+ Math.floor(input.value/currency) + ' $';
             };
 
+
             (function(){
 
-                var TagsInput = function(opts){
+                let TagsInput = function(opts){
                     this.options = Object.assign(TagsInput.defaults , opts);
                     this.original_input = document.getElementById(opts.selector);
                     this.arr = [];
@@ -35,7 +37,7 @@ $(document).on ('turbolinks:load', function (){
                     this.input = document.createElement('input');
                     buildUI(this);
                     addEvents(this);
-                }
+                };
 
 
                 TagsInput.prototype.addTag = function(string){
@@ -45,24 +47,24 @@ $(document).on ('turbolinks:load', function (){
                         return ;
 
                     this.arr.push(string);
-                    var tagInput = this;
+                    let tagInput = this;
 
 
-                    var tag = document.createElement('span');
+                    let tag = document.createElement('span');
                     tag.className = this.options.tagClass;
                     tag.innerText = string;
 
-                    var closeIcon = document.createElement('a');
+                    let closeIcon = document.createElement('a');
                     closeIcon.innerHTML = '×';
                     closeIcon.addEventListener('click' , function(e){
                         e.preventDefault();
-                        var tag = this.parentNode;
+                        let tag = this.parentNode;
 
-                        for(var i =0 ;i < tagInput.wrapper.childNodes.length ; i++){
+                        for(let i =0 ;i < tagInput.wrapper.childNodes.length ; i++){
                             if(tagInput.wrapper.childNodes[i] == tag)
                                 tagInput.deleteTag(tag , i);
                         }
-                    })
+                    });
 
 
                     tag.appendChild(closeIcon);
@@ -70,7 +72,7 @@ $(document).on ('turbolinks:load', function (){
                     this.original_input.value = this.arr.join(',');
 
                     return this;
-                }
+                };
 
 
 
@@ -79,7 +81,7 @@ $(document).on ('turbolinks:load', function (){
                     this.arr.splice( i , 1);
                     this.original_input.value =  this.arr.join(',');
                     return this;
-                }
+                };
 
 
                 TagsInput.prototype.anyErrors = function(string){
@@ -88,28 +90,28 @@ $(document).on ('turbolinks:load', function (){
                         return true;
                     }
 
-                    if(!this.options.duplicate && this.arr.indexOf(string) != -1 ){
-                        console.log('duplicate found " '+string+' " ')
+                    if(!this.options.duplicate && this.arr.indexOf(string) !== -1 ){
+                        console.log('duplicate found " '+string+' " ');
                         return true;
                     }
 
                     return false;
-                }
+                };
 
 
                 TagsInput.prototype.addData = function(array){
-                    var plugin = this;
+                    let plugin = this;
 
                     array.forEach(function(string){
                         plugin.addTag(string);
-                    })
+                    });
                     return this;
-                }
+                };
 
 
                 TagsInput.prototype.getInputString = function(){
                     return this.arr.join(',');
-                }
+                };
 
 
                 // Private function to initialize the UI Elements
@@ -131,7 +133,7 @@ $(document).on ('turbolinks:load', function (){
                         if( !!(~[9 , 13 , 188].indexOf( e.keyCode ))  )
                         {
                             tags.input.value = "";
-                            if(str != "")
+                            if(str !== "")
                                 tags.addTag(str);
                         }
                     });
@@ -144,7 +146,7 @@ $(document).on ('turbolinks:load', function (){
                     tagClass : 'tag',
                     max : null,
                     duplicate: false
-                }
+                };
 
                 var tagInput = new TagsInput({
                     selector: 'tag-input'
@@ -155,7 +157,7 @@ $(document).on ('turbolinks:load', function (){
 
                 $('form').on('keypress', e => {
 
-                    if (e.keyCode == 13) {
+                    if (e.keyCode === 13) {
                         return false;
                     }
                 });
