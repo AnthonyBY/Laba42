@@ -12,7 +12,9 @@ module ApplicationHelper
   end
 
   def customer_in_profile?
-    current_user&.customer? &&
+    return false unless current_user
+
+    current_user.customer? &&
       controller_name.in?('profile') &&
       !%w[
         customer_setup_info
