@@ -14,16 +14,22 @@ $(document).on ('turbolinks:load', function (){
             };
 
             (function() {
-                $.getJSON( "http://www.nbrb.by/api/exrates/rates/145", {}).done(function( data ) {
-                    currency = data.Cur_OfficialRate;
-                });
+                let xhr = new XMLHttpRequest();
+                xhr.open("GET", 'http://www.nbrb.by/api/exrates/rates/145');
+                xhr.onload = function (e) {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        currency = JSON.parse(xhr.response).Cur_OfficialRate;
+                    }
+                };
+                xhr.send(null);
+
             })();
 
             let input = document.getElementById('currency_input');
             let calcOut =  document.getElementById('currency_calc_view');
             let tagInput = document.getElementById('tag-input');
             input.oninput = function() {
-                calcOut.innerHTML = ' ≈ '+ Math.floor(input.value/currency) + ' $';
+                calcOut.innerHTML = ' ≈ '+ Math.floor(parseInt(input.value)/currency) + ' $';
             };
 
 
