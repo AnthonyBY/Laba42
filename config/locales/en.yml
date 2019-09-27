@@ -115,7 +115,7 @@ en:
   new_project: "New project"
   title_project: "Name of project/task"
   info_project: "Description of project/task"
-  keywords_project: "Keywords (through comma)"
+  keywords_project: "Keywords (through comma or Enter)"
   errors_title: "wrongs input:"
   type_project: "Type of project:"
   project: "Project"

@@ -3,7 +3,6 @@
   margin-top: 1rem;
   min-width: 10rem;
 
-
   input[type="radio"] {
     height: 1.4rem;
     margin-right: -1.7rem;
@@ -25,12 +24,11 @@
         position: relative;
         transition: all 0.3s ease;
         width: 1.4rem;
-
       }
     }
 
     &:checked {
-      + .radio-label {
+      +.radio-label {
         &:before {
           background-color: $main-blue;
           border-color: $main-blue;

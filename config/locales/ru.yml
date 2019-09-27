@@ -108,7 +108,7 @@ ru:
   new_project: "Новый проект"
   title_project: "Название проекта/задания"
   info_project: "Описание проекта/задания"
-  keywords_project: "Ключевые слова(через запятую)"
+  keywords_project: "Ключевые слова(через запятую, или Enter)"
   errors_title: "неверный ввод:"
   type_project: "Тип проекта:"
   project: "Проект"
