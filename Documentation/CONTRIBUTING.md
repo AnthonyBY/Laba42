@@ -20,6 +20,11 @@ Requirements:
 installed ruby (not system ruby) and a clean gemset dedicated to laba42.
 [rbenv](https://github.com/sstephenson/rbenv) is also supported.*
 
+Below you can find instructions on how to install all of the additional tools for different OSes.
+
+* [macOS](How_to_install_on_MacOS.md)
+* [Ubuntu](How_to_install_on_Ubuntu.md)
+
 If you have already installed and configured everything you need for the lab42, then you can immediately proceed with the build on your local machine.
 
 ### Clone the Laba42 Repository
@@ -49,8 +54,8 @@ Now we need to specify the user for the database. In this example, we will creat
 $ sudo -u postgres createuser -s -d -r -P laba42
 ```
 *Note: If you are using MacOS, you need to replace postgres on the your OS username.
-	  Entered password characters are not displayed.
-	  Username should be used in lowercase to avoid unexpected errors.*
+       Entered password characters are not displayed.
+       Username should be used in lowercase to avoid unexpected errors.*
 
 Then create database and run migrations:
 
