@@ -1,6 +1,6 @@
 <section class="top-menu">
   <%= link_to projects_path do %>
-    <%= content_tag :span, t(:all_projects), class: "top-menu__item-first" %>
+    <%= content_tag :span, t(:all_projects), class: "top-menu__item-active" %>
   <% end %>
   <% if current_user %>
     <% if current_user.customer? %>

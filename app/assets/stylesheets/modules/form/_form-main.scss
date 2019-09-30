@@ -1,10 +1,8 @@
 .form-main {
-  background-color: $background-light-gray;
   height: 81.6rem;
   margin: 0 auto;
 
   &__title {
-    background-color: $background-light-gray;
     margin-bottom: 2rem;
     margin-left: 5rem;
     padding-top: 3.25rem;
@@ -19,6 +17,10 @@
 
     &__margin0 {
       margin: 0;
+    }
+
+    &__font14 {
+      font-size: 0.875rem;
     }
 
     &__margin-left {

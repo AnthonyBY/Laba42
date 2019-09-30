@@ -6,13 +6,21 @@ module ApplicationHelper
   def show_devise_link?
     return false if controller_name.in?(%w[sessions registrations passwords])
 
-    return false if action_name == 'edit_role'
+    return false if %w[edit_role customer_setup_info developer_setup_info].include?(action_name)
 
     true
   end
 
-  def user_in_profile?
-    controller_name.in?('profile')
+  def customer_in_profile?
+    return false unless current_user
+
+    current_user.customer? &&
+      controller_name.in?('profile') &&
+      !%w[
+        customer_setup_info
+        developer_setup_info
+        edit_role
+      ].include?(action_name)
   end
 
   # This method smells of :reek:UtilityFunction

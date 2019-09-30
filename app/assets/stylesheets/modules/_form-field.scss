@@ -38,6 +38,7 @@
       background-color: $white-color;
       border: 1px solid $social-btn-border;
       border-left: 0.1875rem solid $main-blue;
+      outline-width: 0;
     }
 
     &::placeholder {

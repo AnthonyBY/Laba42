@@ -17,7 +17,7 @@ class Project < ApplicationRecord
 
   include Searchable::Project
 
-  COST_TYPE = { price: 0, contract_price: 1, free: 2 }.freeze
+  COST_TYPE = { price: 0, free: 1 }.freeze
   enum cost_type: COST_TYPE
 
   TYPE_TASK = { project_type: 0, test_type: 1 }.freeze
@@ -30,6 +30,6 @@ class Project < ApplicationRecord
   end
 
   def skills_parse
-    self.skills = skills.split(' ')
+    self.skills = skills.split(',')
   end
 end

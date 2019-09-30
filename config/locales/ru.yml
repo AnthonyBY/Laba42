@@ -108,7 +108,7 @@ ru:
   new_project: "Новый проект"
   title_project: "Название проекта/задания"
   info_project: "Описание проекта/задания"
-  keywords_project: "Ключевые слова(через пробел /css html ruby/)"
+  keywords_project: "Ключевые слова(через запятую, или Enter)"
   errors_title: "неверный ввод:"
   type_project: "Тип проекта:"
   project: "Проект"
@@ -150,3 +150,5 @@ ru:
   choose_developer: "Выберите кандидата для исполнения проекта"
   feedback: "Отклики"
   create_your_first_project: "Создайте свой первый проект.  Ребята ждут интересные задачи!"
+  deactivate: "Деактивировать"
+  without_payment: "Без оплаты"

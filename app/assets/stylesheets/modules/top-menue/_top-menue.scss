@@ -1,13 +1,13 @@
 .top-menu {
 
   border-bottom: 1px solid $top-menue-border;
-  display: flex;
-  font-size: 0.975rem;
+  display: inline-block;
+  font-size: 0.875rem;
+  font-style: normal;
   font-weight: normal;
   justify-content: space-between;
   margin-top: 2rem;
   padding-bottom: 0.5rem;
-  width: 12.75rem;
 
   a {
     text-decoration: none;
@@ -15,6 +15,7 @@
 
   &__item {
     color: $black-color;
+    padding: 0 0.5rem;
     text-align: center;
 
     &-active {

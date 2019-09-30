@@ -14,9 +14,12 @@
         
         <% %w(new_apply applied choose_applier).each do |state| %>
 
-          <%= link_to '', class:'customer__apply-item' do  %>
-              <%= render partial: 'shared/apply_cards/apply-card', locals: {state: state} %>
-          <% end %>
+          <a class="customer__link-a" href="#">
+            <div class="customer__apply-item">
+            <%= render partial: 'shared/apply_cards/apply-card', locals: {state: state} %>
+            </div>
+          </a>
+
 
         <% end %>
 

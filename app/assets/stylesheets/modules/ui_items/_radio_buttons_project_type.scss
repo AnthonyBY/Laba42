@@ -1,0 +1,38 @@
+.checkbox-wrap {
+  margin-top: 1.9rem;
+  position: relative;
+}
+
+.checkbox{
+
+  input {
+    display: none;
+  }
+
+  label {
+    cursor: pointer;
+    display: inline-block;
+    font-size: 0.875rem;
+    padding-left: 2rem;
+  }
+
+  label:before {
+    border: 1px solid #d4d4d4;
+    border-radius: 100%;
+    box-sizing: border-box;
+    content: '';
+    display: inline-block;
+    height: 1.4rem;
+    left: 0;
+    position: absolute;
+    top: 5px;
+    transition: all 0.3s ease;
+    width: 1.4rem;
+  }
+
+  input:checked + label:before {
+    background-color: $main-blue;
+    border-color: $main-blue;
+    box-shadow: inset 0 0 0 0.25rem $white-color;
+  }
+}

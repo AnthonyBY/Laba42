@@ -6,7 +6,6 @@
   display: flex;
 
   &__body {
-    background-color: $background-light-gray;
     width: 100%;
   }
 
@@ -35,5 +34,9 @@
       text-decoration: none;
       top: -0.3rem;
     }
+  }
+
+  &__link-a {
+    color: $black-color;
   }
 }

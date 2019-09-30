@@ -1,0 +1,42 @@
+.tags-input-wrapper {
+  background: $white-color;
+  border: 0.06125rem solid $light-gray;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.0625rem 0.6rem $shadow-body;
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 3rem;
+  padding: 0.4rem 0 0.5rem 0.3rem;
+  width: 100%;
+
+  input {
+    background: transparent;
+    border: 0;
+    height: 2rem;
+    margin-left: 0.3rem;
+    outline: none;
+    width: 10rem;
+  }
+
+  .tag {
+    background-color: $skills-blue-opacity;
+    border-radius: 0.25rem;
+    color: $footer-blue;
+    display: inline-block;
+    line-height: 1.6rem;
+    margin-left: 0.5rem;
+    margin-top: 0.2rem;
+    padding-bottom: -0.5rem;
+    padding-left: 0.5rem;
+    text-align: center;
+
+    a {
+      cursor: pointer;
+      display: inline-block;
+      font-size: 1.3rem;
+      opacity: 0.5;
+      padding-left: 0.3rem;
+      padding-right: 0.5rem;
+    }
+  }
+}

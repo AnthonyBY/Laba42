@@ -1,0 +1,48 @@
+.radio {
+  height: 2rem;
+  margin-top: 1rem;
+  min-width: 10rem;
+
+  input[type="radio"] {
+    height: 1.4rem;
+    margin-right: -1.7rem;
+    opacity: 0;
+    position: relative;
+    width: 1.4rem;
+    z-index: 1;
+
+    +.radio-label {
+      &:before {
+        background: $white-color;
+        border: 0.0625rem solid darken($white-color, 25%);
+        border-radius: 100%;
+        content: '';
+        cursor: pointer;
+        display: inline-block;
+        height: 1.4rem;
+        margin-left: 0.3rem;
+        position: relative;
+        transition: all 0.3s ease;
+        width: 1.4rem;
+      }
+    }
+
+    &:checked {
+      +.radio-label {
+        &:before {
+          background-color: $main-blue;
+          border-color: $main-blue;
+          box-shadow: inset 0 0 0 0.25rem $white-color;
+        }
+      }
+    }
+  }
+
+  &-project_type {
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: normal;
+    margin-left: 0.6rem;
+    vertical-align: top;
+  }
+}
