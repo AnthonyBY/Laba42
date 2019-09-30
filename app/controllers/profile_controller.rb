@@ -42,8 +42,9 @@ class ProfileController < ApplicationController
   end
 
   def cabinet
+    @projects = current_user.projects if current_user
+
     if @user.developer?
-      @projects = Project.all
       render 'profile/developer_cabinet'
     else
       render 'profile/customer_cabinet'
