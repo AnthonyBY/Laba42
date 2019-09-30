@@ -91,3 +91,7 @@
 .not-allowed {
   cursor: not-allowed;
 }
+
+.error-input {
+  border: 1px solid $bad-note;
+}

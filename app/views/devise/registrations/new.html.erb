@@ -2,25 +2,24 @@
   <h2 class="signup__title"><%= t(:sign_up_greeting) %></h2>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
 
-    <div class="form-field">
+    <div class="form-field <%=  'error-input' if resource.errors.messages.keys.include?(:name) %>">
       <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: t(:name) %>
     </div>
 
-    <div class="form-field form-field__relative">
+    <div class="form-field form-field__relative <%=  'error-input' if resource.errors.messages.keys.include?(:email) %>">
       <div id="bad_note" class="form-field--hide bad-note"><%= t(:bad_note) %><%= image_tag("sad.svg", alt: "sad") %></div>
       <div id="good_note" class="form-field--hide good-note"><%= t(:good_note) %><%= image_tag("like.svg", alt: "like") %></div>
       <%= f.email_field :email, id: "email_check", autocomplete: "email", placeholder: t(:email) %>
     </div>
 
-    <div class="form-field form-field__relative">
+    <div class="form-field form-field__relative <%=  'error-input' if resource.errors.messages.keys.include?(:password) %>">
       <span class="form-field__image search--disable" id="eye_open_pass"><%= image_tag("eye.svg", alt: "eye") %></span>
       <span class="form-field__image" id="eye_closed_pass"><%= image_tag("closed-eye.svg", alt: "closed-eye") %></span>
       <%= f.password_field :password, id: "pass", autocomplete: "new-password", placeholder: t(:password) %>
     </div>
 
-    <div class="form-field form-field__relative">
+    <div class="form-field form-field__relative <%=  'error-input' if resource.errors.messages.keys.include?(:password_confirmation) %>">
       <span class="form-field__image search--disable" id="eye_open_pass_confirm"><%= image_tag("eye.svg", alt: "eye") %></span>
       <span class="form-field__image" id="eye_closed_pass_confirm"><%= image_tag("closed-eye.svg", alt: "closed-eye") %></span>
       <%= f.password_field :password_confirmation, id: "pass_confirm", autocomplete: "new-password", placeholder: t(:password_confirm) %>

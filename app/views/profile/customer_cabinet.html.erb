@@ -14,7 +14,7 @@
         
         <% @projects.each do |project| %>
 
-          <a class="customer__link-a" href="#">
+          <a class="customer__link-a" href=<%= project_path(project) %> >
             <div class="customer__apply-item">
             <%= render partial: 'shared/apply_cards/apply-card', locals: {project: project} %>
             </div>
