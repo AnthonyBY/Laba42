@@ -1,34 +1,44 @@
 <section class="start-large">
-  <div class="start-large__text-context">
+
     <h1 class="start-large__title"><%= t(:start_page_title) %></h1>
-    <h2 class="start-large__subtitle"><%= t(:start_page_subtitle) %></h2>
-    <div>
-      <% if user_signed_in? %>
-        <% if current_user.customer? %>
-         <%= link_to new_project_path  do %>
-          <%= content_tag :span, t(:start_page_button), class: "button button--blue button--large" %>
-         <% end %>
+
+    <div class="start-large__block">
+
+      <div class="start-large__block-left">
+        <% unless user_signed_in? %>
+        <div class="start-large__subtitle"><%= t(:start_page_subtitle) %></div>
+        <div>
+
+            <%= link_to new_user_session_path do %>
+              <%= content_tag :span, t(:enter_it_button), class: "button button--blue button--large" %>
+            <% end %>
+
+        </div>
         <% end %>
-      <% else %>
-        <%= link_to new_user_session_path do %>
-          <%= content_tag :span, t(:start_page_button), class: "button button--blue button--large" %>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
-  <div class="start-large__image"><%= image_tag("picture.svg", alt: "picture") %>
+        <div class="start-large__subtitle"><%= t(:start_page_subtitle2) %></div>
+        <div>
+          <% if user_signed_in? %>
+            <% if current_user.customer? %>
+              <%= link_to new_project_path  do %>
+                <%= content_tag :span, t(:start_page_button), class: "button button--blue button--large" %>
+              <% end %>
+            <% end %>
+          <% else %>
+            <%= link_to new_user_session_path do %>
+              <%= content_tag :span, t(:start_page_button), class: "button button--blue button--large" %>
+            <% end %>
+          <% end %>
+        </div>
+
+        <div class="start-large__subtitle"><%= t(:start_page_subtitle3) %></div>
+        <div class="start-large__coming-soon"><%= t(:coming_soon) %></div>
+
+      </div>
+
+      <div class="start-large__block-right">
+        <div><%= image_tag("main_page_img.png", alt: "main page image") %></div>
+      </div>
+
   </div>
 </section>
-<section class="start-secondary">
-  <h3 class="start-secondary__title"><%= t(:show_wow) %></h3>
-  <div class="start-secondary__wrapper">
-    <% @projects.each do |p|  %>
-    <%= render partial: 'shared/project_mini_card_main', locals: {p: p} %>
-    <% end %>
-  </div>
-</section>
-<section class="start-third">
-  <%= link_to projects_path do %>
-    <%= content_tag :span, t(:show_more), class: "button button--large button--light-gray" %>
-   <% end %>
-</section>
+
