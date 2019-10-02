@@ -1,13 +1,13 @@
 <div class="choice">
-  <h2 class="choice__text"><%= t(:wu_search) %></h2>
+  <div class="choice__text"><%= t(:wu_search) %></div>
   <div class="choice__buttons">
     <div>
       <%= button_to t(:customer),{ controller: 'profile', action: 'update_role', role: :customer},
-                    {method: :post, class: "button button--white button--large button--choice choice--mr-30"} %>
+                    {method: :post, class: "button button--white button--large button--choice choice__button"} %>
     </div>
     <div>
       <%= button_to t(:developer),{ controller: 'profile', action: 'update_role', role: :developer},
-                    {method: :post, class: "button button--white button--large button--choice"} %>
+                    {method: :post, class: "button button--white button--large button--choice choice__button"} %>
     </div>
   </div>
 </div>
