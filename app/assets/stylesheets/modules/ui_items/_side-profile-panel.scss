@@ -1,0 +1,94 @@
+.developer-cabinet-main {
+  align-content: space-between;
+  display: flex;
+  margin-top: 1.5rem;
+  width: 71.25rem;
+
+  &__right-side {
+    margin-left: 23rem;
+    width: 48rem;
+  }
+}
+
+.side-profile-panel {
+  border-radius: 0.625rem;
+  box-shadow: 0 0.06rem 0.625rem $box-shadow-005-black;
+  display: inline-block;
+  height: 41rem;
+  padding: 2.5rem 4.2rem;
+  position: fixed;
+  text-align: center;
+  top: 7.75rem;
+  width: 22.5rem;
+
+  &__ava {
+    height: 6.75rem;
+    margin: 0 auto;
+    width: 6.75rem;
+  }
+
+  &__name {
+    font-size: 1.125rem;
+    font-weight: bold;
+    margin: 1.25rem auto 0.75rem;
+  }
+
+  &__specialization {
+    font-size: 0.75rem;
+    font-weight: normal;
+    margin-bottom: 0.5rem;
+  }
+
+  &__email {
+    font-size: 0.75rem;
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+  }
+
+  &__social-links-block {
+    display: flex;
+    font-size: 0.75rem;
+    font-weight: normal;
+    justify-content: space-between;
+    margin-bottom: 2.25rem;
+    text-decoration: underline;
+  }
+
+  &__info-profile {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.1875rem;
+
+    &__title {
+      font-size: 0.875rem;
+      opacity: 0.7;
+    }
+
+    &__count {
+      font-size: 1.125rem;
+      font-weight: bold;
+    }
+  }
+
+  &__short-about-yourself {
+    font-size: 0.75rem;
+    margin-top: 1.375rem;
+    opacity: 0.5;
+    text-align: left;
+  }
+
+  &__text-about-yourself {
+    font-size: 0.875rem;
+    text-align: left;
+  }
+
+  &__link-edit-profile {
+    font-weight: bold;
+    margin-top: 2.875rem;
+    text-decoration: underline;
+  }
+}
+
+.color617 {
+  color: $main-blue;
+}

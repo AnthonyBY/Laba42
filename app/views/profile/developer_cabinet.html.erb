@@ -1,20 +1,84 @@
-<%= render partial: "shared/top-vertical-menu" %>
 <h1 class="developer__title"><%= t(:this_we_find) %></h1>
-<div class="start-secondary__wrapper">
-  <% @projects.each do |p|  %>
-    <%= link_to project_path(p), style: 'text-decoration: none; color: black;'  do %>
-      <div class="start-secondary__item">
-        <div class="start-secondary__item-wrapper">
-          <h5 class="start-secondary__item-title" ><%= p.title %></h5>
-          <span class="start-secondary__item-subtitle-item"><%= t(:published) %><%= p.created_at.localtime.strftime('%d/%m/%Y') %></span>
-          <div class="start-secondary__item-text" ><%= markdown(p.info) %></div>
+<div class="developer-cabinet-main">
+      <div class="side-profile-panel">
+        <div class="side-profile-panel__ava">
+          <%= image_tag("ava-example.png", alt: "avatar") %>
         </div>
-        <% content_tag :span, t(:take_job) %>
-    <% end %>
-    </div>
-  <% end %>
+        <div class="side-profile-panel__name">
+          Тихон Хомяков
+        </div>
+        <div class="side-profile-panel__specialization">
+          Frontend developer
+        </div>
+
+        <div class="side-profile-panel__email">
+          tixon.homiakov@gmail.com
+        </div>
+
+        <div class="side-profile-panel__social-links-block">
+          <%= link_to 'Linkedin', '#', class: 'color617' %>
+          <%= link_to 'Telegram', '#', class: 'color617' %>
+          <%= link_to 'Facebook', '#', class: 'color617' %>
+        </div>
+
+        <div class="side-profile-panel__info-profile">
+            <div class="side-profile-panel__info-profile__title">
+              Завершенных проектов
+            </div>
+            <div class="side-profile-panel__info-profile__count">
+              5
+            </div>
+        </div>
+
+        <div class="side-profile-panel__info-profile">
+          <div class="side-profile-panel__info-profile__title">
+            Рекомендаций
+          </div>
+          <div class="side-profile-panel__info-profile__count">
+            2
+          </div>
+        </div>
+
+        <div class="side-profile-panel__info-profile">
+          <div class="side-profile-panel__info-profile__title">
+            Просмотров профиля
+          </div>
+          <div class="side-profile-panel__info-profile__count">
+            129
+          </div>
+        </div>
+
+        <div class="side-profile-panel__short-about-yourself">
+          Коротко о себе
+        </div>
+
+        <div class="side-profile-panel__text-about-yourself">
+          Привет! Я Тихон, начинающий frontend разработчик из Минска. Ищу временный проект или постоянную работу.
+        </div>
+
+        <div class="side-profile-panel__link-edit-profile">
+          <%= link_to 'Редактировать профиль', '#', class: 'color617' %>
+        </div>
+      </div>
+
+      <div class="developer-cabinet-main__right-side">
+          <div class="start-secondary__wrapper">
+            <% @projects.each do |p|  %>
+              <%= link_to project_path(p), style: 'text-decoration: none; color: black;'  do %>
+                <div class="start-secondary__item">
+                  <div class="start-secondary__item-wrapper">
+                    <h5 class="start-secondary__item-title" ><%= p.title %></h5>
+                    <span class="start-secondary__item-subtitle-item"><%= t(:published) %><%= p.created_at.localtime.strftime('%d/%m/%Y') %></span>
+                    <div class="start-secondary__item-text" ><%= markdown(p.info) %></div>
+                  </div>
+                  <% content_tag :span, t(:take_job) %>
+              <% end %>
+              </div>
+            <% end %>
+          </div>
+      </div>
+
 </div>
-</section>
 <section class="start-third">
   <%= link_to projects_path do %>
     <%= content_tag :span, t(:show_more), class: "button button--large button--white" %>
