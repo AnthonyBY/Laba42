@@ -6,28 +6,31 @@
 
       <div class="start-large__block-left">
         <% unless user_signed_in? %>
-        <div class="start-large__subtitle"><%= t(:start_page_subtitle) %></div>
-        <div>
+          <div class="start-large__subtitle"><%= t(:start_page_subtitle) %></div>
+          <div>
 
-            <%= link_to new_user_session_path do %>
-              <%= content_tag :span, t(:enter_it_button), class: "button button--blue button--large" %>
-            <% end %>
+              <%= link_to new_user_session_path do %>
+                <%= content_tag :span, t(:enter_it_button), class: "button button--blue button--large" %>
+              <% end %>
 
-        </div>
+          </div>
         <% end %>
-        <div class="start-large__subtitle"><%= t(:start_page_subtitle2) %></div>
+
         <div>
           <% if user_signed_in? %>
             <% if current_user.customer? %>
+              <div class="start-large__subtitle"><%= t(:start_page_subtitle2) %></div>
               <%= link_to new_project_path  do %>
                 <%= content_tag :span, t(:start_page_button), class: "button button--blue button--large" %>
               <% end %>
             <% end %>
           <% else %>
+            <div class="start-large__subtitle"><%= t(:start_page_subtitle2) %></div>
             <%= link_to new_user_session_path do %>
               <%= content_tag :span, t(:start_page_button), class: "button button--blue button--large" %>
             <% end %>
           <% end %>
+
         </div>
 
         <div class="start-large__subtitle"><%= t(:start_page_subtitle3) %></div>
