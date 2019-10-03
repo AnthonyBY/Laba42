@@ -15,7 +15,6 @@ module ApplicationHelper
     return false unless current_user
 
     current_user.customer? &&
-      controller_name.in?('profile') &&
       !%w[
         customer_setup_info
         developer_setup_info
