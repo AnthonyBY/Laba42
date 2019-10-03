@@ -5,7 +5,7 @@ $(document).on ('turbolinks:load', function (){
             const checkBoxCostType = document.getElementById('project_cost_type');
             const inputCurrency = document.getElementById('input-currency');
             const currencyBlock = document.getElementById('currency_block');
-            const urlCurrency = 'http://www.nbrb.by/api/exrates/rates/145';
+            const urlCurrency = 'https://www.nbrb.by/api/exrates/rates/145';
             let currency;
 
             radioButProject.onclick = function () {
@@ -33,7 +33,7 @@ $(document).on ('turbolinks:load', function (){
                 };
                 xhr.send(null);
             })();
-
+            if (currency) {} else{ currency = 2.1; }
             const input = document.getElementById('currency_input');
             const calcOut =  document.getElementById('currency_calc_view');
             input.oninput = function() {

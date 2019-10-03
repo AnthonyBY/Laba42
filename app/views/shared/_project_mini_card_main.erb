@@ -1,4 +1,4 @@
-<div class="start-secondary__item">
+<div class="start-secondary__item <%= 'my-card' if current_user && current_user.projects.include?(p) %>">
   <div class="start-secondary__item-wrapper">
     <div class="start-secondary__item-title" ><%= p.title %></div>
     <div class="start-secondary__item-subtitle">

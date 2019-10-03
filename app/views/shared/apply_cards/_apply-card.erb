@@ -1,13 +1,13 @@
 <div class="apply-card">
   <div class="apply-card-head">
-    <div class="apply-card-head-title"><%= 'Bug fix - Mobile Development (IOS)' %></div>
+    <div class="apply-card-head-title"><%= project.title %></div>
     <div class="apply-card-head-dots">
       <%= image_tag("3dots.png", alt: "3dots", class: "apply-card-head-dots-img") %>
       <div class="apply-card-head-dots-content">
-        <%= link_to '#', method: :get do %>
+        <%= link_to edit_project_path(project) do %>
           <%= content_tag :span, t(:edit), class: "apply-card-head-dots-content-item" %>
         <% end %>
-        <%= link_to '#', method: :get do %>
+        <%= link_to  project_path(project), method: :delete, data: { confirm: t(:delete_confirm) } do %>
           <%= content_tag :span, t(:deactivate), class: "apply-card-head-dots-content-item" %>
         <% end %>
       </div>
@@ -15,23 +15,38 @@
   </div>
 
   <div class="apply-card-info">
-    <div class="apply-card-info-type"> <%= 'тестовое задание' %></div>
-    <div class="apply-card-info-time"> <%= 'Опубликовано: 22.08.2019' %></div>
-    <div class="apply-card-info-time"> <%= 'Истекает через 15 дней' %></div>
+
+    <div class="apply-card-info-type">
+      <%= (t(:project) + ': ' + project.cost.to_s + ' BYN') if project.project_type? %>
+      <%= t(:test_task) if project.test_type?  %>
+    </div>
+
+    <div class="apply-card-info-time"> <%= t(:published) + ': '+ project.created_at.strftime("%d.%m.%Y") %></div>
+    <div class="apply-card-info-time"> <%= t(:expires) + ': ' + project.deadline.strftime("%d.%m.%Y")%></div>
   </div>
 
   <div class="apply-card-body">
-    <%= 'Have few Bug Expertse Needed iOS Developer & Android Developer. Swift and ObjectiveC...' %>
+    <%= markdown(project.info) %>
   </div>
 
   <div class="apply-card-skills">
-    <% ['iOS Jobs', 'Swift Jobs', 'NativeScript Jobs'].each do |item| %>
-      <div class="apply-card-skills-item"><%= item %></div>
+    <% project.skills.each do |s| %>
+      <% if s.is_a?(Array) %>
+        <% s.each do |i| %>
+          <div class="apply-card-skills-item">
+            <%= i.upcase %>
+          </div>
+        <% end %>
+      <% else %>
+        <div class="apply-card-skills-item">
+          <%= s.upcase %>
+        </div>
+      <% end %>
     <% end %>
   </div>
 
   <div class="apply-card-footer">
-    <% if state == 'new_apply' %>
+    <% if false %>
       <div class="apply-card-footer-new"><%= t(:new_apply) %></div>
       <div class="apply-card-footer-new_dig"><%= 23 %></div>
       <div class="apply-card-footer-all_apply"><%= t(:all_apply) %></div>
@@ -41,20 +56,20 @@
         <%= 144 %>
       </div>
 
-    <% elsif state == 'applied'%>
+    <% elsif false %>
       <div class="apply-card-footer-new">
         <%= t(:project_assigned) %>
       </div>
       <div class="apply-card-footer-assignes_developer">
         <%= 'Ilia Lesyn' %>
       </div>
-    <% elsif state == 'choose_applier'%>
+    <% elsif true %>
       <div class="apply-card-footer-choose_developer"><%= t(:choose_developer) %></div>
       <div class="apply-card-footer-all_apply"><%= t(:feedback) %></div>
-      <div class="apply-card-footer-all_dig">20</div>
+      <div class="apply-card-footer-all_dig"><%= project.applies.length %></div>
       <div class="apply-card-footer-views">
-        <%= image_tag("views_eye.svg", alt: "eye") %>
-        <%= 144 %>
+        <% image_tag("views_eye.svg", alt: "eye") %>
+        <% 144 %>
       </div>
     <% end %>
   </div>
