@@ -1,14 +1,4 @@
-<div class="developer__header">
-  <div class="developer__title">
-    <%= t(:my_projects) %>
-  </div>
-  <div class="developer__project-select">
-    Проекты:
-    <%= link_to 'Все', '#' %>
-  </div>
-
-
-</div>
+<h1 class="developer__title"><%= t(:this_we_find) %></h1>
 <div class="developer-cabinet-main">
       <div class="side-profile-panel">
         <div class="side-profile-panel__ava">
@@ -72,6 +62,7 @@
       </div>
 
       <div class="developer-cabinet-main__right-side">
+<<<<<<< HEAD
         <%= render partial: "shared/mini-project-card/developer-mini-project-card" %>
         <%= render partial: "shared/mini-project-card/developer-mini-project-card" %>
         <%= render partial: "shared/mini-project-card/developer-mini-project-card" %>
@@ -83,4 +74,28 @@
 
 </div>
 
+=======
+          <div class="start-secondary__wrapper">
+            <% @projects.each do |p|  %>
+              <%= link_to project_path(p), style: 'text-decoration: none; color: black;'  do %>
+                <div class="start-secondary__item">
+                  <div class="start-secondary__item-wrapper">
+                    <h5 class="start-secondary__item-title" ><%= p.title %></h5>
+                    <span class="start-secondary__item-subtitle-item"><%= t(:published) %><%= p.created_at.localtime.strftime('%d/%m/%Y') %></span>
+                    <div class="start-secondary__item-text" ><%= markdown(p.info) %></div>
+                  </div>
+                  <% content_tag :span, t(:take_job) %>
+              <% end %>
+              </div>
+            <% end %>
+          </div>
+      </div>
+
+</div>
+<section class="start-third">
+  <%= link_to projects_path do %>
+    <%= content_tag :span, t(:show_more), class: "button button--large button--white" %>
+   <% end %>
+</section>
+>>>>>>> baa0510c4d6345fc6dc02e77abf2c64d45d5da83
 
