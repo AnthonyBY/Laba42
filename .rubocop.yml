@@ -20,6 +20,8 @@ Metrics/AbcSize:
 
 Metrics/BlockLength:
   Max: 35
+  Exclude:
+    - 'config/environments/*'
 
 Metrics/MethodLength:
   Max: 20

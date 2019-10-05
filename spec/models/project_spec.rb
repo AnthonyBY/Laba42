@@ -14,6 +14,7 @@ RSpec.describe Project, type: :model do
         name: 'midd22',
         email: 'user@example.org',
         password: 'very-secret',
+        confirmed_at: Time.now.utc,
         role: :customer
       )
       project = Project.create(
@@ -23,7 +24,7 @@ RSpec.describe Project, type: :model do
         cost: '12',
         cost_type: 'price',
         project_type: 'project_type',
-        deadline: '2020-06-06',
+        deadline: rand(1.month).seconds.from_now,
         skills: 'java ruby'
       )
       expect(project.valid?).to eq(true)
