@@ -1,31 +1,44 @@
 .start-large {
-  position: relative;
+  height: 80vh;
+  max-height: 59rem;
+  padding: 5vh 0;
 
   &__image {
     display: flex;
     justify-content: flex-end;
   }
 
-  &__text-context {
-    color: $black-color;
-    position: absolute;
-    z-index: 1;
-  }
-
   &__title {
-    font-size: 3.0625rem;
+    font-size: 2.375rem;
     font-style: normal;
     font-weight: bold;
-    line-height: 120%;
+    line-height: 130%;
+    margin-left: 6.25rem;
     max-width: 45.5625rem;
   }
 
   &__subtitle {
-    font-size: 1.5rem;
+    font-size: 0.875rem;
     font-style: normal;
+    font-weight: normal;
+    line-height: 140%;
+    margin-bottom: 1rem;
+    margin-top: 4rem;
+    width: 18.25rem;
+  }
+
+  &__block {
+    display: flex;
+    margin-left: 6.25rem;
+    width: 59rem;
+  }
+
+  &__block-right {
+    margin-left: 4rem;
+  }
+
+  &__coming-soon {
     font-weight: 600;
-    line-height: 150%;
-    margin: 1.75rem 0;
-    max-width: 23.5rem;
+    line-height: 1.25rem;
   }
 }

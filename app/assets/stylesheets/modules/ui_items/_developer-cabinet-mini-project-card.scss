@@ -1,0 +1,90 @@
+.dev-project-card {
+  border-radius: 0.6rem;
+  box-shadow: 0 0.06rem 0.625rem $box-shadow-005-black;
+  display: inline-block;
+  height: 14.75rem;
+  margin-bottom: 1.25rem;
+  margin-left: 4rem;
+  padding-left: 1rem;
+  width: 44.25rem;
+
+  &__title {
+    font-weight: bold;
+    height: 1.5rem;
+    margin-top: 1.5rem;
+    width: 37rem;
+  }
+
+  &__type-time-block {
+    display: flex;
+    margin-top: 0.75rem;
+    width: 45rem;
+  }
+
+  &__type {
+    background-color: $background-yellow-light;
+    font-size: 0.75rem;
+    font-weight: bold;
+    height: 1.5rem;
+    padding-top: 0.2rem;
+    text-align: center;
+    width: 9.5rem;
+  }
+
+  &__time {
+    font-size: 0.75rem;
+    margin-left: 1.25rem;
+    opacity: 0.6;
+    padding-top: 0.2rem;
+  }
+
+  &__text {
+    font-size: 0.875rem;
+    margin-top: 1rem;
+    width: 38.5rem;
+  }
+
+  &__director {
+    font-size: 0.6785rem;
+    margin-top: 1rem;
+    opacity: 0.4;
+    text-transform: uppercase;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+
+    &__company {
+      display: flex;
+      width: 24rem;
+    }
+
+    &__logo-img {
+      border-radius: 2rem;
+    }
+
+    &__company-text {
+      margin-left: 0.75rem;
+    }
+
+    &__company-name {
+      font-size: 0.9375rem;
+      font-weight: bold;
+    }
+
+    &__info {
+      font-size: 0.8125rem;
+      opacity: 0.4;
+    }
+
+    &__button {
+      margin-right: 2.5rem;
+    }
+  }
+}
+
+.dev-mini-project-card-button {
+    width: 12.125rem;
+}

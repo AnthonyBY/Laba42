@@ -157,13 +157,6 @@ $(document).on ('turbolinks:load', function (){
                 });
 
                 window.TagsInput = TagsInput;
-
-                $('form').on('keypress', e => {
-
-                    if (e.keyCode === 13) {
-                        return false;
-                    }
-                });
             })();
         }
 });

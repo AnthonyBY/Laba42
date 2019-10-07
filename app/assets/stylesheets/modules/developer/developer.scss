@@ -2,7 +2,18 @@
 
   &__title {
     font-size: 1.5rem;
-    margin: 2.5rem 0 1.5rem;
-    text-align: center;
+    font-weight: bold;
+    margin-left: 27rem;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__project-select {
+    font-size: 0.875rem;
+    margin-right: 6.25rem;
+    padding-top: 0.8rem;
   }
 }
