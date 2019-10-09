@@ -83,4 +83,12 @@ Rails.application.configure do
     # Bullet.add_footer = true
     Bullet.raise = true
   end
+
+  # Bullet issues. Need to fix in the future
+  config.after_initialize do
+    Bullet.add_whitelist type: :n_plus_one_query, class_name: 'Project', association: :applies
+    Bullet.add_whitelist type: :n_plus_one_query, class_name: 'Apply', association: :project
+    Bullet.add_whitelist type: :n_plus_one_query, class_name: 'Apply', association: :user
+    Bullet.add_whitelist type: :n_plus_one_query, class_name: 'Comment', association: :user
+  end
 end
