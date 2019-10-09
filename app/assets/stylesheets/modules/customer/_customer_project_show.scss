@@ -1,0 +1,116 @@
+.customer-project-body {
+  box-shadow: 0 0.06rem 0.625rem $box-shadow-005-black;
+  min-height: 47.25rem;
+  padding: 2.75rem;
+  width: 71.25rem;
+
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2.25rem;
+
+    &__text {
+      color: $black-color;
+      margin-right: 0.75rem;
+      opacity: 0.5;
+    }
+
+    &__active-text {
+      color: $main-blue;
+      font-weight: bold;
+    }
+  }
+
+  &__title {
+    align-items: center;
+    display: flex;
+    margin-bottom: 2.375rem;
+
+    &__text {
+      font-size: 2rem;
+      font-weight: bold;
+      height: 1.2em;
+      max-width: 55rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    &__cost {
+      background-color: $background-yellow-light;
+      font-weight: 600;
+      height: 1.875rem;
+      margin-left: 1.75rem;
+      margin-top: 0.5rem;
+      padding-top: 0.15rem;
+      text-align: center;
+      width: 9rem;
+    }
+  }
+
+  &__category {
+    display: flex;
+    font-size: 0.875rem;
+    margin-bottom: 1.75rem;
+
+
+    &__item-active {
+      border-bottom: 2px solid $main-blue;
+      color: $main-blue;
+      font-size: 0.875rem;
+      font-weight: bold;
+      padding: 0 0.875rem 0.75rem;
+    }
+
+    &__item {
+      border-bottom: 1px solid $top-menue-border;
+      font-size: 0.875rem;
+      padding: 0 0.875rem 0.75rem;
+    }
+  }
+}
+
+.customer-project-card {
+  align-items: center;
+  box-shadow: 0 0.06rem 0.625rem $box-shadow-005-black;
+  display: flex;
+  height: 6.125rem;
+  justify-content: space-between;
+  margin-bottom: 1.75rem;
+  padding: 1.25rem;
+  width: 65.75rem;
+
+  &__logo {
+    height: 3.68rem;
+    width: 3.68rem;
+  }
+
+  &__info {
+    margin-left: 1rem;
+
+    &__name {
+      color: $main-blue;
+      font-size: 1.25rem;
+      font-weight: bold;
+      height: 1.68rem;
+      line-height: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    &__footer {
+      color: $black-color;
+      font-weight: bold;
+      height: 1.68rem;
+      opacity: 0.7;
+    }
+  }
+
+  &__button {
+    align-items: center;
+    height: 3.2rem;
+  }
+
+  &:hover {
+    box-shadow: 0 0.2rem 0.925rem rgba($black-color, 0.1);
+  }
+}
