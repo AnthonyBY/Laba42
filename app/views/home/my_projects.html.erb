@@ -1,34 +1,65 @@
-<% if user_signed_in? %>
-  <h1><%= "#{t(:your_projects)} #{current_user.name}" %></h1>
-  <hr>
-  <% if @projects.empty? %>
+<div class="customer-project-body">
 
-    <h3><%= t(:no_projects) %></h3>
+  <div class="customer-project-body__head">
 
-    <% else %>
+      <div class="in-line-items">
+        <div class="customer-project-body__head__text">Проекты</div>
+        <div class="customer-project-body__head__text"> — </div>
+        <div class="customer-project-body__head__active-text">Отклики</div>
+      </div>
 
-    <% @projects.each do |project| %>
-      <%= link_to project_path(project), style: 'text-decoration: none; color: black'  do %>
-
-        <div class="card card-footer mt-3", style="background-color: white">
-          <h3><%= project.title %></h3>
-          <div class="text-muted">
-            <%= t(:deadline) %>:
-            <%= project.deadline.strftime("%d  %h  %Y") %>
-          </div>
-          <div class="project-applies-refuse-button button--large">
-            <% if can? :destroy, project %>
-              <%= button_to t(:delete_project), project, method: :delete, class: 'button button--large button--blue mb-0' %>
-            <% end %>
-          </div>
+      <div class="apply-card-head-dots">
+        <%= image_tag("3dots.png", alt: "3dots", class: "apply-card-head-dots-img") %>
+        <div class="apply-card-head-dots-content">
+          <%= link_to '#' do %>
+            <%= content_tag :span, t(:delete) , class: "apply-card-head-dots-content-item" %>
+          <% end %>
+          <%= link_to  '#', method: :delete, data: { confirm: t(:delete_confirm) } do %>
+            <%= content_tag :span, t(:edit), class: "apply-card-head-dots-content-item" %>
+          <% end %>
         </div>
-      <% end %>
+      </div>
+
+  </div>
+
+  <div class="customer-project-body__title">
+
+      <div class="customer-project-body__title__text">
+        Bug fix - Mobile Development (IOS)
+      </div>
+
+      <div class="customer-project-body__title__cost">
+        Проект: 100 BYN
+      </div>
+
+  </div>
+
+  <div class="customer-project-body__category">
+
+      <div class="customer-project-body__category__item-active">Новые</div>
+      <div class="customer-project-body__category__item">Просмотренные</div>
+
+  </div>
+
+    <% 4.times do  %>
+    <div class="customer-project-card">
+
+        <div class="in-line-items">
+            <div class="customer-project-card__logo">
+              <%= image_tag("ava-example.png", alt: "avatar") %>
+            </div>
+            <div class="customer-project-card__info">
+              <div class="customer-project-card__info__name">Илья Лесун</div>
+              <div class="customer-project-card__info__footer">Выполнил 10 проектов</div>
+            </div>
+        </div>
+
+        <div class="customer-project-card__button">
+          <%= button_to 'Назначить исполнителем',{ controller: 'profile', action: 'update_role', role: :developer},
+                        {method: :post, class: "button button--white button--large button--choice choice__button"} %>
+        </div>
+
+    </div>
     <% end %>
 
-  <% end %>
-
-<% end %>
-<hr>
-<div class="mt-3">
-  <%= link_to t(:back_to_all_project), projects_path,class: 'project__company-name' %>
 </div>
