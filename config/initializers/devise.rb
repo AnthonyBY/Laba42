@@ -123,7 +123,7 @@ Devise.setup do |config|
   # config.pepper = 'a2b54a2184a1790f16f397812b32bcdad70dba4c4a5b36570093b3c5c4e586252cbf6f6f8697a17dc27c3e1e7d12437c8eb0b228e3e718555a99ef45aa569b8b'
 
   # Send a notification to the original email when the user's email is changed.
-  # config.send_email_changed_notification = false
+  config.send_email_changed_notification = true
 
   # Send a notification email when the user's password is changed.
   # config.send_password_change_notification = false
@@ -222,7 +222,7 @@ Devise.setup do |config|
 
   # When set to false, does not sign a user in automatically after their password is
   # reset. Defaults to true, so a user is signed in automatically after a reset.
-  # config.sign_in_after_reset_password = true
+  config.sign_in_after_reset_password = false
 
   # ==> Configuration for :encryptable
   # Allow you to use another hashing or encryption algorithm besides bcrypt (default).
