@@ -65,8 +65,10 @@
       </div>
     <% elsif true %>
       <div class="apply-card-footer-choose_developer"><%= t(:choose_developer) %></div>
-      <div class="apply-card-footer-all_apply"><%= t(:feedback) %></div>
-      <div class="apply-card-footer-all_dig"><%= project.applies.length %></div>
+      <%= link_to project_applies_path(project_id: project.id) do %>
+        <span class="apply-card-footer-all_apply"><%= t(:feedback) %></span>
+        <span class="apply-card-footer-all_dig"><%= project.applies.length %></span>
+      <% end %>
       <div class="apply-card-footer-views">
         <% image_tag("views_eye.svg", alt: "eye") %>
         <% 144 %>

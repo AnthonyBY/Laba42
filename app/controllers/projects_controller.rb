@@ -40,6 +40,10 @@ class ProjectsController < ApplicationController
     redirect_to projects_path
   end
 
+  def applies
+    @apply_card = @projects.find(params[:project_id])
+  end
+
   private
 
   def project_params
