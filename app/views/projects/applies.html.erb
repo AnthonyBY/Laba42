@@ -16,10 +16,10 @@
         <th></th>
       </tr>
 
-      <% @apply_card.applies.each do |a| %>
+      <% @apply_card.applies.each do |apply| %>
         <tr>
-          <td><%= a.user.name %></td>
-            <td><%= button_to 'Назначить иполнителем' %></td>
+          <td><%= apply.user.name %></td>
+            <td><%= button_to 'Назначить иполнителем', {controller: 'applies', action: 'appointment', project_id: @apply_card.id, appointed_user: apply.user_id, apply_id: apply.id}, {method: :post, class: "button button--white button--large button--choice dev-mini-project-card-button"} %></td>
         </tr>
       <% end %>
     </table>

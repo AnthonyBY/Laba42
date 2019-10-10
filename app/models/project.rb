@@ -30,6 +30,6 @@ class Project < ApplicationRecord
   end
 
   def skills_parse
-    self.skills = skills.split(',')
+    self.skills = skills.split(',') unless self.skills.is_a?(Array)
   end
 end

@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
     resources :projects do
       get 'applies'
+      post 'applies', to: 'applies#appointment'
     end
     resources :comments
     resources :applies

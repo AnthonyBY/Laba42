@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# This module smells of :reek:TooManyInstanceVariables
 class ProjectsController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
   load_resource except: %i[show index]
