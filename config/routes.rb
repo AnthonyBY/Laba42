@@ -15,7 +15,10 @@ Rails.application.routes.draw do
 
     get 'my_projects', to: 'home#my_projects'
 
-    resources :projects
+    resources :projects do
+      get 'applies'
+      post 'applies', to: 'applies#appointment'
+    end
     resources :comments
     resources :applies
     resource :profile, controller: 'profile', only: %i[edit update] do

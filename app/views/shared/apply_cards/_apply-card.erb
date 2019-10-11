@@ -56,17 +56,19 @@
         <%= 144 %>
       </div>
 
-    <% elsif false %>
+    <% elsif project.employee > 0 %>
       <div class="apply-card-footer-new">
         <%= t(:project_assigned) %>
       </div>
       <div class="apply-card-footer-assignes_developer">
-        <%= 'Ilia Lesyn' %>
+        <%= User.find(project.employee).name %>
       </div>
-    <% elsif true %>
+    <% elsif project.employee == 0 %>
       <div class="apply-card-footer-choose_developer"><%= t(:choose_developer) %></div>
-      <div class="apply-card-footer-all_apply"><%= t(:feedback) %></div>
-      <div class="apply-card-footer-all_dig"><%= project.applies.length %></div>
+      <%= link_to project_applies_path(project_id: project.id) do %>
+        <span class="apply-card-footer-all_apply"><%= t(:feedback) %></span>
+        <span class="apply-card-footer-all_dig"><%= project.applies.length %></span>
+      <% end %>
       <div class="apply-card-footer-views">
         <% image_tag("views_eye.svg", alt: "eye") %>
         <% 144 %>

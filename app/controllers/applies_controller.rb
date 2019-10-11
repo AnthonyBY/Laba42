@@ -17,6 +17,15 @@ class AppliesController < ApplicationController
     redirect_to applies_path
   end
 
+  def appointment
+    if Project.find(params[:project_id]).update(employee: params[:appointed_user])
+      Apply.find(params[:apply_id]).update(apply_status: 'accept')
+      redirect_to cabinet_profile_path, notice: 'Исполнитель назначен'
+    else
+      redirect_to project_applies_path, alert: @comment.errors.full_messages
+    end
+  end
+
   private
 
   def apply_params
