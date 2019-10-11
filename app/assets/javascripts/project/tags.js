@@ -137,8 +137,9 @@ $(document).on ('turbolinks:load', function (){
                         if( !!(~[9 , 13 , 188].indexOf( e.keyCode ))  )
                         {
                             tags.input.value = "";
+                            str = str.replace(/,/g,"");
                             if(str !== "") {
-                                tags.addTag(str.replace(/,/g,""));
+                                tags.addTag(str);
                             }
                         }
                     });
