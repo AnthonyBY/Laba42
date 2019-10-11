@@ -33,7 +33,7 @@ $(document).on ('turbolinks:load', function (){
                 };
                 xhr.send(null);
             })();
-            if (currency) {} else{ currency = 2.1; }
+            if (currency) {} else { currency = 2.1; }
             const input = document.getElementById('currency_input');
             const calcOut =  document.getElementById('currency_calc_view');
             input.oninput = function() {
@@ -132,13 +132,13 @@ $(document).on ('turbolinks:load', function (){
                     tags.wrapper.addEventListener('click' ,function(){
                         tags.input.focus();
                     });
-                    tags.input.addEventListener('keydown' , function(e){
+                    tags.input.addEventListener('keyup' , function(e){
                         let str = tags.input.value.trim();
                         if( !!(~[9 , 13 , 188].indexOf( e.keyCode ))  )
                         {
                             tags.input.value = "";
                             if(str !== "") {
-                                tags.addTag(str);
+                                tags.addTag(str.replace(/,/g,""));
                             }
                         }
                     });
