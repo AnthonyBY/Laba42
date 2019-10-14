@@ -19,7 +19,7 @@
       <% @apply_card.applies.each do |apply| %>
         <tr>
           <td><%= apply.user.name %></td>
-            <td><%= button_to 'Назначить иполнителем', {controller: 'applies', action: 'appointment', project_id: @apply_card.id, appointed_user: apply.user_id, apply_id: apply.id}, {method: :post, class: "button button--white button--large button--choice dev-mini-project-card-button"} %></td>
+            <td><%= button_to t(:designate), {controller: 'applies', action: 'appointment', project_id: @apply_card.id, appointed_user: apply.user_id, apply_id: apply.id}, {method: :post, class: "button button--white button--large button--choice dev-mini-project-card-button"} %></td>
         </tr>
       <% end %>
     </table>
