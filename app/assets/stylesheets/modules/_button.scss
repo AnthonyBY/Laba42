@@ -38,6 +38,7 @@
     color: $social-btn-color;
     font-size: 0.875rem;
     padding: 0.75rem 2.4rem;
+    width: 47%;
 
     &:hover {
       box-shadow: 0 0 0.275rem rgba($black-color, 0.5);
@@ -96,5 +97,11 @@
 
   &--list-project {
     border-radius: 0;
+  }
+
+  @media screen and (max-width: 700px) {
+    &--social {
+      width: 100%;
+    }
   }
 }
