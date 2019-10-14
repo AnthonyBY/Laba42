@@ -3,7 +3,7 @@
 <div class="margin-1-2rem in-line-items">
   <div class="project__cost">
     <%= t(:project) %>:
-    <%= @project.cost %> $
+    <%= @project.cost %> BYN
   </div>
   <div class="project__title">
     <%= @project.title %>
@@ -68,20 +68,23 @@
       </p>
     </div>
   <% end %>
-    <% if @apply %>
-    <%= link_to applies_path, style: 'text-decoration: none; color: black;' do  %>
-      <p class="project__apply-text">
-        <div class="button--blue button--large" style="background-color: rgba(79,128,77,0.52); text-align: center">
-        <%= t(:apply)%>
-        <%= @apply.created_at.localtime.strftime('%d/%m/%Y %H:%M') %>
-        </div>
-      </p>
 
-    <%= render partial: "shared/status-line", locals: { apply: @apply } %>
+    <% if user_signed_in? && current_user.id != @project.user_id %>
+      <% if @apply %>
+        <%= link_to applies_path, style: 'text-decoration: none; color: black;' do  %>
+          <p class="project__apply-text">
+            <div class="button--blue button--large" style="background-color: rgba(79,128,77,0.52); text-align: center">
+            <%= t(:apply)%>
+            <%= @apply.created_at.localtime.strftime('%d/%m/%Y %H:%M') %>
+            </div>
+          </p>
 
-    <% end %>
-    <% else %>
-      <%= button_to t(:apply_project), {controller: 'applies', action: 'create', project_id: @project.id}, class: 'button button--blue button--login project__button-position' %>
+        <%= render partial: "shared/status-line", locals: { apply: @apply } %>
+
+        <% end %>
+      <% else %>
+        <%= button_to t(:apply_project), {controller: 'applies', action: 'create', project_id: @project.id}, class: 'button button--blue button--login project__button-position' %>
+      <% end %>
     <% end %>
 <div class=" project__backlink-margin">
 
