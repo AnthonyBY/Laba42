@@ -28,6 +28,10 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def edit
+    @form = Project.find(params[:id])
+  end
+
   def update
     if @project.update(project_params)
       redirect_to @project

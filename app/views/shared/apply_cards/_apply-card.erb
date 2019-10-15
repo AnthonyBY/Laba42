@@ -30,19 +30,27 @@
   </div>
 
   <div class="apply-card-skills">
-    <% project.skills.each do |s| %>
-      <% if s.is_a?(Array) %>
-        <% s.each do |i| %>
+    <% if project.skills.is_a?(Array) %>
+      <% project.skills.each do |s| %>
+        <% if s.is_a?(Array) %>
+          <% s.each do |i| %>
+            <div class="apply-card-skills-item">
+              <%= i.upcase %>
+            </div>
+          <% end %>
+        <% else %>
           <div class="apply-card-skills-item">
-            <%= i.upcase %>
+            <%= s.upcase %>
           </div>
         <% end %>
-      <% else %>
+      <% end %>
+    <% else %>
+      <% project.skills.split(',') do |s| %>
         <div class="apply-card-skills-item">
           <%= s.upcase %>
         </div>
-      <% end %>
-    <% end %>
+      <%end %>
+    <%end %>
   </div>
 
   <div class="apply-card-footer">
