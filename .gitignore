@@ -33,15 +33,17 @@ cron.log
 /config/master.key
 .ruby-gemset
 
+# RubyMine files
 .idea/*
 *.swp
+
+# MacOS files
+.DS_Store
 
 # Ignore database settings
 /config/database.yml
 
 /public/packs
 /public/packs-test
-/node_modules
-/yarn-error.log
 yarn-debug.log*
 .yarn-integrity
