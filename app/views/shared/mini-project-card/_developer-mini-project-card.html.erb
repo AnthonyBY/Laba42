@@ -9,7 +9,7 @@
       <%= (t(:project) + ': ' + project.cost.to_s + ' BYN') if project.project_type? %>
       <%= t(:test_task) if project.test_type?  %>
     </div>
-    <div class="dev-project-card__time"> <%= t(:published) + ': '+ project.created_at.strftime("%d.%m.%Y") %></div>
+    <div class="dev-project-card__time"> <%= t(:published) + ': '+ project.created_at.localtime.strftime("%d.%m.%Y") %></div>
     <div class="dev-project-card__time"> <%= t(:expires) + ': ' + project.deadline.strftime("%d.%m.%Y")%></div>
   </div>
 

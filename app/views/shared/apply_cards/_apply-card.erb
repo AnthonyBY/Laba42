@@ -21,7 +21,7 @@
       <%= t(:test_task) if project.test_type?  %>
     </div>
 
-    <div class="apply-card-info-time"> <%= t(:published) + ': '+ project.created_at.strftime("%d.%m.%Y") %></div>
+    <div class="apply-card-info-time"> <%= t(:published) + ': '+ project.created_at.localtime.strftime("%d.%m.%Y") %></div>
     <div class="apply-card-info-time"> <%= t(:expires) + ': ' + project.deadline.strftime("%d.%m.%Y")%></div>
   </div>
 

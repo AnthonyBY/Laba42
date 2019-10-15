@@ -19,7 +19,7 @@
 <div class="in-line-items">
   <div class="project__expires">
     <%= t(:created_at) %>:
-    <%= @project.created_at.strftime("%d  %h  %Y") %>
+    <%= @project.created_at.localtime.strftime("%d  %h  %Y") %>
   </div>
   <div class="project__expires">
     <%= t(:expires) %>:
