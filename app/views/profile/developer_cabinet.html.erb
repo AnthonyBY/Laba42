@@ -5,14 +5,14 @@
           <%= image_tag("ava-example.png", alt: "avatar") %>
         </div>
         <div class="side-profile-panel__name">
-          Тихон Хомяков
+          <%= current_user.name %>
         </div>
         <div class="side-profile-panel__specialization">
           Frontend developer
         </div>
 
         <div class="side-profile-panel__email">
-          tixon.homiakov@gmail.com
+          <%= current_user.email %>
         </div>
 
         <div class="side-profile-panel__social-links-block">
@@ -57,18 +57,20 @@
         </div>
 
         <div class="side-profile-panel__link-edit-profile">
-          <%= link_to 'Редактировать профиль', '#', class: 'color617' %>
+          <%= link_to 'Редактировать профиль', edit_user_registration_path, class: 'color617' %>
         </div>
       </div>
 
-      <div class="developer-cabinet-main__right-side">
-        <%= render partial: "shared/mini-project-card/developer-mini-project-card" %>
-        <%= render partial: "shared/mini-project-card/developer-mini-project-card" %>
-        <%= render partial: "shared/mini-project-card/developer-mini-project-card" %>
-        <div class="developer-cabinet-main__right-side__bottom-empty">
+      <% if current_user.applies %>
 
-        </div>
-      </div>
+        <% current_user.applies.each do |apply| %>
+          <div class="developer-cabinet-main__right-side">
+            <%= render partial: "shared/mini-project-card/developer-mini-project-card", locals: {project: apply.project} %>
+            <div class="developer-cabinet-main__right-side__bottom-empty">
+            </div>
+          </div>
+        <% end %>
+      <% end %>
 </div>
 
 
