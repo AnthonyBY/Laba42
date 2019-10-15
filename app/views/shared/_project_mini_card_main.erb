@@ -11,19 +11,27 @@
     </div>
     <div class="start-secondary__item-text" ><%= markdown(p.info) %></div>
     <div class="start-secondary__item_skills">
-      <% p.skills.each do |s| %>
-        <% if s.is_a?(Array) %>
-          <% s.each do |i| %>
-            <div class="start-secondary__item_skills-unit">
-              <%= i.upcase %>
-            </div>
-          <% end %>
+      <% if p.skills.is_a?(Array) %>
+            <% p.skills.each do |s| %>
+              <% if s.is_a?(Array) %>
+                <% s.each do |i| %>
+                  <div class="start-secondary__item_skills-unit">
+                    <%= i.upcase %>
+                  </div>
+                <% end %>
+              <% else %>
+                <div class="start-secondary__item_skills-unit">
+                  <%= s.upcase %>
+                </div>
+              <% end %>
+            <% end %>
         <% else %>
-          <div class="start-secondary__item_skills-unit">
-            <%= s.upcase %>
-          </div>
-        <% end %>
-      <% end %>
+          <% p.skills.split(',') do |s| %>
+                <div class="start-secondary__item_skills-unit">
+                  <%= s.upcase %>
+                </div>
+          <%end %>
+        <%end %>
     </div>
   </div>
   <%= button_to project_path(p), class: 'button button--blue button--large start-secondary__button', method: :get do %>

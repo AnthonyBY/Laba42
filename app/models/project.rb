@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Project < ApplicationRecord
-  before_save :skills_parse
   belongs_to :user
   has_many :applies, dependent: :destroy
   has_many :comments, as: :comment_owner, dependent: :destroy
@@ -27,9 +26,5 @@ class Project < ApplicationRecord
 
   def validate_deadline_date
     errors.add(:deadline, 'is invalid') if deadline? && Date.today >= deadline
-  end
-
-  def skills_parse
-    self.skills = skills.split(',') unless skills.is_a?(Array)
   end
 end

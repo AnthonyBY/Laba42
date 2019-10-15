@@ -50,23 +50,31 @@
         <%= t(:require_skills) %>:
       </div>
       <p>
-      <div class="in-line-items">
-        <% @project.skills.each do |s| %>
-            <% if s.is_a?(Array) %>
-            <% s.each do |i| %>
-              <div class="project__skills__item">
-                <%= i.upcase %>
-              </div>
-            <% end %>
+        <div class="in-line-items">
+          <% if @project.skills.is_a?(Array) %>
+            <% @project.skills.each do |s| %>
+              <% if s.is_a?(Array) %>
+                <% s.each do |i| %>
+                  <div class="project__skills__item">
+                    <%= i.upcase %>
+                  </div>
+                <% end %>
               <% else %>
-            <div class="project__skills__item">
-              <%= s.upcase %>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
+                <div class="project__skills__item">
+                  <%= s.upcase %>
+                </div>
+              <% end %>
+            <% end %>
+          <% else %>
+            <% @project.skills.split(',') do |s| %>
+              <div class="project__skills__item">
+                <%= s.upcase %>
+              </div>
+            <%end %>
+          <%end %>
+        </div>
       </p>
-    </div>
+
   <% end %>
 
     <% if user_signed_in? && current_user.id != @project.user_id %>
