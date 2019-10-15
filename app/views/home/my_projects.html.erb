@@ -11,11 +11,11 @@
       <div class="apply-card-head-dots">
         <%= image_tag("3dots.png", alt: "3dots", class: "apply-card-head-dots-img") %>
         <div class="apply-card-head-dots-content">
-          <%= link_to '#' do %>
-            <%= content_tag :span, t(:delete) , class: "apply-card-head-dots-content-item" %>
-          <% end %>
           <%= link_to  '#', method: :delete, data: { confirm: t(:delete_confirm) } do %>
-            <%= content_tag :span, t(:edit), class: "apply-card-head-dots-content-item" %>
+            <%= content_tag :span, t(:delete), class: "apply-card-head-dots-content-item" %>
+          <% end %>
+          <%= link_to '#' do %>
+            <%= content_tag :span, t(:edit) , class: "apply-card-head-dots-content-item" %>
           <% end %>
         </div>
       </div>

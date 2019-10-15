@@ -38,6 +38,7 @@
     color: $social-btn-color;
     font-size: 0.875rem;
     padding: 0.75rem 2.4rem;
+    width: 47%;
 
     &:hover {
       box-shadow: 0 0 0.275rem rgba($black-color, 0.5);
@@ -60,11 +61,22 @@
   &--light-gray {
     background-color: $background-light-gray;
     color: $main-blue;
+  }
+
+  &__index {
+    border: 0.09375rem solid $main-blue;
+    padding-top: 0.5rem;
+    height: 2.75rem;
+    width: 12.6rem;
 
     &:hover {
-      background-color: $skills-blue-opacity;
-      box-shadow: 0.5rem 0.3rem 1rem $skills-blue-opacity;
-      transition-duration: 0.6s;
+      background-color: $button-hover;
+      color: $white-color;
+    }
+
+    &:active {
+      background-color: $button-press;
+      color: $white-color;
     }
   }
 
@@ -85,5 +97,11 @@
 
   &--list-project {
     border-radius: 0;
+  }
+
+  @media screen and (max-width: 700px) {
+    &--social {
+      width: 100%;
+    }
   }
 }

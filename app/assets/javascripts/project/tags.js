@@ -33,7 +33,7 @@ $(document).on ('turbolinks:load', function (){
                 };
                 xhr.send(null);
             })();
-            if (currency) {} else{ currency = 2.1; }
+            if (currency) {} else { currency = 2.1; }
             const input = document.getElementById('currency_input');
             const calcOut =  document.getElementById('currency_calc_view');
             input.oninput = function() {
@@ -41,6 +41,7 @@ $(document).on ('turbolinks:load', function (){
             };
 
             (function(){
+                let tag_input = document.getElementById('tag-input');
 
                 let TagsInput = function(opts){
                     this.options = Object.assign(TagsInput.defaults , opts);
@@ -50,7 +51,16 @@ $(document).on ('turbolinks:load', function (){
                     this.input = document.createElement('input');
                     buildUI(this);
                     addEvents(this);
+                    addInputValues(tag_input,this);
                 };
+
+                function addInputValues(tags,instance) {
+                    if ( tags.value !== '') {
+                        tags.value.split(',').forEach(function (element) {
+                            instance.addTag(element);
+                        });
+                    }
+                }
 
                 TagsInput.prototype.addTag = function(string){
                     string = string.toUpperCase();
@@ -98,11 +108,15 @@ $(document).on ('turbolinks:load', function (){
                         return true;
                     }
 
-                    if(!this.options.duplicate && this.arr.indexOf(string) !== -1 ){
+                    if(!this.options.duplicate && this.arr.indexOf(string) !== -1 || string === ','){
                         console.log('duplicate found " '+ string +' " ');
                         return true;
                     }
 
+                    if(string === ','){
+                        console.log('comma input found ');
+                        return true;
+                    }
                     return false;
                 };
 
@@ -132,11 +146,12 @@ $(document).on ('turbolinks:load', function (){
                     tags.wrapper.addEventListener('click' ,function(){
                         tags.input.focus();
                     });
-                    tags.input.addEventListener('keydown' , function(e){
+                    tags.input.addEventListener('keyup' , function(e){
                         let str = tags.input.value.trim();
-                        if( !!(~[9 , 13 , 188].indexOf( e.keyCode ))  )
+                        if( !!(~[9 , 188].indexOf( e.keyCode ))  )
                         {
                             tags.input.value = "";
+                            str = str.replace(/,/g,"");
                             if(str !== "") {
                                 tags.addTag(str);
                             }
