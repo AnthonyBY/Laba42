@@ -64,11 +64,12 @@
       <% if current_user.applies %>
 
         <% current_user.applies.each do |apply| %>
-          <div class="developer-cabinet-main__right-side">
-            <%= render partial: "shared/mini-project-card/developer-mini-project-card", locals: {project: apply.project} %>
-            <div class="developer-cabinet-main__right-side__bottom-empty">
+          <a class="customer__link-a" href=<%= project_path(apply.project_id) %> >
+            <div class="developer-cabinet-main__right-side">
+              <%= render partial: "shared/mini-project-card/developer-mini-project-card", locals: {project: apply.project} %>
+              <div class="developer-cabinet-main__right-side__bottom-empty"></div>
             </div>
-          </div>
+          </a>
         <% end %>
       <% end %>
 </div>
