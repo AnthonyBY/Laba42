@@ -77,7 +77,7 @@
 
 <% end %>
 
-<% if user_signed_in? && current_user.id != @project.user_id %>
+<% if user_signed_in? && current_user.id != @project.user_id && @project.employee.zero? %>
   <% if @apply %>
     <%= link_to applies_path, style: 'text-decoration: none; color: black;' do  %>
       <p class="project__apply-text">
