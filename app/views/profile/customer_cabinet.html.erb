@@ -11,7 +11,7 @@
     <div class="customer-body-wrapper">
 
       <% if @projects %>
-        
+
         <% @projects.each do |project| %>
 
           <a class="customer__link-a" href=<%= project_path(project) %> >
@@ -40,4 +40,8 @@
 
       <% end %>
     </div>
+</section>
+
+<section>
+  <%= flash[:notice] = "Один, или несколько ваших исполнителей сообщили о выполнении проектов. Необходимо подтвердить выполнение." if @implementation_project %>
 </section>
