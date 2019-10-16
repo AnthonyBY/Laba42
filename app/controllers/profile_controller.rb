@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# This module smells of :reek:TooManyInstanceVariables
 class ProfileController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user
