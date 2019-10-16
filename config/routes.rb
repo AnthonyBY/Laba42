@@ -19,6 +19,9 @@ Rails.application.routes.draw do
       get 'applies'
       post 'applies', to: 'applies#appointment'
     end
+
+    post 'applies', to: 'applies#implementation'
+
     resources :comments
     resources :applies
     resource :profile, controller: 'profile', only: %i[edit update] do

@@ -26,6 +26,14 @@ class AppliesController < ApplicationController
     end
   end
 
+  def implementation
+    if Project.find(params[:project_id]).update(status: 1)
+      redirect_to cabinet_profile_path, notice: "Ответ отправлен. Молодец!"
+    else
+      redirect_to cabinet_profile_path, alert: "Что-то пошло не так..."
+    end
+  end
+
   private
 
   def apply_params
