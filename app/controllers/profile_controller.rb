@@ -45,6 +45,7 @@ class ProfileController < ApplicationController
     @projects = current_user.projects if current_user
 
     if @user.developer?
+      @approved = Project.includes(:user).where(employee: current_user.id)
       render 'profile/developer_cabinet'
     else
       render 'profile/customer_cabinet'
