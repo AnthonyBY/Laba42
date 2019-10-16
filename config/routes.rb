@@ -20,7 +20,7 @@ Rails.application.routes.draw do
       post 'applies', to: 'applies#appointment'
     end
 
-    post 'applies', to: 'applies#implementation'
+    post 'implementation', to: 'applies#implementation'
 
     resources :comments
     resources :applies
