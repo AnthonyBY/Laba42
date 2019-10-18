@@ -1,15 +1,15 @@
-<div class="user-form">
-  <h1 class="user-form__title"><%= t(:developer_registration_head_text) %></h1>
+<div class="checkbox-block">
+  <h1 class="checkbox-block__title"><%= t(:developer_registration_head_text) %></h1>
   <%= form_tag(profile_path, method: :patch) do %>
-
-    <div class="setup-info">
+    <div class="checkbox-block__skills">
       <% User::SKILLS.each_with_index do |value, index| %>
-        <%= check_box_tag 'skills[]', value, @user.skills.include?(value), id: "user_skills_#{index}" %>
-        <%= label_tag("user_skills_#{index}", value) %>
+        <div class="ck-button">
+          <%= check_box_tag 'skills[]', value, @user.skills.include?(value), id: "user_skills_#{index}" %>
+          <%= label_tag("user_skills_#{index}", value) %>
+        </div>
       <% end %>
     </div>
-
-    <div class="user-form__center">
+    <div class="checkbox-block__button">
       <%= submit_tag t(:next_button), class: "button button--blue button--large user-form__button"%>
     </div>
   <% end %>
