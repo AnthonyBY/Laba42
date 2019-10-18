@@ -1,0 +1,56 @@
+.checkbox-block {
+  display: flex;
+  flex-flow: wrap;
+  margin: 0 auto;
+  width: 36rem;
+
+  &__title {
+    font-size: 2.25rem;
+    font-weight: bold;
+    margin: 2.5rem auto 1.5rem;
+    text-align: center;
+  }
+
+  &__skills {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+  }
+
+  &__button {
+    input {
+      margin-left: 36%;
+      margin-top: 4.5rem;
+    }
+  }
+}
+
+.ck-button {
+  background-color: $white-color;
+  border: 0.0625rem solid #D0D0D0;
+  border-radius: 1rem;
+  height: 2.375rem;
+  margin: 0.5rem;
+  padding: 0;
+  width: auto;
+
+  input {
+    display: none;
+  }
+
+  label {
+    border-radius: 1rem;
+    font-size: 1.0675rem;
+    height: 2.375rem;
+    margin: 0;
+    overflow: hidden;
+    padding: 0.3rem 2rem;
+    text-align: center;
+    width: auto;
+  }
+
+  input:checked +label {
+    background-color: $main-blue;
+    color: $white-color;
+  }
+}
