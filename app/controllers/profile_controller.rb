@@ -49,7 +49,7 @@ class ProfileController < ApplicationController
       @approved = Project.includes(:user).where(employee: current_user.id)
       render 'profile/developer_cabinet'
     else
-      @implementation_project = true if current_user.projects.where(status: 1).length.positive?
+      @implementation_project = true if current_user.projects.status_notification_sent.length.positive?
       render 'profile/customer_cabinet'
     end
   end
