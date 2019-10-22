@@ -1,6 +1,6 @@
 <div class="dev-project-card">
   <div class="dev-project-card__title">
-    <%= project.title %>
+    <%= link_to project.title, project_path(project), class: 'dev-project-card__title__no-link-style' %>
   </div>
 
   <div class="dev-project-card__type-time-block">

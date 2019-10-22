@@ -16,6 +16,15 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     width: 35rem;
+
+    &__no-link-style {
+      color: $black-color;
+
+      &:hover {
+        color: $black-color-opacity-0-6;
+        text-decoration: none;
+      }
+    }
   }
 
   &__type-time-block {
