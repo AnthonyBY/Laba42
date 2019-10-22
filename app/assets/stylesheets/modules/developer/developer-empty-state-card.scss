@@ -1,0 +1,17 @@
+.empty-state {
+  display: inline-block;
+  height: 10rem;
+  margin-left: 42%;
+  margin-top: 40%;
+  width: 15rem;
+
+  &__title {
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  &__button {
+    padding-left: 1rem;
+  }
+}

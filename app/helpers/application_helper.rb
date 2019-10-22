@@ -14,8 +14,15 @@ module ApplicationHelper
   def customer_in_profile?
     return false unless current_user
 
-    current_user.customer? &&
+    return true if current_user.customer? &&
       !%w[
+        customer_setup_info
+        developer_setup_info
+        edit_role
+      ].include?(action_name)
+
+    :dev if current_user.developer? &&
+        !%w[
         customer_setup_info
         developer_setup_info
         edit_role

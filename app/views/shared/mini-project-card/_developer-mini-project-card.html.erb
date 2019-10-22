@@ -3,7 +3,6 @@
     <%= project.title %>
   </div>
 
-
   <div class="dev-project-card__type-time-block">
     <div class="dev-project-card__type">
       <%= (t(:project) + ': ' + project.cost.to_s + ' BYN') if project.project_type? %>
@@ -13,16 +12,13 @@
     <div class="dev-project-card__time"> <%= t(:expires) + ': ' + project.deadline.strftime("%d.%m.%Y")%></div>
   </div>
 
-
   <div class="dev-project-card__text">
     <%= markdown(project.info) %>
   </div>
 
-
   <div class="dev-project-card__director">
     Постановщик
   </div>
-
 
   <div class="dev-project-card__footer">
     <div class="dev-project-card__footer__company">
