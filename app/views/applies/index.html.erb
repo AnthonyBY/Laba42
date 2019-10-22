@@ -1,34 +1,16 @@
-<% if user_signed_in? %>
-  <h1><%= "#{t(:applies)} #{current_user.name}" %></h1>
-  <hr>
-    <% if @applies.empty? %>
+<h1 class="developer__title"><%= t(:this_we_find) %></h1>
+<div class="developer-cabinet-main">
 
-      <h3><%= t(:your_applies_empty) %></h3>
+  <%= render partial: "shared/side-user-panel" %>
 
-    <% else %>
-
+  <div class="developer-cabinet-main__right-side">
+    <% if @applies %>
       <% @applies.each do |apply| %>
-        <div class="card card-footer mt-3">
-          <%= link_to project_path(apply.project), style: 'text-decoration: none; color: black;'  do %>
-            <h3><%= apply.project.title %></h3>
-            <div class="text-muted">
-              <%= t(:deadline) %>:
-              <%= apply.project.deadline.strftime("%d  %h  %Y") %>
-
-              <%= render partial: "shared/status-line", locals: { apply: apply } %>
-
-            </div>
-          <% end %>
-          <div class="project-applies-refuse-button button--large">
-            <% if can? :destroy, apply %>
-              <%= button_to t(:refuse_project), apply, method: :delete, class: 'button button--large button--blue mb-0' %>
-            <% end %>
-          </div>
-        </div>
+        <%= render partial: "shared/mini-project-card/developer-mini-project-card", locals: { project: apply.project } %>
       <% end %>
+      <div class="developer-cabinet-main__right-side__bottom-empty"></div>
+      </div>
+    <% else  %>
+      <%= render partial: "shared/mini-project-card/developer-empty-state-card" %>
     <% end %>
-<% end %>
-<hr>
-<div class="mt-3">
-<%= link_to t(:back_to_all_project), projects_path,class: 'project__company-name' %>
 </div>

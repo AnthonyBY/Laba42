@@ -1,41 +1,51 @@
 <header class="site-header">
   <div class="flex-grow-1"><%= link_to image_tag("laba42.svg", alt: "logo"), root_path %></div>
 
+  <% status = customer_in_profile? %>
+  <% if status %>
 
-  <% if customer_in_profile? %>
+    <% if status == :dev %>
 
-    <div class="flex-grow-1">
-      <div class="top-menu-customer">
+        <div class="flex-grow-1">
+          <div class="top-menu-customer">
 
-        <%= link_to cabinet_profile_path, class: 'top-menu-customer__item-active' do  %>
-          <%= content_tag :span, t(:my_projects) %>
-        <% end %>
+            <%= link_to applies_path, class: 'top-menu-customer__item-active' do  %>
+              <%= content_tag :span, t(:my_projects) %>
+            <% end %>
+            <%= link_to projects_path, class: 'top-menu-customer__item' do %>
+              <%= content_tag :span, t(:all_projects) %>
+            <% end %>
 
-        <%= link_to projects_path, class: 'top-menu-customer__item' do %>
-          <%= content_tag :span, t(:projects) %>
-        <% end %>
+          </div>
+        </div>
 
-        <%= link_to edit_user_registration_path, class: 'top-menu-customer__item' do %>
-          <%= content_tag :span, t(:profile) %>
-        <% end %>
+    <% else %>
 
-      </div>
-    </div>
+        <div class="flex-grow-1">
+          <div class="top-menu-customer">
+            <%= link_to cabinet_profile_path, class: 'top-menu-customer__item-active' do  %>
+              <%= content_tag :span, t(:my_projects) %>
+            <% end %>
 
+            <%= link_to projects_path, class: 'top-menu-customer__item' do %>
+              <%= content_tag :span, t(:projects) %>
+            <% end %>
+
+            <%= link_to edit_user_registration_path, class: 'top-menu-customer__item' do %>
+              <%= content_tag :span, t(:profile) %>
+            <% end %>
+          </div>
+        </div>
+
+      <% end %>
   <% end %>
 
   <% if show_devise_link? %>
-    <div id="search_icon" ><%= image_tag("search.svg", alt: "search") %></div>
-    <div class="form-field__absolute search--disable" id="search_toggle">
-      <%= image_tag("close.svg", alt: "close", class: "search__image", id: "search_close") %>
-      <%= form_tag projects_path, method: :get, role: t(:search) do %>
-        <%= text_field_tag :query, params[:query], autofocus: "autofocus", class: "search", placeholder: t(:lets_search) %>
-      <% end %>
-    </div>
+    <div><%= image_tag("letter-icon.png", alt: "messages", class: 'dropdown__img-letter') %></div>
 
     <% if user_signed_in? %>
       <div class="dropdown">
-        <%= image_tag("user.svg", alt: "user", class: "dropdown__img") %>
+        <%= image_tag("user.svg", alt: "user", class: "dropdown__img-user") %>
         <div class="dropdown--content">
           <%= link_to cabinet_profile_path, method: :get do %>
             <%= content_tag :span, t(:my_profile), class: "dropdown__item" %>

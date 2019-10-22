@@ -12,7 +12,10 @@
     font-weight: bold;
     height: 1.5rem;
     margin-top: 1.5rem;
-    width: 37rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 35rem;
   }
 
   &__type-time-block {
@@ -39,8 +42,13 @@
   }
 
   &__text {
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
     font-size: 0.875rem;
+    height: 2.5rem;
+    -webkit-line-clamp: 2;
     margin-top: 1rem;
+    overflow: hidden;
     width: 38.5rem;
   }
 

@@ -34,7 +34,9 @@ class ProfileController < ApplicationController
 
   def update
     if @user.update(profile_params)
-      redirect_to cabinet_profile_path
+      redirect_to applies_path if current_user.developer?
+
+      redirect_to cabinet_profile_path if current_user.customer?
     else
       session[:field_errors] = true
       redirect_back(fallback_location: customer_edit)
@@ -45,7 +47,7 @@ class ProfileController < ApplicationController
     @projects = current_user.projects if current_user
 
     if @user.developer?
-      render 'profile/developer_cabinet'
+      render 'profile/developer_edit'
     else
       render 'profile/customer_cabinet'
     end

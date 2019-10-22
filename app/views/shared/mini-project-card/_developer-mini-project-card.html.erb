@@ -1,27 +1,23 @@
 <div class="dev-project-card">
   <div class="dev-project-card__title">
-    Bug fix - Mobile Development (IOS)
+    <%= project.title %>
   </div>
-
 
   <div class="dev-project-card__type-time-block">
     <div class="dev-project-card__type">
-      Проект: 100 BYN
+      <%= t(:project) %>: <%= project.cost %> BYN
     </div>
-    <div class="dev-project-card__time"> <%= t(:published) + ': '+'22.08.2019' %></div>
-    <div class="dev-project-card__time"> <%= t(:expires) + ': ' + 'всего через 2 дня!' %></div>
+    <div class="dev-project-card__time"> <%= "#{t(:published)} : #{project.created_at.strftime("%d  %h  %Y")}" %></div>
+    <div class="dev-project-card__time"> <%= "#{t(:expires)} : #{project.deadline.strftime("%d  %h  %Y")}" %></div>
   </div>
-
 
   <div class="dev-project-card__text">
-    Have few Bug Expertse Needed iOS  Developer & Android Developer. Swift and ObjectiveC...
+    <%= project.info %>
   </div>
-
 
   <div class="dev-project-card__director">
     Постановщик
   </div>
-
 
   <div class="dev-project-card__footer">
     <div class="dev-project-card__footer__company">
@@ -31,7 +27,7 @@
 
       <div class="dev-project-card__footer__company-text">
         <div class="dev-project-card__footer__company-name">
-          Itransition
+          <%= project.user.company_name %>
         </div>
         <div class="dev-project-card__footer__info">
           Дает обратную связь на 90% заданий
