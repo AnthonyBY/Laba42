@@ -6,6 +6,7 @@
   font-style: normal;
   font-weight: normal;
   justify-content: space-between;
+  margin-left: 1rem;
   margin-top: 2rem;
   padding-bottom: 0.5rem;
 
@@ -13,17 +14,24 @@
     text-decoration: none;
   }
 
+  &__item-first {
+    color: $black-color;
+    margin-right: 2.5rem;
+    padding: 0 0.5rem;
+    text-align: center;
+  }
+
   &__item {
     color: $black-color;
     padding: 0 0.5rem;
     text-align: center;
+  }
 
-    &-active {
-      border-bottom: 2px solid $main-blue;
-      color: $main-blue;
-      font-weight: bold;
-      padding-bottom: 0.52rem;
-    }
+  &__active {
+    border-bottom: 2px solid $main-blue;
+    color: $main-blue;
+    font-weight: bold;
+    padding-bottom: 0.52rem;
   }
 }
 
