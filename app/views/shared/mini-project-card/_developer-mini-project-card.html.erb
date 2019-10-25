@@ -1,20 +1,21 @@
 <div class="dev-project-card">
   <div class="dev-project-card__title">
-    Bug fix - Mobile Development (IOS)
+    <%= project.title %>
   </div>
 
 
   <div class="dev-project-card__type-time-block">
     <div class="dev-project-card__type">
-      Проект: 100 BYN
+      <%= (t(:project) + ': ' + project.cost.to_s + ' BYN') if project.project_type? %>
+      <%= t(:test_task) if project.test_type?  %>
     </div>
-    <div class="dev-project-card__time"> <%= t(:published) + ': '+'22.08.2019' %></div>
-    <div class="dev-project-card__time"> <%= t(:expires) + ': ' + 'всего через 2 дня!' %></div>
+    <div class="dev-project-card__time"> <%= t(:published) + ': '+ project.created_at.localtime.strftime("%d.%m.%Y") %></div>
+    <div class="dev-project-card__time"> <%= t(:expires) + ': ' + project.deadline.strftime("%d.%m.%Y")%></div>
   </div>
 
 
   <div class="dev-project-card__text">
-    Have few Bug Expertse Needed iOS  Developer & Android Developer. Swift and ObjectiveC...
+    <%= markdown(project.info) %>
   </div>
 
 
@@ -31,7 +32,7 @@
 
       <div class="dev-project-card__footer__company-text">
         <div class="dev-project-card__footer__company-name">
-          Itransition
+          <%= project.user.company_name %>
         </div>
         <div class="dev-project-card__footer__info">
           Дает обратную связь на 90% заданий
@@ -39,9 +40,19 @@
       </div>
     </div>
 
-    <div class="dev-project-card__footer__button">
-      <%= button_to 'Отправить ответ',{ controller: 'profile', action: 'update_role', role: :developer},
-                    {method: :post, class: "button button--white button--large button--choice dev-mini-project-card-button"} %>
-    </div>
+    <% if project.status_active? %>
+      <div class="dev-project-card__footer__button">
+        <%= button_to 'Отправить ответ',{ controller: 'applies', action: 'implementation', project_id: project.id},
+                      {method: :post, class: "button button--white button--large button--choice dev-mini-project-card-button"} %>
+      </div>
+    <% elsif project.status_notification_sent? %>
+      <div class="dev-project-card__footer__button">
+      <%= button_to 'Твой ответ оправлен',class: "button button--white button--large button--choice dev-mini-project-card-button" %>
+      </div>
+    <% elsif project.status_completed? %>
+      <div class="dev-project-card__footer__button">
+      <%= button_to 'Проект успешно завершен',class: "button button--white button--large button--choice dev-mini-project-card-button" %>
+      </div>
+    <% end %>
   </div>
 </div>

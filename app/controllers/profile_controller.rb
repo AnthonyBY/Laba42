@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# This module smells of :reek:TooManyInstanceVariables
 class ProfileController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user
@@ -45,8 +46,10 @@ class ProfileController < ApplicationController
     @projects = current_user.projects if current_user
 
     if @user.developer?
+      @approved = Project.includes(:user).where(employee: current_user.id)
       render 'profile/developer_cabinet'
     else
+      @implementation_project = true if current_user.projects.status_notification_sent.length.positive?
       render 'profile/customer_cabinet'
     end
   end

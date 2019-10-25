@@ -21,7 +21,7 @@
       <%= t(:test_task) if project.test_type?  %>
     </div>
 
-    <div class="apply-card-info-time"> <%= t(:published) + ': '+ project.created_at.strftime("%d.%m.%Y") %></div>
+    <div class="apply-card-info-time"> <%= t(:published) + ': '+ project.created_at.localtime.strftime("%d.%m.%Y") %></div>
     <div class="apply-card-info-time"> <%= t(:expires) + ': ' + project.deadline.strftime("%d.%m.%Y")%></div>
   </div>
 
@@ -64,14 +64,14 @@
         <%= 144 %>
       </div>
 
-    <% elsif project.employee > 0 %>
+    <% elsif project.employee.positive? %>
       <div class="apply-card-footer-new">
         <%= t(:project_assigned) %>
       </div>
       <div class="apply-card-footer-assignes_developer">
         <%= User.find(project.employee).name %>
       </div>
-    <% elsif project.employee == 0 %>
+    <% elsif project.employee.zero? %>
       <div class="apply-card-footer-choose_developer"><%= t(:choose_developer) %></div>
       <%= link_to project_applies_path(project_id: project.id) do %>
         <span class="apply-card-footer-all_apply"><%= t(:feedback) %></span>

@@ -22,6 +22,9 @@ class Project < ApplicationRecord
   TYPE_TASK = { project_type: 0, test_type: 1 }.freeze
   enum project_type: TYPE_TASK
 
+  STATUSES = { active: 0, notification_sent: 1, completed: 2, favorite: 3 }.freeze
+  enum status: STATUSES, _prefix: true
+
   protected
 
   def validate_deadline_date
