@@ -8,7 +8,7 @@
 </section>
 <section class="start-third">
   <% if user_signed_in? %>
-    <% if current_user.role =='customer' %>
+    <% if current_user.customer? %>
       <%= link_to new_project_path do %>
         <%= content_tag :span, t(:post_project), class: "button button--large button--light-gray" %>
       <% end %>

@@ -161,3 +161,7 @@ ru:
   designate: "Назначить иполнителем"
   assigned: "Исполнитель назначен"
   add_project: "Добавить проект"
+  interaction:
+    notify_customer: "Отправить ответ"
+    notification_sent: "Твой ответ оправлен"
+    completed: "Проект успешно завершен"

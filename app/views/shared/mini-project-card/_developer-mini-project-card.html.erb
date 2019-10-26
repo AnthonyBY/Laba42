@@ -42,16 +42,16 @@
 
     <% if project.status_active? %>
       <div class="dev-project-card__footer__button">
-        <%= button_to 'Отправить ответ',{ controller: 'applies', action: 'implementation', project_id: project.id},
+        <%= button_to t('interaction.notify_customer'), { controller: 'applies', action: 'implementation', project_id: project.id},
                       {method: :post, class: "button button--white button--large button--choice dev-mini-project-card-button"} %>
       </div>
     <% elsif project.status_notification_sent? %>
       <div class="dev-project-card__footer__button">
-      <%= button_to 'Твой ответ оправлен',class: "button button--white button--large button--choice dev-mini-project-card-button" %>
+      <%= button_to t('interaction.notification_sent'), class: "button button--white button--large button--choice dev-mini-project-card-button" %>
       </div>
     <% elsif project.status_completed? %>
       <div class="dev-project-card__footer__button">
-      <%= button_to 'Проект успешно завершен',class: "button button--white button--large button--choice dev-mini-project-card-button" %>
+      <%= button_to t('interaction.completed'), class: "button button--white button--large button--choice dev-mini-project-card-button" %>
       </div>
     <% end %>
   </div>
