@@ -168,3 +168,7 @@ en:
   designate: "Designate as developer"
   assigned: "Developer assigned"
   add_project: "Add project"
+  interaction:
+    notify_customer: "Notify customer"
+    notification_sent: "Notification sent to customer"
+    completed: "Project completed successfully"
