@@ -2,7 +2,7 @@ language: ruby
 services:
   - postgresql
 rvm:
-  - 2.6.3
+  - 2.6.5
 cache:
   directories:
   - /home/travis/.rvm/
