@@ -21,8 +21,8 @@ module ApplicationHelper
 
   def white_background?
     'index,new'.include?(action_name) && 'home'.include?(controller_name) ||
-        'sessions,registrations,profile'.include?(controller_name) &&
-            !'cabinet'.include?(action_name)
+      'sessions,registrations,profile,passwords'.include?(controller_name) &&
+        !'cabinet'.include?(action_name)
   end
 
   # This method smells of :reek:UtilityFunction
