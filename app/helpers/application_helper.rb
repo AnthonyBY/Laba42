@@ -19,6 +19,12 @@ module ApplicationHelper
     :dev if current_user.developer? && !%w[customer_setup_info developer_setup_info edit_role].include?(action_name)
   end
 
+  def white_background?
+    'index,new'.include?(action_name) && 'home'.include?(controller_name) ||
+        'sessions,registrations,profile'.include?(controller_name) &&
+            !'cabinet'.include?(action_name)
+  end
+
   # This method smells of :reek:UtilityFunction
   def markdown(text)
     Markdown.new(text, :hard_wrap, :autolink).to_html.html_safe

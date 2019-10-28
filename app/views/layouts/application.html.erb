@@ -8,7 +8,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-  <div class="body-global">
+  <% if white_background? %>
       <div class="wrapper">
         <div class="header-wrapper">
           <div class="wrapper__head">
@@ -20,7 +20,22 @@
           <%= yield %>
         </div>
       </div>
-    <%= render partial: "shared/footer" %>
-  </div>
+      <%= render partial: "shared/footer" %>
+  <% else %>
+    <div class="body-global">
+      <div class="wrapper">
+        <div class="header-wrapper">
+          <div class="wrapper__head">
+            <%= render partial: "shared/header" %>
+            <%= render partial: 'shared/flashes' %>
+          </div>
+        </div>
+        <div class="wrapper__main">
+          <%= yield %>
+        </div>
+      </div>
+      <%= render partial: "shared/footer" %>
+    </div>
+  <% end %>
   </body>
 </html>

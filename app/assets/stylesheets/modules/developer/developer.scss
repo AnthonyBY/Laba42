@@ -1,5 +1,4 @@
 .developer {
-
   &__title {
     font-size: 1.5rem;
     font-weight: bold;
@@ -16,5 +15,21 @@
     font-size: 0.875rem;
     margin-right: 6.25rem;
     padding-top: 0.8rem;
+  }
+}
+
+.developer-cabinet-main {
+  align-content: space-between;
+  display: flex;
+  margin-top: 1.5rem;
+  width: 71.25rem;
+
+  &__right-side {
+    margin-left: 23rem;
+    width: 48rem;
+
+    &__bottom-empty {
+      margin-top: 5rem;
+    }
   }
 }
