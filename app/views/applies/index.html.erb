@@ -1,16 +1,16 @@
-<h1 class="developer__title"><%= t(:this_we_find) %></h1>
+<h1 class="developer__title"><%= t(:my_projects) %></h1>
 <div class="developer-cabinet-main">
 
-  <%= render partial: "shared/side-user-panel" %>
+  <%= render partial: "shared/user/side-developer-profile-panel" %>
 
   <div class="developer-cabinet-main__right-side">
     <% if @applies %>
       <% @applies.each do |apply| %>
-        <%= render partial: "shared/mini-project-card/developer-mini-project-card", locals: { project: apply.project } %>
+        <%= render partial: "shared/project/developer-mini-project-card", locals: { project: apply.project } %>
       <% end %>
       <div class="developer-cabinet-main__right-side__bottom-empty"></div>
       </div>
     <% else  %>
-      <%= render partial: "shared/mini-project-card/developer-empty-state-card" %>
+      <%= render partial: "shared/project/developer-empty-state-card" %>
     <% end %>
 </div>
