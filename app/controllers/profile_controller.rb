@@ -35,7 +35,7 @@ class ProfileController < ApplicationController
 
   def update
     if @user.update(profile_params)
-      redirect_to applies_path if current_user.developer?
+      redirect_to cabinet_profile_path if current_user.developer?
 
       redirect_to cabinet_profile_path if current_user.customer?
     else
