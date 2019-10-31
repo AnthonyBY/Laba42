@@ -23,6 +23,8 @@ ru:
               blank: 'не может быть пустым'
             skills:
               blank: 'не может быть пустым'
+            messages:
+              record_invalid: 'ошибки в записи'
   footer:
     about: "О нас"
     support: "Поддержка"
@@ -167,3 +169,4 @@ ru:
     completed: "Проект успешно завершен"
   watch_project: "Смотреть проекты"
   archive: "Архив"
+  performers: "Исполнители"

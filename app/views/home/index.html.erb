@@ -4,7 +4,7 @@
       <h3 class="start-secondary__title"><%= t(:show_wow) %></h3>
       <div class="start-secondary__wrapper">
         <% @projects.each do |p|  %>
-          <%= render partial: 'shared/project_mini_card_main', locals: {p: p} %>
+          <%= render partial: 'shared/project/project_mini_card_main', locals: {p: p} %>
         <% end %>
       </div>
     </section>

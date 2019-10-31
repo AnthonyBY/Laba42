@@ -3,7 +3,6 @@
 class HomeController < ApplicationController
   def index
     @projects = Project.limit(9).order(created_at: :desc)
-    redirect_to projects_path if can? :manage, Apply
   end
 
   def my_projects

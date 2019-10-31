@@ -1,8 +1,7 @@
-<% if current_user.developer? %>
 <h1 class="developer__title"><%= t(:my_projects) %></h1>
 <div class="developer-cabinet-main">
 
-<%= render partial: "shared/user/side-developer-profile-panel" %>
+  <%= render partial: "shared/user/side-developer-profile-panel" %>
 
 <div class="developer-cabinet-main__right-side">
   <% if @applies %>
@@ -15,7 +14,4 @@
       <%= render partial: "shared/project/developer-empty-state-card" %>
     </div>
   <% end %>
-</div>
-<% else %>
-<h1>Layout is empty</h1>
-<% end %>
+  </div>

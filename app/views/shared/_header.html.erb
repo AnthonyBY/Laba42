@@ -9,7 +9,7 @@
         <div class="flex-grow-1">
           <div class="top-menu-customer">
 
-            <%= link_to applies_path, class: 'top-menu-customer__item-active' do  %>
+            <%= link_to cabinet_profile_path, class: 'top-menu-customer__item-active' do  %>
               <%= content_tag :span, t(:my_projects) %>
             <% end %>
             <%= link_to projects_path, class: 'top-menu-customer__item' do %>
@@ -28,7 +28,7 @@
             <% end %>
 
             <%= link_to projects_path, class: 'top-menu-customer__item' do %>
-              <%= content_tag :span, t(:projects) %>
+              <%= content_tag :span, t(:performers) %>
             <% end %>
 
             <%= link_to edit_user_registration_path, class: 'top-menu-customer__item' do %>
@@ -41,8 +41,9 @@
   <% end %>
 
   <% if show_devise_link? %>
-    <div><%= image_tag("letter-icon.png", alt: "messages", class: 'dropdown__img-letter') %></div>
-
+    <% unless white_background? %>
+      <div><%= image_tag("letter-icon.png", alt: "messages", class: 'dropdown__img-letter') %></div>
+    <% end %>
     <% if user_signed_in? %>
       <div class="dropdown">
         <%= image_tag("user.svg", alt: "user", class: "dropdown__img-user") %>
