@@ -1,4 +1,10 @@
 ru:
+  date:
+    formats:
+      long: "%Y-%m-%d %H:%M:%S"
+  time:
+    formats:
+      long: "%Y-%m-%d %H:%M:%S"
   activerecord:
     errors:
       models:

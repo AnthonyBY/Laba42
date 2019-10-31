@@ -5,6 +5,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.5'
 
+gem 'activeadmin'
 gem 'devise', '~> 4.7', '>= 4.7.1'
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -57,8 +58,6 @@ end
 group :development do
   gem 'bullet', '~> 6.0', '>= 6.0.2'
   gem 'listen', '>= 3.0.5', '< 3.2'
-  gem 'reek', '~> 5.4', require: false
-  gem 'rubocop', '~> 0.75.1', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
