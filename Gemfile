@@ -58,6 +58,8 @@ end
 group :development do
   gem 'bullet', '~> 6.0', '>= 6.0.2'
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'reek', '~> 5.4', require: false
+  gem 'rubocop', '~> 0.75.1', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
