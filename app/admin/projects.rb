@@ -71,12 +71,8 @@ ActiveAdmin.register Project do
     f.inputs 'Discount perk' do
       input :title
       input :user
-      input :info do |pr|
-        div do
-          simple_format pr.info
-        end
-      end
-      input :skills, as: :text
+      input :info, as: :text
+      input :skills, as: :string
       input :project_type
       input :cost
       input :status
