@@ -42,12 +42,12 @@
                       {method: :post, class: "button button--white button--large button--choice dev-mini-project-card-button"} %>
       </div>
     <% elsif project.status_notification_sent? %>
-      <div class="dev-project-card__footer__button">
-       <div> <%= t('interaction.notification_sent') %></div>
+      <div class="dev-project-card__footer__text">
+        <%= t('interaction.notification_sent') %>
       </div>
     <% elsif project.status_completed? %>
-      <div class="dev-project-card__footer__button">
-        <div> <%= t('interaction.completed') %></div>
+      <div class="dev-project-card__footer__text">
+        <div> <%= image_tag("done_icon.png", alt: "logo", class: "dev-project-card__footer__text__icon") %> <%= t('interaction.completed') %></div>
       </div>
     <% end %>
   </div>
