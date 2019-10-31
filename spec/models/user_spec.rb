@@ -33,7 +33,6 @@ RSpec.describe User, type: :model do
     end
 
     it 'have skills' do
-      expect { @user.skills = '' }.to raise_error(RuntimeError)
       @user.skills = %w[1 2]
       expect(@user.skills).to eq(%w[1 2])
     end
