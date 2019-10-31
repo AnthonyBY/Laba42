@@ -37,7 +37,7 @@ class User < ApplicationRecord
   end
 
   def skills=(args)
-    super(args.split(',')) if args.is_a?(String)
+    raise 'array expected' unless args.is_a?(Array)
 
     super
   end
