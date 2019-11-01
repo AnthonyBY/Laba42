@@ -45,6 +45,18 @@
     }
   }
 
+  &--social-new {
+    border: 0.0625rem solid $social-btn-border;
+    color: $social-btn-color;
+    font-size: 0.875rem;
+    padding: 0.75rem 2.4rem;
+    width: 100%;
+
+    &:hover {
+      box-shadow: 0 0 0.275rem rgba($black-color, 0.5);
+    }
+  }
+
   &--stretch {
     width: 100%;
   }

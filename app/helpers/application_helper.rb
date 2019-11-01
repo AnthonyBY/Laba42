@@ -14,12 +14,17 @@ module ApplicationHelper
   def customer_in_profile?
     return false unless current_user
 
-    current_user.customer? &&
-      !%w[
-        customer_setup_info
-        developer_setup_info
-        edit_role
-      ].include?(action_name)
+    return true if current_user.customer? && !%w[customer_setup_info developer_setup_info edit_role].include?(action_name)
+
+    :dev if current_user.developer? && !%w[customer_setup_info developer_setup_info edit_role].include?(action_name)
+  end
+
+  def white_background?
+    return false if request.path == root_path && current_user
+
+    'index,new'.include?(action_name) && 'home'.include?(controller_name) ||
+      'sessions,registrations,profile,passwords'.include?(controller_name) &&
+        !'cabinet'.include?(action_name)
   end
 
   # This method smells of :reek:UtilityFunction

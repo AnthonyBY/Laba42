@@ -6,11 +6,11 @@
       <%= text_field_tag :name, @user.name, placeholder:  t(:name) %>
     </div>
 
-    <div class="form-field">
-      <%= text_field_tag :phone_number, @user.phone_number, placeholder:  t(:phone_number) %>
+    <div class="form-field" id="phone-mask">
+      <%= text_field_tag :phone_number, @user.phone_number, placeholder:  t(:input_phone) %>
     </div>
 
-    <div class="form-field">
+    <div class="form-field mb-3">
       <%= text_field_tag :info, @user.info, placeholder:  t(:about_yourself) %>
     </div>
 
@@ -18,10 +18,12 @@
       <%= t(:skills) %>
     </h2>
 
-    <div class="setup-info">
+    <div class="checkbox-block__skills">
       <% User::SKILLS.each_with_index do |value, index| %>
-        <%= check_box_tag 'skills[]', value, @user.skills.include?(value), id: "user_skills_#{index}" %>
-        <%= label_tag("user_skills_#{index}", value) %>
+        <div class="ck-button">
+          <%= check_box_tag 'skills[]', value, @user.skills.include?(value), id: "user_skills_#{index}" %>
+          <%= label_tag("user_skills_#{index}", value) %>
+        </div>
       <% end %>
     </div>
 

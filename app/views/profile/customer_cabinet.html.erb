@@ -1,9 +1,9 @@
 <section class="top-menu">
   <%= link_to '#' do %>
-    <%= content_tag :span, t(:active), class: "top-menu__item-active" %>
+    <%= content_tag :span, t(:active), class: "top-menu__item-first top-menu__active" %>
   <% end %>
   <%= link_to "#" do %>
-    <%= content_tag :span, t(:inactive), class: "top-menu__item" %>
+    <%= content_tag :span, t(:archive), class: "top-menu__item" %>
   <% end %>
 </section>
 
@@ -14,16 +14,16 @@
 
         <% @projects.each do |project| %>
 
-          <a class="customer__link-a" href=<%= project_path(project) %> >
+          <a class="customer__link-a" href=<%= project_applies_path(project) %> >
             <div class="customer__apply-item">
-            <%= render partial: 'shared/apply_cards/apply-card', locals: {project: project} %>
+              <%= render partial: 'shared/project/customer-cabinet-project-card', locals: {project: project} %>
             </div>
           </a>
 
         <% end %>
 
           <%= link_to new_project_path, class:'customer__apply-item background-color-empty-card' do %>
-             <%= render partial: 'shared/apply_cards/apply-card-empty' %>
+             <%= render partial: 'shared/project/customer-cabinet-project-empty-card' %>
           <%end %>
 
       <% else %>
@@ -33,7 +33,7 @@
           <div class="apply-card-zero_state-title"><%= t(:create_your_first_project) %></div>
 
           <%= link_to new_project_path, class:'customer__apply-item background-color-empty-card' do %>
-          <%= render partial: 'shared/apply_cards/apply-card-empty' %>
+          <%= render partial: 'shared/project/customer-cabinet-project-empty-card' %>
         <%end %>
 
         </div>
@@ -43,5 +43,5 @@
 </section>
 
 <section>
-  <%= flash[:notice] = "Один, или несколько ваших исполнителей сообщили о выполнении проектов. Необходимо подтвердить выполнение." if @implementation_project %>
+  <% flash[:notice] = "Один, или несколько ваших исполнителей сообщили о выполнении проектов. Необходимо подтвердить выполнение." if @implementation_project %>
 </section>

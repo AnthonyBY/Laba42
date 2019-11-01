@@ -7,10 +7,19 @@ img {
   max-width: 100%;
 }
 
+.body-global {
+  background-color: $background-light-gray;
+}
+
+.header-wrapper {
+  background-color: $white-color;
+  margin: 0 auto;
+  width: 100%;
+}
+
 .wrapper {
   margin: 0 auto;
-  max-width: 90rem;
-  min-height: calc(100vh - 10rem);
+  min-height: 91vh;
 
   &__main {
     margin: 0 auto;
@@ -19,6 +28,7 @@ img {
 
   &__head {
     background-color: $white-color;
+    height: 6.25rem;
     margin: 0 auto;
     max-width: 90rem;
     padding: 0 9.375rem;

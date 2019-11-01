@@ -8,16 +8,38 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <div class="wrapper">
-      <div class="wrapper__head">
-        <%= render partial: "shared/header" %>
-        <%= render partial: 'shared/flashes' %>
-      </div>
-      <div class="wrapper__main">
-        <%= yield %>
-      </div>
-    </div>
+  <% if white_background? %>
+      <div class="wrapper">
+        <div class="header-wrapper">
+          <div class="wrapper__head">
+            <%= render partial: "shared/header" %>
+            <%= render partial: 'shared/flashes' %>
+          </div>
+        </div>
+        <div class="wrapper__main">
 
-    <%= render partial: "shared/footer" %>
+          <%= yield %>
+
+        </div>
+      </div>
+      <%= render partial: "shared/footer" %>
+  <% else %>
+    <div class="body-global">
+      <div class="wrapper">
+        <div class="header-wrapper">
+          <div class="wrapper__head">
+            <%= render partial: "shared/header" %>
+            <%= render partial: 'shared/flashes' %>
+          </div>
+        </div>
+        <div class="wrapper__main">
+
+          <%= yield %>
+
+        </div>
+      </div>
+      <%= render partial: "shared/footer" %>
+    </div>
+  <% end %>
   </body>
 </html>

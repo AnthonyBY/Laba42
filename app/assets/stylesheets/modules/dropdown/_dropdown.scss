@@ -31,9 +31,16 @@
     }
   }
 
-  &__img {
+  &__img-user {
     margin-left: 2.813rem;
     margin-right: 2.188rem;
+  }
+
+  &__img-letter {
+    height: auto;
+    max-height: 1.5rem;
+    max-width: 1.5rem;
+    width: auto;
   }
 
   &:hover {

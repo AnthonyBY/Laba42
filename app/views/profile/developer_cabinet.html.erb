@@ -1,77 +1,18 @@
-<h1 class="developer__title"><%= t(:this_we_find) %></h1>
+<h1 class="developer__title"><%= t(:my_projects) %></h1>
 <div class="developer-cabinet-main">
-      <div class="side-profile-panel">
-        <div class="side-profile-panel__ava">
-          <%= image_tag("ava-example.png", alt: "avatar") %>
-        </div>
-        <div class="side-profile-panel__name">
-          <%= current_user.name %>
-        </div>
-        <div class="side-profile-panel__specialization">
-          Frontend developer
-        </div>
 
-        <div class="side-profile-panel__email">
-          <%= current_user.email %>
-        </div>
+  <%= render partial: "shared/user/side-developer-profile-panel" %>
 
-        <div class="side-profile-panel__social-links-block">
-          <%= link_to 'Linkedin', '#', class: 'color617' %>
-          <%= link_to 'Telegram', '#', class: 'color617' %>
-          <%= link_to 'Facebook', '#', class: 'color617' %>
-        </div>
-
-        <div class="side-profile-panel__info-profile">
-            <div class="side-profile-panel__info-profile__title">
-              Завершенных проектов
-            </div>
-            <div class="side-profile-panel__info-profile__count">
-              5
-            </div>
-        </div>
-
-        <div class="side-profile-panel__info-profile">
-          <div class="side-profile-panel__info-profile__title">
-            Рекомендаций
-          </div>
-          <div class="side-profile-panel__info-profile__count">
-            2
-          </div>
-        </div>
-
-        <div class="side-profile-panel__info-profile">
-          <div class="side-profile-panel__info-profile__title">
-            Просмотров профиля
-          </div>
-          <div class="side-profile-panel__info-profile__count">
-            129
-          </div>
-        </div>
-
-        <div class="side-profile-panel__short-about-yourself">
-          Коротко о себе
-        </div>
-
-        <div class="side-profile-panel__text-about-yourself">
-          Привет! Я Тихон, начинающий frontend разработчик из Минска. Ищу временный проект или постоянную работу.
-        </div>
-
-        <div class="side-profile-panel__link-edit-profile">
-          <%= link_to 'Редактировать профиль', edit_user_registration_path, class: 'color617' %>
-        </div>
-      </div>
-
-      <% if @approved %>
-
-        <% @approved.each do |project| %>
-          <a class="customer__link-a" href=<%= project_path(project) %> >
-            <div class="developer-cabinet-main__right-side">
-              <%= render partial: "shared/mini-project-card/developer-mini-project-card", locals: {project: project} %>
-              <div class="developer-cabinet-main__right-side__bottom-empty"></div>
-            </div>
-          </a>
-        <% end %>
-      <% end %>
+<div class="developer-cabinet-main__right-side">
+  <% if @projects %>
+    <% @projects.each do |project| %>
+      <%= render partial: "shared/project/developer-mini-project-card", locals: { project: project } %>
+    <% end %>
+    </div>
+  <% else  %>
+    <div class="developer-cabinet-main__right-side__bottom-empty">
+      <%= render partial: "shared/project/developer-empty-state-card" %>
+    </div>
+  <% end %>
 </div>
-
 

@@ -1,8 +1,7 @@
 <div class="dev-project-card">
   <div class="dev-project-card__title">
-    <%= project.title %>
+    <%= link_to project.title, project_path(project), class: 'dev-project-card__title__no-link-style' %>
   </div>
-
 
   <div class="dev-project-card__type-time-block">
     <div class="dev-project-card__type">
@@ -13,16 +12,13 @@
     <div class="dev-project-card__time"> <%= t(:expires) + ': ' + project.deadline.strftime("%d.%m.%Y")%></div>
   </div>
 
-
   <div class="dev-project-card__text">
     <%= markdown(project.info) %>
   </div>
 
-
   <div class="dev-project-card__director">
     Постановщик
   </div>
-
 
   <div class="dev-project-card__footer">
     <div class="dev-project-card__footer__company">
@@ -46,12 +42,12 @@
                       {method: :post, class: "button button--white button--large button--choice dev-mini-project-card-button"} %>
       </div>
     <% elsif project.status_notification_sent? %>
-      <div class="dev-project-card__footer__button">
-      <%= button_to t('interaction.notification_sent'), class: "button button--white button--large button--choice dev-mini-project-card-button" %>
+      <div class="dev-project-card__footer__text">
+        <%= t('interaction.notification_sent') %>
       </div>
     <% elsif project.status_completed? %>
-      <div class="dev-project-card__footer__button">
-      <%= button_to t('interaction.completed'), class: "button button--white button--large button--choice dev-mini-project-card-button" %>
+      <div class="dev-project-card__footer__text">
+        <div> <%= image_tag("done_icon.png", alt: "logo", class: "dev-project-card__footer__text__icon") %> <%= t('interaction.completed') %></div>
       </div>
     <% end %>
   </div>

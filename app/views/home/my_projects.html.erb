@@ -1,65 +1,21 @@
-<div class="customer-project-body">
+<% if current_user.developer? %>
+<h1 class="developer__title"><%= t(:my_projects) %></h1>
+<div class="developer-cabinet-main">
 
-  <div class="customer-project-body__head">
+<%= render partial: "shared/user/side-developer-profile-panel" %>
 
-      <div class="in-line-items">
-        <div class="customer-project-body__head__text">Проекты</div>
-        <div class="customer-project-body__head__text"> — </div>
-        <div class="customer-project-body__head__active-text">Отклики</div>
-      </div>
-
-      <div class="apply-card-head-dots">
-        <%= image_tag("3dots.png", alt: "3dots", class: "apply-card-head-dots-img") %>
-        <div class="apply-card-head-dots-content">
-          <%= link_to  '#', method: :delete, data: { confirm: t(:delete_confirm) } do %>
-            <%= content_tag :span, t(:delete), class: "apply-card-head-dots-content-item" %>
-          <% end %>
-          <%= link_to '#' do %>
-            <%= content_tag :span, t(:edit) , class: "apply-card-head-dots-content-item" %>
-          <% end %>
-        </div>
-      </div>
-
-  </div>
-
-  <div class="customer-project-body__title">
-
-      <div class="customer-project-body__title__text">
-        Bug fix - Mobile Development (IOS)
-      </div>
-
-      <div class="customer-project-body__title__cost">
-        Проект: 100 BYN
-      </div>
-
-  </div>
-
-  <div class="customer-project-body__category">
-
-      <div class="customer-project-body__category__item-active">Новые</div>
-      <div class="customer-project-body__category__item">Просмотренные</div>
-
-  </div>
-
-    <% 4.times do  %>
-    <div class="customer-project-card">
-
-        <div class="in-line-items">
-            <div class="customer-project-card__logo">
-              <%= image_tag("ava-example.png", alt: "avatar") %>
-            </div>
-            <div class="customer-project-card__info">
-              <div class="customer-project-card__info__name">Илья Лесун</div>
-              <div class="customer-project-card__info__footer">Выполнил 10 проектов</div>
-            </div>
-        </div>
-
-        <div class="customer-project-card__button">
-          <%= button_to 'Назначить исполнителем',{ controller: 'profile', action: 'update_role', role: :developer},
-                        {method: :post, class: "button button--white button--large button--choice choice__button"} %>
-        </div>
-
-    </div>
+<div class="developer-cabinet-main__right-side">
+  <% if @applies %>
+    <% @applies.each do |apply| %>
+      <%= render partial: "shared/project/developer-mini-project-card", locals: { project: apply.project } %>
     <% end %>
-
+    </div>
+  <% else  %>
+    <div class="developer-cabinet-main__right-side__bottom-empty">
+      <%= render partial: "shared/project/developer-empty-state-card" %>
+    </div>
+  <% end %>
 </div>
+<% else %>
+<h1>Layout is empty</h1>
+<% end %>

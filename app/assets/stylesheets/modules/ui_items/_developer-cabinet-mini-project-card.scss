@@ -1,4 +1,5 @@
 .dev-project-card {
+  background-color: $white-color;
   border-radius: 0.6rem;
   box-shadow: 0 0.06rem 0.625rem $box-shadow-005-black;
   display: inline-block;
@@ -12,7 +13,19 @@
     font-weight: bold;
     height: 1.5rem;
     margin-top: 1.5rem;
-    width: 37rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 35rem;
+
+    &__no-link-style {
+      color: $black-color;
+
+      &:hover {
+        color: $black-color-opacity-0-6;
+        text-decoration: none;
+      }
+    }
   }
 
   &__type-time-block {
@@ -39,8 +52,13 @@
   }
 
   &__text {
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
     font-size: 0.875rem;
+    height: 1.5rem;
+    -webkit-line-clamp: 1;
     margin-top: 1rem;
+    overflow: hidden;
     width: 38.5rem;
   }
 
@@ -81,6 +99,15 @@
 
     &__button {
       margin-right: 2.5rem;
+    }
+
+    &__text {
+      font-weight: bold;
+      margin-right: 2.5rem;
+
+      &__icon{
+        margin-right: 0.5rem;
+      }
     }
   }
 }
