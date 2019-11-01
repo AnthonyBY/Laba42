@@ -35,9 +35,7 @@ class ProfileController < ApplicationController
 
   def update
     if @user.update(profile_params)
-      redirect_to cabinet_profile_path if current_user.developer?
-
-      redirect_to cabinet_profile_path if current_user.customer?
+      redirect_to cabinet_profile_path
     else
       session[:field_errors] = true
       redirect_back(fallback_location: customer_edit)

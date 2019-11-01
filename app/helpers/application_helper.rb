@@ -20,7 +20,9 @@ module ApplicationHelper
   end
 
   def white_background?
-    'index,new'.include?(action_name) && 'home'.include?(controller_name) && !current_user && !request.path == root_path ||
+    return false if request.path == root_path && current_user
+
+    'index,new'.include?(action_name) && 'home'.include?(controller_name) ||
       'sessions,registrations,profile,passwords'.include?(controller_name) &&
         !'cabinet'.include?(action_name)
   end
