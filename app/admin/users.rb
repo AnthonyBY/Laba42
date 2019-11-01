@@ -58,7 +58,6 @@ ActiveAdmin.register User do
       input :name
       input :email
       input :info, as: :text
-      input :skills, as: :string
       input :role
       input :phone_number
       input :company_name
