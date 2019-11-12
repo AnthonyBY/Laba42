@@ -18,6 +18,17 @@
     <noscript><div><img src="<%= "https://mc.yandex.ru/watch/#{ENV['YM_ID']}" %>" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="<%= "https://www.googletagmanager.com/gtag/js?id=#{ENV['GA_ID']}" %>"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', '<%= ENV['GA_ID'] %>');
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
     <title>Laba42</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
