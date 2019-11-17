@@ -4,9 +4,6 @@
     <h1 class="login-first__title"><%= t(:greeting) %></h1>
     <p class="login-first__subtitle"><%= t(:introduce_yourself) %></p>
     <div class="login-first__buttons">
-      <%= link_to omniauth_authorize_path(resource_name, :google_oauth2) do %>
-        <% content_tag :span, image_tag("google.svg", alt: "google", class: "button__image") + t(:google_btn), class: "button button--large button--white button--social login-first--mr-30" %>
-      <% end %>
       <%= link_to omniauth_authorize_path(resource_name, :facebook) do %>
         <% content_tag :span, image_tag("facebook.svg", alt: "facebook", class: "button__image") + t(:facebook_btn), class: "button button--large button--white button--social" %>
       <% end %>
