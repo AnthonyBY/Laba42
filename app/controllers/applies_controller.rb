@@ -9,7 +9,10 @@ class AppliesController < ApplicationController
 
   def create
     @apply = Apply.new(apply_params.merge(user_id: current_user.id))
-    redirect_to "/projects/#{params[:project_id]}" if @apply.save
+    if @apply.save
+      EmailNotification.with(user: Project.find(params[:project_id]).user).apply_email.deliver_later
+      redirect_to "/projects/#{params[:project_id]}"
+    end
   end
 
   def destroy
