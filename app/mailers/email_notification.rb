@@ -5,4 +5,9 @@ class EmailNotification < ApplicationMailer
     @user = params[:user]
     mail(to: @user.email, subject: 'Вы получили отклик на размещенный проект.')
   end
+
+  def appointment_email
+    @user = params[:user]
+    mail(to: @user.email, subject: 'Вас утвердили испонителем для проекта')
+  end
 end
