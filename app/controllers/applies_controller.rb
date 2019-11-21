@@ -23,6 +23,7 @@ class AppliesController < ApplicationController
   def appointment
     if Project.find(params[:project_id]).update(employee: params[:appointed_user])
       Apply.find(params[:apply_id]).update(apply_status: 'accept')
+      EmailNotification.with(user: User.find(params[:appointed_user])).appointment_email.deliver_later
       redirect_to cabinet_profile_path, notice: t(:assigned)
     else
       redirect_to project_applies_path, alert: @comment.errors.full_messages
