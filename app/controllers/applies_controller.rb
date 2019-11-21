@@ -12,6 +12,8 @@ class AppliesController < ApplicationController
     if @apply.save
       EmailNotification.with(user: Project.find(params[:project_id]).user).apply_email.deliver_later
       redirect_to "/projects/#{params[:project_id]}"
+    else
+      redirect_to "/projects/#{params[:project_id]}", alert: 'Что-то пошло не так...'
     end
   end
 
@@ -20,6 +22,7 @@ class AppliesController < ApplicationController
     redirect_to applies_path
   end
 
+  # rubocop:disable Metrics/AbcSize
   def appointment
     if Project.find(params[:project_id]).update(employee: params[:appointed_user])
       Apply.find(params[:apply_id]).update(apply_status: 'accept')
@@ -29,6 +32,7 @@ class AppliesController < ApplicationController
       redirect_to project_applies_path, alert: @comment.errors.full_messages
     end
   end
+  # rubocop:enable Metrics/AbcSize
 
   def implementation
     if Project.find(params[:project_id]).status_notification_sent!

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# This class smells of :reek:InstanceVariableAssumption
 class EmailNotification < ApplicationMailer
   default from: 'noreply@laba42.com'
 
