@@ -9,7 +9,7 @@
         <%= t(:expires) %>: <%= p.deadline.strftime('%d/%m/%Y') %>
       </div>
     </div>
-    <div class="start-secondary__item-text" ><%= markdown(p.info) %></div>
+    <div class="start-secondary__item-text" ><%= sanitize(markdown(p.info))  %></div>
     <div class="start-secondary__item_skills">
       <% if p.skills.is_a?(Array) %>
         <% p.skills.each do |s| %>
