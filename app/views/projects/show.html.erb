@@ -118,7 +118,8 @@
     <div>
       <p>
         <%= form.label t(:comment) %><br>
-        <%= form.text_area :content, class: 'form-main__text-area'%>
+        <%= form.hidden_field :content, id: :comment_body, class: 'form-main__text-area'%>
+        <trix-editor input="comment_body"></trix-editor>
       </p>
       <%= hidden_field_tag :project_id, @project.id %>
       <p>
