@@ -4,6 +4,7 @@ Trix 1.2.1
 Copyright © 2019 Basecamp, LLC
 http://trix-editor.org/*/
 trix-editor {
+  background-color: #fff;
   border: 1px solid #bbb;
   border-radius: 3px;
   margin: 0;
