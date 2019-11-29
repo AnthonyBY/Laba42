@@ -13,4 +13,9 @@ class EmailNotification < ApplicationMailer
     @user = params[:user]
     mail(to: @user.email, subject: 'Вас утвердили испонителем для проекта')
   end
+
+  def comment_email
+    @user = params[:user]
+    mail(to: @user.email, subject: 'Ваш проект прокомментировали.')
+  end
 end
