@@ -3,7 +3,7 @@
     <%= comment.user.name %>
 
     <strong><%= t(:comment) %>:</strong>
-    <%= comment.content %>
+    <%= sanitize comment.content %>
 
     <strong><%= t(:published) %>:</strong>
     <%= comment.created_at.localtime.strftime('%d/%m/%Y %H:%M') %>

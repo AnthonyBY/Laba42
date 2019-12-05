@@ -71,7 +71,8 @@
 
     <div>
       <%= form.label t(:info_project), class: 'form-main__label'%><br>
-      <p><%= form.text_area :info, class: 'form-main__text-area' %></p>
+      <p><%= form.hidden_field :info, id: :post_info, class: 'form-main__text-area' %></p>
+      <trix-editor input="post_info"></trix-editor>
     </div>
 
     <div>
