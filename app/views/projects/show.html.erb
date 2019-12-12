@@ -2,8 +2,8 @@
 
 <div class="margin-1-2rem in-line-items">
   <div class="project__cost">
-    <%= t(:project) %>:
-    <%= @project.cost %> BYN
+    <%= (t(:project) + ': ' + @project.cost.to_s + ' BYN') if @project.project_type? %>
+    <%= t(:test_task) if @project.test_type? %>
   </div>
   <div class="project__title">
     <%= @project.title %>

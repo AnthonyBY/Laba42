@@ -40,13 +40,14 @@
     font-weight: normal;
     justify-content: space-between;
     margin-bottom: 2.25rem;
-    text-decoration: underline;
+    color: $white-color;
   }
 
   &__info-profile {
     display: flex;
     justify-content: space-between;
     margin-bottom: 1.1875rem;
+    color: $white-color;
 
     &__title {
       font-size: 0.875rem;

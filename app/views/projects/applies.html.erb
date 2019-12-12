@@ -24,6 +24,7 @@
       </div>
       <div class="customer-project-body__title__cost">
         <%= (t(:project) + ': ' + @apply_card.cost.to_s + ' BYN') if @apply_card.project_type? %>
+        <%= (t(:test_task)) if @apply_card.test_type? %>
       </div>
     </div>
     <div class="customer-project-body__category">
@@ -38,7 +39,10 @@
           </div>
           <div class="customer-project-card__info">
             <div class="customer-project-card__info__name"><%= apply.user.name %></div>
-            <div class="customer-project-card__info__footer">Выполнил 10 проектов</div>
+            <div class="customer-project-card__info__footer">
+              <%= apply.user.email %>
+              <%= "(#{apply.user.phone_number})" if apply.user.phone_number.present? %>
+            </div>
           </div>
         </div>
         <div class="customer-project-card__button">
