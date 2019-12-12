@@ -24,6 +24,7 @@
       </div>
       <div class="customer-project-body__title__cost">
         <%= (t(:project) + ': ' + @apply_card.cost.to_s + ' BYN') if @apply_card.project_type? %>
+        <%= (t(:test_task)) if @apply_card.test_type? %>
       </div>
     </div>
     <div class="customer-project-body__category">
