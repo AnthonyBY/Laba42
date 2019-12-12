@@ -38,7 +38,10 @@
           </div>
           <div class="customer-project-card__info">
             <div class="customer-project-card__info__name"><%= apply.user.name %></div>
-            <div class="customer-project-card__info__footer">Выполнил 10 проектов</div>
+            <div class="customer-project-card__info__footer">
+              <%= apply.user.email %>
+              <%= "(#{apply.user.phone_number})" if apply.user.phone_number.present? %>
+            </div>
           </div>
         </div>
         <div class="customer-project-card__button">
