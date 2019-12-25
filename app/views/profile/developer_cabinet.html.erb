@@ -4,7 +4,7 @@
   <%= render partial: "shared/user/side-developer-profile-panel" %>
 
 <div class="developer-cabinet-main__right-side">
-  <% if @projects %>
+  <% if @projects.present? %>
     <% @projects.each do |project| %>
       <%= render partial: "shared/project/developer-mini-project-card", locals: { project: project } %>
     <% end %>
