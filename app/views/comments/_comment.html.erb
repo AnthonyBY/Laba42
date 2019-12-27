@@ -6,7 +6,7 @@
     <%= sanitize comment.content %>
 
     <strong><%= t(:published) %>:</strong>
-    <%= comment.created_at.localtime.strftime('%d/%m/%Y %H:%M') %>
+    <%= comment.created_at.in_time_zone.strftime('%d/%m/%Y %H:%M') %>
   </table>
 
 <% if user_signed_in? %>

@@ -13,7 +13,7 @@
           <h3><%= apply.project.title %></h3>
           <div class="text-muted">
             <%= t(:deadline) %>:
-            <%= apply.project.deadline.strftime("%d  %h  %Y") %>
+            <%= apply.project.deadline.beginning_of_day.strftime("%d  %h  %Y") %>
 
             <%= render partial: "shared/status-line", locals: { apply: apply } %>
 
