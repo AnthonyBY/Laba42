@@ -57,7 +57,7 @@ class ProfileController < ApplicationController
   protected
 
   def profile_params
-    params.permit([:info, :name, :phone_number, :company_name, skills: []])
+    params.permit(:info, :name, :phone_number, :company_name, skills: []).merge(params.fetch(:user, {}).permit(:time_zone))
   end
 
   def set_user
