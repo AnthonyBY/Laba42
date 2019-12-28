@@ -41,7 +41,7 @@ RSpec.describe User, type: :model do
 
   context 'valid' do
     it 'with right fields' do
-      user = User.new(email: 'midda999@mail.ru', name: 'Anton', password: '123456')
+      user = User.new(email: 'midda999@mail.ru', name: 'Anton', password: '123456', time_zone: 'Minsk')
       expect(user.valid?).to be_truthy
     end
   end

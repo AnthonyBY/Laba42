@@ -9,7 +9,8 @@ RSpec.describe ProjectsController, type: :controller do
       email: 'user@example.org',
       password: 'very-secret',
       confirmed_at: Time.now.utc,
-      role: :customer
+      role: :customer,
+      time_zone: 'Minsk'
     )
     @project = Project.create(
       title: 'Project1',
@@ -56,7 +57,7 @@ RSpec.describe ProjectsController, type: :controller do
     end
 
     it 'not author' do
-      user2 = User.create(name: 'midd22', email: 'usetrr@example.org', password: 'ver12y-secret', confirmed_at: Time.now.utc, role: 'customer')
+      user2 = User.create(name: 'midd22', email: 'usetrr@example.org', password: 'ver12y-secret', confirmed_at: Time.now.utc, role: 'customer', time_zone: 'Minsk')
       project2 = Project.create(
         title: 'Project12',
         info: 'info to project 12',

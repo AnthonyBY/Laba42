@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe ProfileController, type: :controller do
   before(:each) do
     @request.host = '127.0.0.1:3000'
-    @user = User.create!(name: 'midd', email: 'user@example.org', password: 'very-secret', confirmed_at: Time.now.utc)
+    @user = User.create!(name: 'midd', email: 'user@example.org', password: 'very-secret', confirmed_at: Time.now.utc, time_zone: 'Minsk')
     sign_in @user
   end
 
