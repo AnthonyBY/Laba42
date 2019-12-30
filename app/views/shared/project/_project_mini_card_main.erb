@@ -3,10 +3,10 @@
     <div class="start-secondary__item-title" ><%= p.title %></div>
     <div class="start-secondary__item-subtitle">
       <div>
-        <%= t(:published) %><%= p.created_at.localtime.strftime('%d/%m/%Y') %>
+        <%= t(:published) %><%= p.created_at.in_time_zone.strftime('%d/%m/%Y') %>
       </div>
       <div>
-        <%= t(:expires) %>: <%= p.deadline.strftime('%d/%m/%Y') %>
+        <%= t(:expires) %>: <%= p.deadline.beginning_of_day.strftime('%d/%m/%Y') %>
       </div>
     </div>
     <div class="start-secondary__item-text" ><%= sanitize(markdown(p.info))  %></div>

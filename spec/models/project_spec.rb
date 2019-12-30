@@ -15,7 +15,8 @@ RSpec.describe Project, type: :model do
         email: 'user@example.org',
         password: 'very-secret',
         confirmed_at: Time.now.utc,
-        role: :customer
+        role: :customer,
+        time_zone: 'Minsk'
       )
       project = Project.create(
         title: 'Project1',

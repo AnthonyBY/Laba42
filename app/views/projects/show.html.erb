@@ -19,11 +19,11 @@
 <div class="in-line-items">
   <div class="project__expires">
     <%= t(:created_at) %>:
-    <%= @project.created_at.localtime.strftime("%d  %h  %Y") %>
+    <%= @project.created_at.in_time_zone.strftime("%d  %h  %Y") %>
   </div>
   <div class="project__expires">
     <%= t(:expires) %>:
-    <%= @project.deadline.strftime("%d  %h  %Y") %>
+    <%= @project.deadline.beginning_of_day.strftime("%d  %h  %Y") %>
   </div>
 </div>
 
@@ -83,7 +83,7 @@
       <p class="project__apply-text">
       <div class="button--blue button--large" style="background-color: rgba(79,128,77,0.52); text-align: center">
         <%= t(:apply)%>
-        <%= @apply.created_at.localtime.strftime('%d/%m/%Y %H:%M') %>
+        <%= @apply.created_at.in_time_zone.strftime('%d/%m/%Y %H:%M') %>
       </div>
       </p>
 
@@ -108,7 +108,7 @@
     <div class="project__comments__item-own-name">
       <p class="project__comments__owner"><%= comment.user.name %>:</p>
       <div class="project__comments__content"><%= markdown(comment.content) %></div>
-      <p class="project__expires project__comments__created-at"><%= comment.created_at.localtime.strftime('%d/%m/%Y %H:%M') %></p>
+      <p class="project__expires project__comments__created-at"><%= comment.created_at.in_time_zone.strftime('%d/%m/%Y %H:%M') %></p>
     </div>
   </div>
 <%end %>

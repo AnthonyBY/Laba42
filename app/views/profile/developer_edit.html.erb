@@ -28,6 +28,11 @@
     </div>
 
     <div class="user-form__center">
+      <h4 style="text-align:center;">Часовой пояс</h4>
+      <%= time_zone_select('user', 'time_zone', nil, default: 'Minsk') %>
+    </div>
+
+    <div class="user-form__center">
       <%= submit_tag t(:save), class: "button button--blue button--large user-form__button"%>
     </div>
   <% end %>
