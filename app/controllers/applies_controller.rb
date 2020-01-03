@@ -29,7 +29,7 @@ class AppliesController < ApplicationController
       EmailNotification.with(user: User.find(params[:appointed_user])).appointment_email.deliver_later
       redirect_to cabinet_profile_path, notice: t(:assigned)
     else
-      redirect_to project_applies_path, alert: @comment.errors.full_messages
+      redirect_to project_applies_path, alert: 'Что-то пошло не так...'
     end
   end
   # rubocop:enable Metrics/AbcSize
