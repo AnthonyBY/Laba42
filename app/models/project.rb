@@ -12,7 +12,6 @@ class Project < ApplicationRecord
   validates :project_type, presence: true
   validates :cost, presence: true
   validates :skills, presence: true
-  validate :validate_deadline_date
 
   include Searchable::Project
 
@@ -24,10 +23,4 @@ class Project < ApplicationRecord
 
   STATUSES = { active: 0, notification_sent: 1, completed: 2, favorite: 3 }.freeze
   enum status: STATUSES, _prefix: true
-
-  protected
-
-  def validate_deadline_date
-    errors.add(:deadline, 'is invalid') if deadline? && Date.today >= deadline
-  end
 end

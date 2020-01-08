@@ -7,7 +7,7 @@
         <%= link_to edit_project_path(project) do %>
           <%= content_tag :span, t(:edit), class: "apply-card-head-dots-content-item" %>
         <% end %>
-        <%= link_to  project_path(project), method: :delete, data: { confirm: t(:delete_confirm) } do %>
+        <%= link_to project_path(project), method: :delete, data: { confirm: t(:delete_confirm) } do %>
           <%= content_tag :span, t(:deactivate), class: "apply-card-head-dots-content-item" %>
         <% end %>
       </div>
