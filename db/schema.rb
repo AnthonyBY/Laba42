@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_21_231716) do
+ActiveRecord::Schema.define(version: 2020_01_09_063135) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,15 @@ ActiveRecord::Schema.define(version: 2019_12_21_231716) do
     t.datetime "updated_at", null: false
     t.index ["comment_owner_type", "comment_owner_id"], name: "index_comments_on_comment_owner_type_and_comment_owner_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "body_message"
+    t.bigint "user_id", null: false
+    t.integer "recipient_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -92,5 +101,6 @@ ActiveRecord::Schema.define(version: 2019_12_21_231716) do
   end
 
   add_foreign_key "comments", "users"
+  add_foreign_key "messages", "users"
   add_foreign_key "projects", "users"
 end
