@@ -1,0 +1,31 @@
+<h1>Переписка с <%= params[:id] %></h1>
+
+<style type="text/css">
+   TABLE {
+    width: 100%; /* Ширина таблицы */
+    border-spacing: 7px 5px; /* Расстояние между границ */
+   }
+   TD {
+    padding: 5px; /* Поля в ячейках */
+   }
+  </style>
+
+<table>
+  <tr>
+    <th>Author</th>
+    <th>Message</th>
+    <th>Time</th>
+  </tr>
+
+  <% @messages.each do |message| %>
+    <tr>
+      <% if message.user.id == current_user.id %>
+        <td>Вы</td>
+      <% else %>
+        <td><%= message.user.name %></td>
+      <% end %>
+      <td><%= message.body_message %></td>
+      <td><%= message.created_at.in_time_zone.strftime('%H:%M %d/%m/%Y') %></td>
+    </tr>
+  <% end %>
+</table>
