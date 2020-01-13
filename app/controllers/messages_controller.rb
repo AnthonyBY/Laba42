@@ -3,5 +3,7 @@
 class MessagesController < ApplicationController
   before_action :authenticate_user!
 
-  def index; end
+  def index
+    @messages = Message.all
+  end
 end
