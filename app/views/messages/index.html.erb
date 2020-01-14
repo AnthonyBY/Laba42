@@ -1,5 +1,5 @@
 <h1>Сообщения от пользователей</h1>
 
 <% @autors.each do |autor| %>
-  <div><%= link_to autor.name, message_path(autor.id) %></div>
+  <div><%= link_to autor.name, message_path(autor.id), class: "project__title" %></div>
 <% end %>
