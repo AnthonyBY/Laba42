@@ -22,11 +22,21 @@
   <% @messages.each do |message| %>
     <tr>
       <% if message.user.id == current_user.id %>
-        <td align="right" width="80%" class="project__title"><font color="gray"><%= message.body_message %></font></td>
+        <td align="right" width="80%" class="project__title"><font color="gray"><%= sanitize message.body_message %></font></td>
       <% else %>
-        <td align="left" width="80%" class="project__title"><font color="#617af9"><%= message.body_message %></font></td>
+        <td align="left" width="80%" class="project__title"><font color="#617af9"><%= sanitize message.body_message %></font></td>
       <% end %>
       <td align="center" width="20%"><%= message.created_at.in_time_zone.strftime('%H:%M %d/%m/%Y') %></td>
     </tr>
   <% end %>
 </table>
+<hr>
+
+<%= form_with(model: @messages.build, local: true) do |form| %>
+  <div>
+    <%= form.hidden_field :body_message, id: :message_body, class: 'form-main__text-area'%>
+    <trix-editor input="message_body"></trix-editor>
+    <%= hidden_field_tag :recipient_id, params[:id] %>
+    <%= form.submit 'отправить', class: 'button button--white button--large button--choice' %>
+  </div>
+<% end %>
