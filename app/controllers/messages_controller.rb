@@ -2,6 +2,7 @@
 
 class MessagesController < ApplicationController
   before_action :authenticate_user!
+  after_action :mark_as_read, only: %i[show]
 
   def index
     @autors = Message
@@ -32,5 +33,9 @@ class MessagesController < ApplicationController
 
   def messages_params
     params.permit(:recipient_id).merge(params.require(:message).permit(:body_message))
+  end
+
+  def mark_as_read
+    Message.where(recipient_id: current_user.id, read_status: 'unread').update_all(read_status: 'read')
   end
 end
