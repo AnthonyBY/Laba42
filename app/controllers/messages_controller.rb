@@ -7,7 +7,8 @@ class MessagesController < ApplicationController
   def index
     @autors = Message
               .includes(:user)
-              .where(recipient_id: current_user.id).map(&:user).uniq
+              .where(recipient_id: current_user.id)
+              .order(read_status: :asc, created_at: :desc).map(&:user).uniq
   end
 
   def show
