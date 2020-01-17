@@ -41,7 +41,7 @@
   <% end %>
 
   <% if show_devise_link? %>
-    <% unless white_background? && !current_user %>
+    <% if !white_background? && user_signed_in? %>
       <% if new_message? %>
         <div><%= link_to image_tag("new_message.png", alt: "new_messages", class: 'dropdown__img-new-message'), messages_path %></div>
       <% else %>
