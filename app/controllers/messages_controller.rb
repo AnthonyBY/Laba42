@@ -20,8 +20,8 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.new(body_message: messages_params[:body_message],
-                                          user_id: current_user.id,
-                                          recipient_id: messages_params[:recipient_id])
+                           user_id: current_user.id,
+                           recipient_id: messages_params[:recipient_id])
     if @message.save
       redirect_to message_path(params[:recipient_id])
     else
