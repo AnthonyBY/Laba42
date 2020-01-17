@@ -42,7 +42,11 @@
 
   <% if show_devise_link? %>
     <% unless white_background? && !current_user %>
-      <div><%= link_to image_tag("letter-icon.png", alt: "messages", class: 'dropdown__img-letter'), messages_path %></div>
+      <% if new_message? %>
+        <div><%= link_to image_tag("new_message.png", alt: "new_messages", class: 'dropdown__img-new-message'), messages_path %></div>
+      <% else %>
+        <div><%= link_to image_tag("letter-icon.png", alt: "messages", class: 'dropdown__img-letter'), messages_path %></div>
+      <% end %>
     <% end %>
     <% if user_signed_in? %>
       <div class="dropdown">

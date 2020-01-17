@@ -9,8 +9,13 @@
     width: 100%; /* Ширина таблицы */
     border-spacing: 7px 5px; /* Расстояние между границ */
    }
+
    TD {
     padding: 5px; /* Поля в ячейках */
+   }
+
+   .new-message {
+    background-color: lavender;
    }
 </style>
 
@@ -20,7 +25,11 @@
 <br>
 <table>
   <% @messages.each do |message| %>
-    <tr>
+    <% if message.read_status_unread? && message.recipient_id == current_user.id %>
+      <tr class="new-message">
+    <% else %>
+      <tr>
+    <% end %>
       <% if message.user.id == current_user.id %>
         <td align="right" width="80%" class="project__title"><font color="gray"><%= sanitize message.body_message %></font></td>
       <% else %>

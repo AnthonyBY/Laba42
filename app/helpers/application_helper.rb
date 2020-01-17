@@ -31,4 +31,8 @@ module ApplicationHelper
   def markdown(text)
     Markdown.new(text, :hard_wrap, :autolink).to_html.html_safe
   end
+
+  def new_message?
+    @count_new_messages = Message.where(recipient_id: current_user.id, read_status: 'unread').length.positive?
+  end
 end
