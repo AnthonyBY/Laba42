@@ -5,10 +5,12 @@ class MessagesController < ApplicationController
   after_action :mark_as_read, only: %i[show]
 
   def index
-    @autors = Message
-              .includes(:user)
-              .where(recipient_id: current_user.id)
-              .order(read_status: :asc, created_at: :desc).map(&:user).uniq
+    inbox = Message
+            .includes(:user)
+            .where(recipient_id: current_user.id)
+            .order(read_status: :asc, created_at: :desc)
+    @autors = inbox.map(&:user).uniq
+    @unread_user_id_arr = inbox.read_status_unread.map(&:user_id).uniq
   end
 
   def show
