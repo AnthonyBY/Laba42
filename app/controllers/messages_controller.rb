@@ -36,6 +36,6 @@ class MessagesController < ApplicationController
   end
 
   def mark_as_read
-    Message.where(recipient_id: current_user.id, read_status: 'unread').update_all(read_status: 'read')
+    Message.where(recipient_id: current_user.id, read_status: 'unread', user_id: params[:id]).update_all(read_status: 'read')
   end
 end
