@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     resources :comments
     resources :applies
     resources :messages
+    post 'messages/:id', to: 'messages#show'
     resource :profile, controller: 'profile', only: %i[edit update] do
       post 'update_role'
       get 'edit_role'
