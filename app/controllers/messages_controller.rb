@@ -21,16 +21,19 @@ class MessagesController < ApplicationController
                     .where('user_id = ? AND recipient_id = ?', current_user.id, params[:id]))
   end
 
+  # rubocop:disable Metrics/AbcSize
   def create
     @message = Message.new(body_message: messages_params[:body_message],
                            user_id: current_user.id,
                            recipient_id: messages_params[:recipient_id])
     if @message.save
+      EmailNotification.with(user: User.find(params[:recipient_id])).message_email.deliver_later
       redirect_to message_path(params[:recipient_id])
     else
       render 'messages/show', alert: @message.errors.full_messages
     end
   end
+  # rubocop:enable Metrics/AbcSize
 
   private
 
