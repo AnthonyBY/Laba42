@@ -27,11 +27,9 @@ class ProfileController < ApplicationController
     redirect_to "/profile/#{params[:role]}_setup_info" if @user.update(role: role)
   end
 
-  def edit; end
-
-  def customer_edit; end
-
-  def developer_edit; end
+  def edit
+    render "profile/#{current_user.role}_edit"
+  end
 
   def update
     if @user.update(profile_params)

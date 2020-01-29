@@ -26,7 +26,7 @@ RSpec.describe ProfileController, type: :controller do
 
     it 'edit' do
       get :edit
-      expect(response).to render_template('edit')
+      expect(response).to render_template('customer_edit')
     end
   end
 
