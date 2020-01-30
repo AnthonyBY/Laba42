@@ -5,8 +5,13 @@
 
   &__title {
     font-size: 2.25rem;
+    text-align: center;
+  }
+
+  &__title1 {
     margin-bottom: 1.5rem;
     text-align: center;
+    color: $light-gray;
   }
 
   &__subtitle {
