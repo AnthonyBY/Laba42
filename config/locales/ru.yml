@@ -125,6 +125,8 @@ ru:
   edit_project: "Редактирование проекта"
   comment: "Комментарий"
   comments: "Комментарии"
+  all_comments: "Все комментарии"
+  your_comment: "Ваш комментарий"
   del_comment: "Удалить комментарий"
   add_comment: "Добавить комментарий"
   project_owner_name: "Имя владельца проекта"

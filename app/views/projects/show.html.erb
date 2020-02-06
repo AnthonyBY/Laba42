@@ -101,7 +101,7 @@
 
 
 
-<div class="project__comments__title"><%= t(:comments) %>:</div>
+<div class="project__comments__title"><%= t(:all_comments) %>:</div>
 
 <% @project.comments.each do | comment | %>
   <div class="project__comments__item">
@@ -117,7 +117,7 @@
   <%= form_with(model: @project.comments.build, local: true) do |form| %>
     <div>
       <p>
-        <%= form.label t(:comment) %><br>
+        <%= form.label t(:your_comment) %><br>
         <%= form.hidden_field :content, id: :comment_body, class: 'form-main__text-area'%>
         <trix-editor input="comment_body"></trix-editor>
       </p>

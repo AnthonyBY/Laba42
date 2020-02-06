@@ -130,6 +130,8 @@ en:
   edit_project: "Edit project"
   comment: "Comment"
   comments: "Comments"
+  all_comments: "All comments"
+  your_comment: "Your comments"
   del_comment: "Remove comment"
   add_comment: "Add a comment"
   project_owner_name: "Project owner name"
