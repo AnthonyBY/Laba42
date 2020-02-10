@@ -30,10 +30,6 @@
             <%= link_to projects_path, class: 'top-menu-customer__item' do %>
               <%= content_tag :span, t(:all_projects) %>
             <% end %>
-
-            <%= link_to customer_edit_profile_path, class: 'top-menu-customer__item' do %>
-              <%= content_tag :span, t(:profile) %>
-            <% end %>
           </div>
         </div>
 
@@ -50,6 +46,12 @@
         <div class="dropdown--content">
           <%= link_to cabinet_profile_path, method: :get do %>
             <%= content_tag :span, t(:my_profile), class: "dropdown__item" %>
+          <% end %>
+          <%= link_to edit_profile_path, method: :get do %>
+            <%= content_tag :span, "Настройки профиля", class: "dropdown__item" %>
+          <% end %>
+          <%= link_to edit_user_registration_path, method: :get do %>
+            <%= content_tag :span, "Настройки аккаунта", class: "dropdown__item" %>
           <% end %>
           <%= link_to destroy_user_session_path, method: :delete do %>
             <%= content_tag :span, t(:log_out), class: "dropdown__item" %>
