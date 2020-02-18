@@ -1,0 +1,15 @@
+<h1>Сообщения от пользователей</h1>
+
+<% @autors.each do |author| %>
+  <% if @unread_user_id_arr.include?(author.id) %>
+      <%= button_to message_path(author.id), class: "button button--blue button--large" do %>
+        <%= author.name %>
+        <%= hidden_field_tag :author_name, author.name %>
+      <% end %>
+  <% else %>
+      <%= button_to message_path(author.id), class: "button button--light-gray button--large" do %>
+        <%= author.name %>
+        <%= hidden_field_tag :author_name, author.name %>
+      <% end %>
+  <% end %>
+<% end %>

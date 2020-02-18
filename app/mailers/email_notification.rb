@@ -15,6 +15,10 @@ class EmailNotification < ApplicationMailer
     mail(to: getting_user.email, subject: 'Ваш проект прокомментировали.')
   end
 
+  def message_email
+    mail(to: getting_user.email, subject: 'Вы получили личное сообщение.')
+  end
+
   private
 
   def getting_user

@@ -43,6 +43,15 @@
     width: auto;
   }
 
+  &__img-new-message {
+    margin-top: -0.5rem;
+    margin-right: -0.5rem;
+    height: auto;
+    max-height: 2.4rem;
+    max-width: 2.0rem;
+    width: auto;
+  }
+
   &:hover {
 
     .dropdown--content {

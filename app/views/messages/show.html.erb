@@ -1,0 +1,51 @@
+<style type="text/css">
+    hr {
+    border: none; /* Убираем границу */
+    background-color: silver; /* Цвет линии */
+    height: 1px; /* Толщина линии */
+   }
+
+   TABLE {
+    width: 100%; /* Ширина таблицы */
+    border-spacing: 7px 5px; /* Расстояние между границ */
+   }
+
+   TD {
+    padding: 5px; /* Поля в ячейках */
+   }
+
+   .new-message {
+    background-color: lavender;
+   }
+</style>
+
+<h1>История сообщений с <%= params[:author_name] %></h1>
+<hr>
+<br>
+<br>
+<table>
+  <% @messages.each do |message| %>
+    <% if message.read_status_unread? && message.recipient_id == current_user.id %>
+      <tr class="new-message">
+    <% else %>
+      <tr>
+    <% end %>
+      <% if message.user.id == current_user.id %>
+        <td align="right" width="80%" class="project__title"><font color="gray"><%= sanitize message.body_message %></font></td>
+      <% else %>
+        <td align="left" width="80%" class="project__title"><font color="#617af9"><%= sanitize message.body_message %></font></td>
+      <% end %>
+      <td align="center" width="20%"><%= message.created_at.in_time_zone.strftime('%H:%M %d/%m/%Y') %></td>
+    </tr>
+  <% end %>
+</table>
+<hr>
+
+<%= form_with(model: @messages.build, local: true) do |form| %>
+  <div>
+    <%= form.hidden_field :body_message, id: :message_body, class: 'form-main__text-area'%>
+    <trix-editor input="message_body"></trix-editor>
+    <%= hidden_field_tag :recipient_id, params[:id] %>
+    <%= form.submit 'отправить', class: 'button button--white button--large button--choice' %>
+  </div>
+<% end %>

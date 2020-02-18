@@ -39,10 +39,7 @@
           </div>
           <div class="customer-project-card__info">
             <div class="customer-project-card__info__name"><%= apply.user.name %></div>
-            <div class="customer-project-card__info__footer">
-              <%= apply.user.email %>
-              <%= "(#{apply.user.phone_number})" if apply.user.phone_number.present? %>
-            </div>
+            <%= link_to 'Открыть переписку', message_path(apply.user.id), class: "customer-project-card__info__footer" %>
           </div>
         </div>
         <div class="customer-project-card__button">
