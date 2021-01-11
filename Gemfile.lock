@@ -255,7 +255,7 @@ GEM
       execjs
       railties (>= 3.2)
       tilt
-    redcarpet (3.5.0)
+    redcarpet (3.5.1)
     reek (5.4.0)
       codeclimate-engine-rb (~> 0.4.0)
       kwalify (~> 0.7.0)
